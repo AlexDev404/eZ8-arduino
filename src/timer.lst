@@ -1,0 +1,342 @@
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   1
+
+
+PC     Object              F  Line    Source timer.src
+                           A     1    ; Z8 Encore! ANSI C Compiler Release 3.80
+                           A     2    ; -nolocalcse -optsize -fastcall -const=RA
+                           A     3    ; -nooptlink -noregvar -reduceopt -debug -
+                           A     4    ; -alias 
+                           A     5        DEFINE timer_TEXT,SPACE=ROM
+                           A     6        FILE    ".\timer.c"
+                           A     7    .debug "C"
+                           A     8        SEGMENT FAR_DATA
+0000                       A     9    _ProgStat:
+0000 0001                  A    10        DW  1
+                           A    11    .define "ProgStat"
+                           A    12    .alias "_ProgStat"
+                           A    13    .class 69
+                           A    14    .value _ProgStat
+                           A    15    .type 3
+                           A    16    .endef
+                           A    17        SEGMENT ROM_DATA
+                           A    18    
+                           A    19    
+                           A    20    ;**************************** _isr_timer0 
+                           A    21    ;Name                         Addr/Registe
+                           A    22    ;_setStatus                          IMPOR
+                           A    23    
+                           A    24    
+                           A    25    ; Aggregate Stack Size: 0 (words)
+                           A    26    
+                           A    27    
+                           A    28        .FRAME _i_isr_timer0,?_i_isr_timer0,RD
+                           A    29        .FCALL _n_setStatus
+                           A    30        .FRAME _if_isr_timer0,?_if_isr_timer0,
+                           A    31        .FCALL _f_setStatus
+                           A    32        SEGMENT timer_TEXT
+                           A    33    .begrec "fmt_type",10
+                           A    34    .define "flags"
+                           A    35    .value 0
+                           A    36    .class 8
+                           A    37    .type 2
+                           A    38    .endef
+                           A    39    .define "size"
+                           A    40    .value 1
+                           A    41    .class 8
+                           A    42    .type 2
+                           A    43    .endef
+                           A    44    .define "space"
+                           A    45    .value 2
+                           A    46    .class 8
+                           A    47    .type 2
+                           A    48    .endef
+                           A    49    .define "type"
+                           A    50    .value 3
+                           A    51    .class 8
+                           A    52    .type 2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   2
+
+
+PC     Object              F  Line    Source timer.src
+                           A    53    .endef
+                           A    54    .define "field_width"
+                           A    55    .value 4
+                           A    56    .class 8
+                           A    57    .type 2
+                           A    58    .endef
+                           A    59    .define "precision"
+                           A    60    .value 5
+                           A    61    .class 8
+                           A    62    .type 2
+                           A    63    .endef
+                           A    64    .define "print_leading_char"
+                           A    65    .value 6
+                           A    66    .class 8
+                           A    67    .type 2
+                           A    68    .endef
+                           A    69    .define "dest"
+                           A    70    .value 7
+                           A    71    .class 8
+                           A    72    .type 162
+                           A    73    .endef
+                           A    74    .define "print_len"
+                           A    75    .value 9
+                           A    76    .class 8
+                           A    77    .type 12
+                           A    78    .endef
+                           A    79    .endrec "fmt_type"
+                           A    80    .begrec "flt_fmt_data",5
+                           A    81    .define "pad_whole"
+                           A    82    .value 0
+                           A    83    .class 8
+                           A    84    .type 12
+                           A    85    .endef
+                           A    86    .define "pad_pre_fract"
+                           A    87    .value 1
+                           A    88    .class 8
+                           A    89    .type 12
+                           A    90    .endef
+                           A    91    .define "pad_post_fract"
+                           A    92    .value 2
+                           A    93    .class 8
+                           A    94    .type 12
+                           A    95    .endef
+                           A    96    .define "pad_at"
+                           A    97    .value 3
+                           A    98    .class 8
+                           A    99    .type 162
+                           A   100    .endef
+                           A   101    .endrec "flt_fmt_data"
+                           A   102    .begrec "fmt_control_data",2
+                           A   103    .define "status"
+                           A   104    .value 0
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   3
+
+
+PC     Object              F  Line    Source timer.src
+                           A   105    .class 8
+                           A   106    .type 2
+                           A   107    .endef
+                           A   108    .define "chr"
+                           A   109    .value 1
+                           A   110    .class 8
+                           A   111    .type 2
+                           A   112    .endef
+                           A   113    .endrec "fmt_control_data"
+                           A   114    .begrec "_set_type",4
+                           A   115    .define "begin"
+                           A   116    .value 0
+                           A   117    .class 8
+                           A   118    .type 162
+                           A   119    .endef
+                           A   120    .define "end"
+                           A   121    .value 2
+                           A   122    .class 8
+                           A   123    .type 162
+                           A   124    .endef
+                           A   125    .endrec "_set_type"
+                           A   126    .begrec "near_set_type",2
+                           A   127    .define "begin"
+                           A   128    .value 0
+                           A   129    .class 8
+                           A   130    .type 130
+                           A   131    .endef
+                           A   132    .define "end"
+                           A   133    .value 1
+                           A   134    .class 8
+                           A   135    .type 130
+                           A   136    .endef
+                           A   137    .endrec "near_set_type"
+                           A   138    .begrec "far_set_type",4
+                           A   139    .define "begin"
+                           A   140    .value 0
+                           A   141    .class 8
+                           A   142    .type 162
+                           A   143    .endef
+                           A   144    .define "end"
+                           A   145    .value 2
+                           A   146    .class 8
+                           A   147    .type 162
+                           A   148    .endef
+                           A   149    .endrec "far_set_type"
+                           A   150    .begrec "rom_set_type",4
+                           A   151    .define "begin"
+                           A   152    .value 0
+                           A   153    .class 8
+                           A   154    .type 194
+                           A   155    .endef
+                           A   156    .define "end"
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   4
+
+
+PC     Object              F  Line    Source timer.src
+                           A   157    .value 2
+                           A   158    .class 8
+                           A   159    .type 194
+                           A   160    .endef
+                           A   161    .endrec "rom_set_type"
+                           A   162    .begrec "flt_info",12
+                           A   163    .define "flags"
+                           A   164    .value 0
+                           A   165    .class 8
+                           A   166    .type 12
+                           A   167    .endef
+                           A   168    .define "exp"
+                           A   169    .value 1
+                           A   170    .class 8
+                           A   171    .type 2
+                           A   172    .endef
+                           A   173    .define "digits"
+                           A   174    .value 2
+                           A   175    .class 8
+                           A   176    .dim 10
+                           A   177    .type 108
+                           A   178    .endef
+                           A   179    .endrec "flt_info"
+                           A   180    .begrec "NONAME0",6
+                           A   181    .define "baudRate"
+                           A   182    .value 0
+                           A   183    .class 8
+                           A   184    .type 5
+                           A   185    .endef
+                           A   186    .define "stopBits"
+                           A   187    .value 4
+                           A   188    .class 8
+                           A   189    .type 12
+                           A   190    .endef
+                           A   191    .define "parity"
+                           A   192    .value 5
+                           A   193    .class 8
+                           A   194    .type 12
+                           A   195    .endef
+                           A   196    .endrec "NONAME0"
+                           A   197    .begrec "NONAME1",5
+                           A   198    .define "pBuffer"
+                           A   199    .value 0
+                           A   200    .class 8
+                           A   201    .type 172
+                           A   202    .endef
+                           A   203    .define "next_in"
+                           A   204    .value 2
+                           A   205    .class 8
+                           A   206    .type 12
+                           A   207    .endef
+                           A   208    .define "next_out"
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   5
+
+
+PC     Object              F  Line    Source timer.src
+                           A   209    .value 3
+                           A   210    .class 8
+                           A   211    .type 12
+                           A   212    .endef
+                           A   213    .define "size"
+                           A   214    .value 4
+                           A   215    .class 8
+                           A   216    .type 12
+                           A   217    .endef
+                           A   218    .endrec "NONAME1"
+                           A   219    ;    1  #include "timer.h"
+                           A   220    ;    2  #include "led.h"
+                           A   221    ;    3  #include "sio.h"
+                           A   222    ;    4  
+                           A   223    ;    5  #pragma interrupt
+                           A   224    ;    6  void isr_timer0(void) 
+                           A   225    ;    7  {
+0000                       A   226    _isr_timer0:
+                           A   227    .define "_isr_timer0"
+                           A   228    .value _isr_timer0
+                           A   229    .class 2
+                           A   230    .type 65
+                           A   231    .endef
+                           A   232    .begfunc "isr_timer0",7,"_isr_timer0"
+0000 C8FFD0                A   233        PUSHX   4093
+0003 D6 0000               A   234        CALL    __b_iframeset00
+                           A   235    ;    8      setStatus(RUN);
+                           A   236    .line 8
+0006 B0E8                  A   237        CLR R8
+0008 B0E9                  A   238        CLR R9
+000A D6 0000               A   239        CALL    _setStatus
+                           A   240    ;    9      //putch('T');
+                           A   241    ;   10  }
+                           A   242    .line 10
+000D D6 0000               A   243        CALL    __b_iframereset
+0010 BF                    A   244        IRET    
+                           A   245    .endfunc "isr_timer0",10,"_isr_timer0"
+                           A   246        SEGMENT ROM_DATA
+                           A   247    
+                           A   248    
+                           A   249    ;**************************** _init_timer0
+                           A   250    ;Name                         Addr/Registe
+                           A   251    ;_SET_VECTOR                         IMPOR
+                           A   252    
+                           A   253    
+                           A   254    ; Aggregate Stack Size: 0 (words)
+                           A   255    
+                           A   256    
+                           A   257        .FRAME _n_init_timer0,?_n_init_timer0,
+                           A   258        .FRAME _f_init_timer0,?_f_init_timer0,
+                           A   259        SEGMENT timer_TEXT
+                           A   260    ;   11  
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   6
+
+
+PC     Object              F  Line    Source timer.src
+                           A   261    ;   12  //////////////////////////////////
+                           A   262    ;   13  //Intialize Timer-0 
+                           A   263    ;   14  void init_timer0(void)
+                           A   264    ;   15  {
+0011                       A   265    _init_timer0:
+                           A   266    .define "_init_timer0"
+                           A   267    .value _init_timer0
+                           A   268    .class 2
+                           A   269    .type 65
+                           A   270    .endef
+                           A   271    .begfunc "init_timer0",15,"_init_timer0"
+0011 D6 0000               A   272        CALL    __b_frameset00
+                           A   273    ;   16      SET_VECTOR(TIMER0, isr_timer0)
+                           A   274    ;   17      T0H     = 0xFF; // Timer High 
+                           A   275    .line 17
+0014 E9FF0F00              A   276        LDX 3840,#255
+                           A   277    ;   18      T0L     = 0xFF; // Timer Low
+                           A   278    .line 18
+0018 E9FF0F01              A   279        LDX 3841,#255
+                           A   280    ;   19      T0RH    = 0xFF; // Reload Comp
+                           A   281    .line 19
+001C E9FF0F02              A   282        LDX 3842,#255
+                           A   283    ;   20      T0RL    = 0xFF; // Reload Comp
+                           A   284    .line 20
+0020 E9FF0F03              A   285        LDX 3843,#255
+                           A   286    ;   21      T0CTL   = 0xE9; // Continous/P
+                           A   287    .line 21
+0024 E9E90F07              A   288        LDX 3847,#233
+                           A   289    ;   22      IRQ0ENH |= 0x20;    // Set Int
+                           A   290    .line 22
+0028 49200FC1              A   291        ORX 4033,#32
+                           A   292    ;   23      IRQ0ENL &= 0xDF;    // Set Int
+                           A   293    .line 23
+002C 59DF0FC2              A   294        ANDX    4034,#223
+                           A   295    ;   24  }
+                           A   296    .line 24
+0030 D6 0000               A   297        CALL    __b_framereset
+0033 AF                    A   298        RET 
+                           A   299    .endfunc "init_timer0",24,"_init_timer0"
+000C 0000                  A   300        VECTOR  TIMER0=_isr_timer0
+                           A   301        XREF _setStatus:ROM
+                           A   302        XREF __b_framereset:ROM
+                           A   303        XREF __b_iframereset:ROM
+                           A   304        XREF __b_frameset00:ROM
+                           A   305        XREF __b_iframeset00:ROM
+                           A   306        XDEF _init_timer0
+                           A   307        XDEF _isr_timer0
+                           A   308        XDEF _ProgStat
+                           A   309        END
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 22-May-24     01:25:01     page:   7
+
+
+PC     Object              F  Line    Source 
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 310
