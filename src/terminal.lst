@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   1
 
 
 PC     Object              F  Line    Source terminal.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source terminal.src
                            A    50    .value 6
                            A    51    .class 8
                            A    52    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   2
 
 
 PC     Object              F  Line    Source terminal.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source terminal.src
                            A   102    .class 8
                            A   103    .type 162
                            A   104    .endef
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   3
 
 
 PC     Object              F  Line    Source terminal.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source terminal.src
                            A   154    .value 1
                            A   155    .class 8
                            A   156    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   4
 
 
 PC     Object              F  Line    Source terminal.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source terminal.src
 0000                       A   206        DS  2*1
                            A   207    .define "length"
                            A   208    .alias "_length"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   5
 
 
 PC     Object              F  Line    Source terminal.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source terminal.src
 003E 003F                  A   258        DW  63
 0040 015F                  A   259        DW  _1_L_5
 0042 0052                  A   260        DW  82
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   6
 
 
 PC     Object              F  Line    Source terminal.src
@@ -334,7 +334,7 @@ PC     Object              F  Line    Source terminal.src
 002E 52656164 696E6720     A   307        DB  "Reading byte from memory."
 0036 62797465 2066726F 
 003E 6D206D65 6D6F7279 2E 
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   7
 
 
 PC     Object              F  Line    Source terminal.src
@@ -390,7 +390,7 @@ PC     Object              F  Line    Source terminal.src
                            A   349        .FCALL _n_pageEraseFlash
                            A   350        .FCALL _n_string_response
                            A   351        .FCALL _n_sync_ok_response
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   8
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   8
 
 
 PC     Object              F  Line    Source terminal.src
@@ -446,7 +446,7 @@ PC     Object              F  Line    Source terminal.src
                            A   400    ;   17  
                            A   401    ;   18  #pragma interrupt
                            A   402    ;   19  void isr_uart0_rx(void) 
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   9
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:   9
 
 
 PC     Object              F  Line    Source terminal.src
@@ -502,7 +502,7 @@ PC     Object              F  Line    Source terminal.src
                            A   452    .class 1
                            A   453    .value -38
                            A   454    .type 3
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  10
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  10
 
 
 PC     Object              F  Line    Source terminal.src
@@ -558,7 +558,7 @@ PC     Object              F  Line    Source terminal.src
                            A   504    ;   34                          putch(char
                            A   505    .line 34
 0044 848002                A   506        LDX R8,_character
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  11
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  11
 
 
 PC     Object              F  Line    Source terminal.src
@@ -614,7 +614,7 @@ PC     Object              F  Line    Source terminal.src
 008B 998EF6                A   556        LEA RR8,246(RR14)
 008E B0EA                  A   557        CLR R10
 0090 E4E0EB                A   558        LD  R11,R0
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  12
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  12
 
 
 PC     Object              F  Line    Source terminal.src
@@ -670,7 +670,7 @@ PC     Object              F  Line    Source terminal.src
 00F8 B0EA                  A   608        CLR R10
 00FA E4E0EB                A   609        LD  R11,R0
 00FD D6 0000               A   610        CALL    __u_ustoa
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  13
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  13
 
 
 PC     Object              F  Line    Source terminal.src
@@ -726,7 +726,7 @@ PC     Object              F  Line    Source terminal.src
                            A   660    ;   60                      }
                            A   661    ;   61                      case '?':
 015F                       A   662    _1_L_5:
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  14
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  14
 
 
 PC     Object              F  Line    Source terminal.src
@@ -782,7 +782,7 @@ PC     Object              F  Line    Source terminal.src
 01AE 9C DA                 A   712        LD  R9,#low(L__16)
 01B0 D6 0000               A   713        CALL    _f_puts
                            A   714    ;   72                          break;
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  15
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  15
 
 
 PC     Object              F  Line    Source terminal.src
@@ -838,7 +838,7 @@ PC     Object              F  Line    Source terminal.src
 01DD 3200                  A   764        SBC R0,R0
 01DF A6E180                A   765        CP  R1,#128
 01E2 1FA6E000              A   766        CPC R0,#-0
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  16
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  16
 
 
 PC     Object              F  Line    Source terminal.src
@@ -894,7 +894,7 @@ PC     Object              F  Line    Source terminal.src
                            A   816    .line 96
                            A   817    ;   97              break;
                            A   818    .line 97
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  17
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  17
 
 
 PC     Object              F  Line    Source terminal.src
@@ -950,7 +950,7 @@ PC     Object              F  Line    Source terminal.src
 0296                       A   868    _1_L_25:
                            A   869    .line 110
                            A   870    ;  111          {
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  18
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  18
 
 
 PC     Object              F  Line    Source terminal.src
@@ -1006,7 +1006,7 @@ PC     Object              F  Line    Source terminal.src
 02E9 EB C4                 A   920        JR  NE,_1_L_27
                            A   921    ;  127              
                            A   922    ;  128              // Check if we have a 
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  19
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  19
 
 
 PC     Object              F  Line    Source terminal.src
@@ -1062,7 +1062,7 @@ PC     Object              F  Line    Source terminal.src
                            A   972    .line 152
 0317 D6 0000               A   973        CALL    _getch
                            A   974    ;  153              
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  20
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  20
 
 
 PC     Object              F  Line    Source terminal.src
@@ -1118,7 +1118,7 @@ PC     Object              F  Line    Source terminal.src
                            A  1024    .line 176
                            A  1025    ;  177          case CMD_STK_UNIVERSAL:
 033A                       A  1026    _1_L_34:
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  21
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:56     page:  21
 
 
 PC     Object              F  Line    Source terminal.src

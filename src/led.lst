@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   1
 
 
 PC     Object              F  Line    Source led.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source led.src
                            A    50    .value 6
                            A    51    .class 8
                            A    52    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   2
 
 
 PC     Object              F  Line    Source led.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source led.src
                            A   102    .class 8
                            A   103    .type 162
                            A   104    .endef
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   3
 
 
 PC     Object              F  Line    Source led.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source led.src
                            A   154    .value 1
                            A   155    .class 8
                            A   156    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   4
 
 
 PC     Object              F  Line    Source led.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source led.src
                            A   206    
                            A   207    ;**************************** _setStatus *
                            A   208    ;Name                         Addr/Registe
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   5
 
 
 PC     Object              F  Line    Source led.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source led.src
                            A   258        .FRAME _n_init_led,?_n_init_led,RDATA
                            A   259        .FRAME _f_init_led,?_f_init_led,EDATA
                            A   260        SEGMENT led_TEXT
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   6
 
 
 PC     Object              F  Line    Source led.src
@@ -334,7 +334,7 @@ PC     Object              F  Line    Source led.src
                            A   310        SEGMENT led_TEXT
                            A   311    ;   20  
                            A   312    ;   21  void flash_led(int led_flash_count
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   7
 
 
 PC     Object              F  Line    Source led.src
@@ -390,7 +390,7 @@ PC     Object              F  Line    Source led.src
 005F 880EFE                A   362        LDX R0,-2(RR14)
 0062 881EFF                A   363        LDX R1,-1(RR14)
 0065 A0E0                  A   364        INCW    RR0
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   8
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:54     page:   8
 
 
 PC     Object              F  Line    Source led.src
