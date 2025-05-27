@@ -1,15 +1,16 @@
 #pragma once
 #define FCMD (*(volatile unsigned char far *)0x0FF8)  // Define special function register
+#define PAGE (*(volatile unsigned char far *)0x0FF9)
 
-void unlockFlash(void) {
-	if(FCMD == 0x02 || FCMD == 0x03) return;
-    FCMD = 0x73;  // First unlock key
-	while (FCMD != 0x01); // Wait for "first key received"
+// Function to unlock the flash controller
+void unlockFlash(void);
 
-    FCMD = 0x8C;  // Second unlock key
-	while (FCMD != 0x02); // Wait for "second key received"
-}
+// Function to check the current status of the flash controller
+unsigned char checkFlash(void);
 
-unsigned char checkFlash(void) {
-    return FCMD;
-}
+// Function to erase the flash page containing the specified address
+// Returns 0 on success, nonzero if failed
+int pageEraseFlash(unsigned long address);
+
+// Function to erase the entire flash
+void massEraseFlash(void);

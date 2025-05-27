@@ -1,1 +1,28 @@
 #include "flash_tools.h"
+
+// Unlock the flash controller with proper polling for each key
+void unlockFlash(void) {
+	if (FCMD == 0x02 || FCMD == 0x03) return;
+    FCMD = 0x73;  // First unlock key
+	while (FCMD != 0x01); // Wait for "first key received"
+
+    FCMD = 0x8C;  // Second unlock key
+	while (FCMD != 0x02); // Wait for "second key received"
+}
+
+// Return the Flash Controller Status
+unsigned char checkFlash(void) {
+    return FCMD;
+}
+
+void pageEraseFlash(address) {
+	if (FCMD == 0x03) return;
+	FCMD = 0x20;
+	while (FCMD != 0x03);
+}
+
+void massEraseFlash(void) {
+	if (FCMD == 0x03) return;
+    FCMD = 0x40; // Mass Erase command
+    while (FCMD != 0x03); // Wait until erase completes (status returns to 0)
+}
