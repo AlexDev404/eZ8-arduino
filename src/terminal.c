@@ -53,6 +53,15 @@ void isr_uart0_rx(void)
 						puts("Success.\n");
 						break;
 					}
+					case '?':
+					{
+						char str[10];
+						// Check flash
+						puts("Flash stat\n==");
+						sprintf(str, "0x%02X", checkFlash());
+						puts(str);
+						break;
+					}
 					default:
 						puts("notFound");
 						break;

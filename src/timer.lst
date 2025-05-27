@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   1
 
 
 PC     Object              F  Line    Source timer.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source timer.src
                            A    50    .value 3
                            A    51    .class 8
                            A    52    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   2
 
 
 PC     Object              F  Line    Source timer.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source timer.src
                            A   102    .begrec "fmt_control_data",2
                            A   103    .define "status"
                            A   104    .value 0
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   3
 
 
 PC     Object              F  Line    Source timer.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source timer.src
                            A   154    .type 194
                            A   155    .endef
                            A   156    .define "end"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   4
 
 
 PC     Object              F  Line    Source timer.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source timer.src
                            A   206    .type 12
                            A   207    .endef
                            A   208    .define "next_out"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   5
 
 
 PC     Object              F  Line    Source timer.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source timer.src
                            A   258        .FRAME _f_init_timer0,?_f_init_timer0,
                            A   259        SEGMENT timer_TEXT
                            A   260    ;   11  
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   6
 
 
 PC     Object              F  Line    Source timer.src
@@ -331,7 +331,7 @@ PC     Object              F  Line    Source timer.src
                            A   307        XDEF _isr_timer0
                            A   308        XDEF _ProgStat
                            A   309        END
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:42     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:58     page:   7
 
 
 PC     Object              F  Line    Source 

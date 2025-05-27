@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:43     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:59     page:   1
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -31,51 +31,65 @@ PC     Object              F  Line    Source flash_tools.src
                            A    27    .begfunc "unlockFlash",4,"_unlockFlash"
 0000 D6 0000               A    28        CALL    __b_frameset00
                            A    29    .line 5
-0003 E9730FF8              A    30        LDX 4088,#115
-                           A    31    .line 6
-0007 E98C0FF8              A    32        LDX 4088,#140
-                           A    33    .line 7
-000B D6 0000               A    34        CALL    __b_framereset
-000E AF                    A    35        RET 
-                           A    36    .endfunc "unlockFlash",7,"_unlockFlash"
-                           A    37        SEGMENT ROM_DATA
-                           A    38    
-                           A    39    
-                           A    40    ;**************************** _checkFlash 
-                           A    41    ;Name                         Addr/Registe
-                           A    42    
-                           A    43    
-                           A    44    ; Aggregate Stack Size: 0 (words)
-                           A    45    
-                           A    46    
-                           A    47        .FRAME _n_checkFlash,?_n_checkFlash,RD
-                           A    48        .FRAME _f_checkFlash,?_f_checkFlash,ED
-                           A    49        SEGMENT flash_tools_TEXT
-000F                       A    50    _checkFlash:
-                           A    51    .define "_checkFlash"
-                           A    52    .value _checkFlash
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:43     page:   2
+0003 A9020FF8              A    30        CPX 4088,#2
+0007 6B 1A                 A    31        JR  Z,_1_L_8
+0009 A9030FF8              A    32        CPX 4088,#3
+000D 6B 14                 A    33        JR  Z,_1_L_8
+                           A    34    .line 6
+000F E9730FF8              A    35        LDX 4088,#115
+0013                       A    36    _1_L_3:
+                           A    37    .line 7
+0013 A9010FF8              A    38        CPX 4088,#1
+0017 EB FA                 A    39        JR  NE,_1_L_3
+                           A    40    .line 9
+0019 E98C0FF8              A    41        LDX 4088,#140
+001D                       A    42    _1_L_6:
+                           A    43    .line 10
+001D A9020FF8              A    44        CPX 4088,#2
+0021 EB FA                 A    45        JR  NE,_1_L_6
+0023                       A    46    _1_L_8:
+                           A    47    .line 11
+0023 D6 0000               A    48        CALL    __b_framereset
+0026 AF                    A    49        RET 
+                           A    50    .endfunc "unlockFlash",11,"_unlockFlash"
+                           A    51        SEGMENT ROM_DATA
+                           A    52    
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:59     page:   2
 
 
 PC     Object              F  Line    Source flash_tools.src
-                           A    53    .class 2
-                           A    54    .type 76
-                           A    55    .endef
-                           A    56    .begfunc "checkFlash",9,"_checkFlash"
-000F D6 0000               A    57        CALL    __b_frameset00
-                           A    58    .line 10
-0012 840FF8                A    59        LDX R0,4088
-                           A    60    .line 11
-0015 D6 0000               A    61        CALL    __b_framereset
-0018 AF                    A    62        RET 
-                           A    63    .endfunc "checkFlash",11,"_checkFlash"
-                           A    64        XREF __b_framereset:ROM
-                           A    65        XREF __b_frameset00:ROM
-                           A    66        XDEF _checkFlash
-                           A    67        XDEF _unlockFlash
-                           A    68        END
+                           A    53    
+                           A    54    ;**************************** _checkFlash 
+                           A    55    ;Name                         Addr/Registe
+                           A    56    
+                           A    57    
+                           A    58    ; Aggregate Stack Size: 0 (words)
+                           A    59    
+                           A    60    
+                           A    61        .FRAME _n_checkFlash,?_n_checkFlash,RD
+                           A    62        .FRAME _f_checkFlash,?_f_checkFlash,ED
+                           A    63        SEGMENT flash_tools_TEXT
+0027                       A    64    _checkFlash:
+                           A    65    .define "_checkFlash"
+                           A    66    .value _checkFlash
+                           A    67    .class 2
+                           A    68    .type 76
+                           A    69    .endef
+                           A    70    .begfunc "checkFlash",13,"_checkFlash"
+0027 D6 0000               A    71        CALL    __b_frameset00
+                           A    72    .line 14
+002A 840FF8                A    73        LDX R0,4088
+                           A    74    .line 15
+002D D6 0000               A    75        CALL    __b_framereset
+0030 AF                    A    76        RET 
+                           A    77    .endfunc "checkFlash",15,"_checkFlash"
+                           A    78        XREF __b_framereset:ROM
+                           A    79        XREF __b_frameset00:ROM
+                           A    80        XDEF _checkFlash
+                           A    81        XDEF _unlockFlash
+                           A    82        END
 
 
 Errors: 0
 Warnings: 0
-Lines Assembled: 69
+Lines Assembled: 83
