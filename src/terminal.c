@@ -47,6 +47,7 @@ void isr_uart0_rx(void)
 						sprintf(str, "0x%02X", checkFlash());
 						puts(str);
 						unlockFlash();
+						pageEraseFlash(0x1C00);
 						sprintf(str, "0x%02X", checkFlash());
 						puts("Flash stat\n==");
 						puts(str);

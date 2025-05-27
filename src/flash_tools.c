@@ -15,10 +15,28 @@ unsigned char checkFlash(void) {
     return FCMD;
 }
 
-void pageEraseFlash(address) {
-	if (FCMD == 0x03) return;
+int pageEraseFlash(unsigned long address) {
+	unsigned char pageNum;
+	
+	if (FCMD == 0x03) return -1;
+	
+	// Calculate page number from address (512-byte pages)
+	pageNum = (unsigned char)((address >> 9) & 0xFF);
+	
+	// Unlock Flash
+	unlockFlash();
+	
+	// Set page number for erase
+	PAGE = pageNum;
+	
+	// Erase
 	FCMD = 0x20;
-	while (FCMD != 0x03);
+	
+    // Todo: Optionally, verify erased (all 0xFF) here
+	
+	// Wait for erase to complete (status returns to 0)
+	while (FCMD != 0x00);
+	return 0; // Success
 }
 
 void massEraseFlash(void) {

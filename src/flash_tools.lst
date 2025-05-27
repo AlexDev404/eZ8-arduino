@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:59     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:50     page:   1
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -22,74 +22,251 @@ PC     Object              F  Line    Source flash_tools.src
                            A    18        .FRAME _n_unlockFlash,?_n_unlockFlash,
                            A    19        .FRAME _f_unlockFlash,?_f_unlockFlash,
                            A    20        SEGMENT flash_tools_TEXT
-0000                       A    21    _unlockFlash:
-                           A    22    .define "_unlockFlash"
-                           A    23    .value _unlockFlash
-                           A    24    .class 2
-                           A    25    .type 65
-                           A    26    .endef
-                           A    27    .begfunc "unlockFlash",4,"_unlockFlash"
-0000 D6 0000               A    28        CALL    __b_frameset00
-                           A    29    .line 5
-0003 A9020FF8              A    30        CPX 4088,#2
-0007 6B 1A                 A    31        JR  Z,_1_L_8
-0009 A9030FF8              A    32        CPX 4088,#3
-000D 6B 14                 A    33        JR  Z,_1_L_8
-                           A    34    .line 6
-000F E9730FF8              A    35        LDX 4088,#115
-0013                       A    36    _1_L_3:
-                           A    37    .line 7
-0013 A9010FF8              A    38        CPX 4088,#1
-0017 EB FA                 A    39        JR  NE,_1_L_3
-                           A    40    .line 9
-0019 E98C0FF8              A    41        LDX 4088,#140
-001D                       A    42    _1_L_6:
-                           A    43    .line 10
-001D A9020FF8              A    44        CPX 4088,#2
-0021 EB FA                 A    45        JR  NE,_1_L_6
-0023                       A    46    _1_L_8:
-                           A    47    .line 11
-0023 D6 0000               A    48        CALL    __b_framereset
-0026 AF                    A    49        RET 
-                           A    50    .endfunc "unlockFlash",11,"_unlockFlash"
-                           A    51        SEGMENT ROM_DATA
-                           A    52    
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     00:26:59     page:   2
+                           A    21    ;    1  #include "flash_tools.h"
+                           A    22    ;    2  
+                           A    23    ;    3  // Unlock the flash controller wit
+                           A    24    ;    4  void unlockFlash(void) {
+0000                       A    25    _unlockFlash:
+                           A    26    .define "_unlockFlash"
+                           A    27    .value _unlockFlash
+                           A    28    .class 2
+                           A    29    .type 65
+                           A    30    .endef
+                           A    31    .begfunc "unlockFlash",4,"_unlockFlash"
+0000 D6 0000               A    32        CALL    __b_frameset00
+                           A    33    ;    5      if (FCMD == 0x02 || FCMD == 0x
+                           A    34    .line 5
+0003 A9020FF8              A    35        CPX 4088,#2
+0007 6B 1A                 A    36        JR  Z,_1_L_8
+0009 A9030FF8              A    37        CPX 4088,#3
+000D 6B 14                 A    38        JR  Z,_1_L_8
+                           A    39    ;    6      FCMD = 0x73;  // First unlock 
+                           A    40    .line 6
+000F E9730FF8              A    41        LDX 4088,#115
+                           A    42    ;    7      while (FCMD != 0x01); // Wait 
+0013                       A    43    _1_L_3:
+                           A    44    .line 7
+0013 A9010FF8              A    45        CPX 4088,#1
+0017 EB FA                 A    46        JR  NE,_1_L_3
+                           A    47    ;    8  
+                           A    48    ;    9      FCMD = 0x8C;  // Second unlock
+                           A    49    .line 9
+0019 E98C0FF8              A    50        LDX 4088,#140
+                           A    51    ;   10      while (FCMD != 0x02); // Wait 
+001D                       A    52    _1_L_6:
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:50     page:   2
 
 
 PC     Object              F  Line    Source flash_tools.src
-                           A    53    
-                           A    54    ;**************************** _checkFlash 
-                           A    55    ;Name                         Addr/Registe
-                           A    56    
-                           A    57    
-                           A    58    ; Aggregate Stack Size: 0 (words)
-                           A    59    
-                           A    60    
-                           A    61        .FRAME _n_checkFlash,?_n_checkFlash,RD
-                           A    62        .FRAME _f_checkFlash,?_f_checkFlash,ED
-                           A    63        SEGMENT flash_tools_TEXT
-0027                       A    64    _checkFlash:
-                           A    65    .define "_checkFlash"
-                           A    66    .value _checkFlash
-                           A    67    .class 2
-                           A    68    .type 76
-                           A    69    .endef
-                           A    70    .begfunc "checkFlash",13,"_checkFlash"
-0027 D6 0000               A    71        CALL    __b_frameset00
-                           A    72    .line 14
-002A 840FF8                A    73        LDX R0,4088
-                           A    74    .line 15
-002D D6 0000               A    75        CALL    __b_framereset
-0030 AF                    A    76        RET 
-                           A    77    .endfunc "checkFlash",15,"_checkFlash"
-                           A    78        XREF __b_framereset:ROM
-                           A    79        XREF __b_frameset00:ROM
-                           A    80        XDEF _checkFlash
-                           A    81        XDEF _unlockFlash
-                           A    82        END
+                           A    53    .line 10
+001D A9020FF8              A    54        CPX 4088,#2
+0021 EB FA                 A    55        JR  NE,_1_L_6
+                           A    56    ;   11  }
+0023                       A    57    _1_L_8:
+                           A    58    .line 11
+0023 D6 0000               A    59        CALL    __b_framereset
+0026 AF                    A    60        RET 
+                           A    61    .endfunc "unlockFlash",11,"_unlockFlash"
+                           A    62        SEGMENT ROM_DATA
+                           A    63    
+                           A    64    
+                           A    65    ;**************************** _checkFlash 
+                           A    66    ;Name                         Addr/Registe
+                           A    67    
+                           A    68    
+                           A    69    ; Aggregate Stack Size: 0 (words)
+                           A    70    
+                           A    71    
+                           A    72        .FRAME _n_checkFlash,?_n_checkFlash,RD
+                           A    73        .FRAME _f_checkFlash,?_f_checkFlash,ED
+                           A    74        SEGMENT flash_tools_TEXT
+                           A    75    ;   12  
+                           A    76    ;   13  // Return the Flash Controller Sta
+                           A    77    ;   14  unsigned char checkFlash(void) {
+0027                       A    78    _checkFlash:
+                           A    79    .define "_checkFlash"
+                           A    80    .value _checkFlash
+                           A    81    .class 2
+                           A    82    .type 76
+                           A    83    .endef
+                           A    84    .begfunc "checkFlash",14,"_checkFlash"
+0027 D6 0000               A    85        CALL    __b_frameset00
+                           A    86    ;   15      return FCMD;
+                           A    87    .line 15
+002A 840FF8                A    88        LDX R0,4088
+                           A    89    ;   16  }
+                           A    90    .line 16
+002D D6 0000               A    91        CALL    __b_framereset
+0030 AF                    A    92        RET 
+                           A    93    .endfunc "checkFlash",16,"_checkFlash"
+                           A    94        SEGMENT ROM_DATA
+                           A    95    
+                           A    96    
+                           A    97    ;**************************** _pageEraseFl
+                           A    98    ;Name                         Addr/Registe
+                           A    99    ;_unlockFlash                        IMPOR
+                           A   100    ;pageNum                             RR14-
+                           A   101    ;address                             RR14-
+                           A   102    
+                           A   103    
+                           A   104    ; Aggregate Stack Size: -5 (words)
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:50     page:   3
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A   105    
+                           A   106    
+                           A   107        .FRAME _n_pageEraseFlash,?_n_pageErase
+                           A   108        .FCALL _n_unlockFlash
+                           A   109        .FRAME _f_pageEraseFlash,?_f_pageErase
+                           A   110        .FCALL _f_unlockFlash
+                           A   111        SEGMENT flash_tools_TEXT
+                           A   112    ;   17  
+                           A   113    ;   18  int pageEraseFlash(unsigned long a
+0031                       A   114    _pageEraseFlash:
+                           A   115    .define "_pageEraseFlash"
+                           A   116    .value _pageEraseFlash
+                           A   117    .class 2
+                           A   118    .type 67
+                           A   119    .endef
+                           A   120    .begfunc "pageEraseFlash",18,"_pageEraseFl
+0031 5C05                  A   121        LD  R5,#5
+0033 D6 0000               A   122        CALL    __b_frameset0
+                           A   123    .line 18
+0036 89E8FC                A   124        LDX -4(RR14),R8
+0039 89E9FD                A   125        LDX -3(RR14),R9
+003C 89EAFE                A   126        LDX -2(RR14),R10
+003F 89EBFF                A   127        LDX -1(RR14),R11
+                           A   128    .define "address"
+                           A   129    .class 9
+                           A   130    .value -4
+                           A   131    .type 15
+                           A   132    .endef
+                           A   133    .define "pageNum"
+                           A   134    .class 1
+                           A   135    .value -5
+                           A   136    .type 12
+                           A   137    .endef
+                           A   138    ;   19      unsigned char pageNum;
+                           A   139    ;   20      
+                           A   140    ;   21      if (FCMD == 0x03) return -1;
+                           A   141    .line 21
+0042 A9030FF8              A   142        CPX 4088,#3
+0046 EB 06                 A   143        JR  NE,_3_L_11
+0048 0CFF                  A   144        LD  R0,#255
+004A 1CFF                  A   145        LD  R1,#255
+004C 8B 33                 A   146        JR  _3_L_15
+004E                       A   147    _3_L_11:
+                           A   148    ;   22      
+                           A   149    ;   23      // Calculate page number from 
+                           A   150    ;   24      pageNum = (unsigned char)((add
+                           A   151    .line 24
+004E 881EFC                A   152        LDX R1,-4(RR14)
+0051 882EFD                A   153        LDX R2,-3(RR14)
+0054 883EFE                A   154        LDX R3,-2(RR14)
+0057 880EFF                A   155        LDX R0,-1(RR14)
+005A 4C09                  A   156        LD  R4,#9
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:50     page:   4
+
+
+PC     Object              F  Line    Source flash_tools.src
+005C                       A   157    L__10:
+005C 1FC0E1                A   158        SRL R1
+005F C0E2                  A   159        RRC R2
+0061 C0E3                  A   160        RRC R3
+0063 C0E0                  A   161        RRC R0
+0065 4A F5                 A   162        DJNZ    R4,L__10
+0067 89E0FB                A   163        LDX -5(RR14),R0
+                           A   164    ;   25      
+                           A   165    ;   26      // Unlock Flash
+                           A   166    ;   27      unlockFlash();
+                           A   167    .line 27
+006A D6 0000               A   168        CALL    _unlockFlash
+                           A   169    ;   28      
+                           A   170    ;   29      // Set page number for erase
+                           A   171    ;   30      PAGE = pageNum;
+                           A   172    .line 30
+006D 880EFB                A   173        LDX R0,-5(RR14)
+0070 940FF9                A   174        LDX 4089,R0
+                           A   175    ;   31      
+                           A   176    ;   32      // Erase
+                           A   177    ;   33      FCMD = 0x20;
+                           A   178    .line 33
+0073 E9200FF8              A   179        LDX 4088,#32
+                           A   180    ;   34      
+                           A   181    ;   35      // Todo: Optionally, verify er
+                           A   182    ;   36      
+                           A   183    ;   37      // Wait for erase to complete 
+                           A   184    ;   38      while (FCMD != 0x00);
+0077                       A   185    _3_L_12:
+                           A   186    .line 38
+0077 A9000FF8              A   187        CPX 4088,#-0
+007B EB FA                 A   188        JR  NE,_3_L_12
+                           A   189    ;   39      return 0; // Success
+                           A   190    .line 39
+007D B0E0                  A   191        CLR R0
+007F B0E1                  A   192        CLR R1
+                           A   193    ;   40  }
+0081                       A   194    _3_L_15:
+                           A   195    .line 40
+0081 D6 0000               A   196        CALL    __b_framereset
+0084 AF                    A   197        RET 
+                           A   198    .endfunc "pageEraseFlash",40,"_pageEraseFl
+                           A   199        SEGMENT ROM_DATA
+                           A   200    
+                           A   201    
+                           A   202    ;**************************** _massEraseFl
+                           A   203    ;Name                         Addr/Registe
+                           A   204    
+                           A   205    
+                           A   206    ; Aggregate Stack Size: 0 (words)
+                           A   207    
+                           A   208    
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:50     page:   5
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A   209        .FRAME _n_massEraseFlash,?_n_massErase
+                           A   210        .FRAME _f_massEraseFlash,?_f_massErase
+                           A   211        SEGMENT flash_tools_TEXT
+                           A   212    ;   41  
+                           A   213    ;   42  void massEraseFlash(void) {
+0085                       A   214    _massEraseFlash:
+                           A   215    .define "_massEraseFlash"
+                           A   216    .value _massEraseFlash
+                           A   217    .class 2
+                           A   218    .type 65
+                           A   219    .endef
+                           A   220    .begfunc "massEraseFlash",42,"_massEraseFl
+0085 D6 0000               A   221        CALL    __b_frameset00
+                           A   222    ;   43      if (FCMD == 0x03) return;
+                           A   223    .line 43
+0088 A9030FF8              A   224        CPX 4088,#3
+008C 6B 0A                 A   225        JR  Z,_4_L_20
+                           A   226    ;   44      FCMD = 0x40; // Mass Erase com
+                           A   227    .line 44
+008E E9400FF8              A   228        LDX 4088,#64
+                           A   229    ;   45      while (FCMD != 0x03); // Wait 
+0092                       A   230    _4_L_18:
+                           A   231    .line 45
+0092 A9030FF8              A   232        CPX 4088,#3
+0096 EB FA                 A   233        JR  NE,_4_L_18
+                           A   234    ;   46  }
+0098                       A   235    _4_L_20:
+                           A   236    .line 46
+0098 D6 0000               A   237        CALL    __b_framereset
+009B AF                    A   238        RET 
+                           A   239    .endfunc "massEraseFlash",46,"_massEraseFl
+                           A   240        XREF __b_framereset:ROM
+                           A   241        XREF __b_frameset0:ROM
+                           A   242        XREF __b_frameset00:ROM
+                           A   243        XDEF _massEraseFlash
+                           A   244        XDEF _pageEraseFlash
+                           A   245        XDEF _checkFlash
+                           A   246        XDEF _unlockFlash
+                           A   247        END
 
 
 Errors: 0
 Warnings: 0
-Lines Assembled: 83
+Lines Assembled: 248
