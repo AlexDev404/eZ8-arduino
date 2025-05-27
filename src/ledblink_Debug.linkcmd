@@ -87,6 +87,7 @@ define __user_frequency = 5529600
  ".\timer.obj", \
  ".\terminal.obj", \
  ".\util.obj", \
+ ".\flash_tools.obj", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\fpdumyLD.lib", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\chelpLD.lib", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\crtf04aLDFD.lib", \

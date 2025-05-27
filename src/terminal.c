@@ -2,6 +2,7 @@
 #include "stk500.h"
 #include "util.h"
 #include "boot_tools.h"
+#include "flash_tools.h"
 
 register UINT16 address = 0x400; // Sector 1 and beyond
 register UINT16 length;
@@ -37,14 +38,23 @@ void isr_uart0_rx(void)
 					}
 					case 'W':
 					{
+						char str[10];
 						puts("Writing byte to memory. Reboot to check to see if it has written.\n");
 						// Write a byte to memory
-						character = 'X';
+						//character = 'X';
+						// Check flash
+						puts("Flash stat\n==");
+						sprintf(str, "0x%02X", checkFlash());
+						puts(str);
+						unlockFlash();
+						sprintf(str, "0x%02X", checkFlash());
+						puts("Flash stat\n==");
+						puts(str);
 						puts("Success.\n");
 						break;
 					}
 					default:
-						puts("NF");
+						puts("notFound");
 						break;
 				}
 			}

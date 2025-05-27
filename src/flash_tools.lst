@@ -1,0 +1,81 @@
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:43     page:   1
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A     1    ; Z8 Encore! ANSI C Compiler Release 3.80
+                           A     2    ; -nolocalcse -optsize -fastcall -const=RA
+                           A     3    ; -nooptlink -noregvar -reduceopt -debug -
+                           A     4    ; -alias 
+                           A     5        DEFINE flash_tools_TEXT,SPACE=ROM
+                           A     6        FILE    ".\flash_tools.c"
+                           A     7    .debug "C"
+                           A     8        SEGMENT ROM_DATA
+                           A     9    
+                           A    10    
+                           A    11    ;**************************** _unlockFlash
+                           A    12    ;Name                         Addr/Registe
+                           A    13    
+                           A    14    
+                           A    15    ; Aggregate Stack Size: 0 (words)
+                           A    16    
+                           A    17    
+                           A    18        .FRAME _n_unlockFlash,?_n_unlockFlash,
+                           A    19        .FRAME _f_unlockFlash,?_f_unlockFlash,
+                           A    20        SEGMENT flash_tools_TEXT
+0000                       A    21    _unlockFlash:
+                           A    22    .define "_unlockFlash"
+                           A    23    .value _unlockFlash
+                           A    24    .class 2
+                           A    25    .type 65
+                           A    26    .endef
+                           A    27    .begfunc "unlockFlash",4,"_unlockFlash"
+0000 D6 0000               A    28        CALL    __b_frameset00
+                           A    29    .line 5
+0003 E9730FF8              A    30        LDX 4088,#115
+                           A    31    .line 6
+0007 E98C0FF8              A    32        LDX 4088,#140
+                           A    33    .line 7
+000B D6 0000               A    34        CALL    __b_framereset
+000E AF                    A    35        RET 
+                           A    36    .endfunc "unlockFlash",7,"_unlockFlash"
+                           A    37        SEGMENT ROM_DATA
+                           A    38    
+                           A    39    
+                           A    40    ;**************************** _checkFlash 
+                           A    41    ;Name                         Addr/Registe
+                           A    42    
+                           A    43    
+                           A    44    ; Aggregate Stack Size: 0 (words)
+                           A    45    
+                           A    46    
+                           A    47        .FRAME _n_checkFlash,?_n_checkFlash,RD
+                           A    48        .FRAME _f_checkFlash,?_f_checkFlash,ED
+                           A    49        SEGMENT flash_tools_TEXT
+000F                       A    50    _checkFlash:
+                           A    51    .define "_checkFlash"
+                           A    52    .value _checkFlash
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 26-May-25     23:53:43     page:   2
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A    53    .class 2
+                           A    54    .type 76
+                           A    55    .endef
+                           A    56    .begfunc "checkFlash",9,"_checkFlash"
+000F D6 0000               A    57        CALL    __b_frameset00
+                           A    58    .line 10
+0012 840FF8                A    59        LDX R0,4088
+                           A    60    .line 11
+0015 D6 0000               A    61        CALL    __b_framereset
+0018 AF                    A    62        RET 
+                           A    63    .endfunc "checkFlash",11,"_checkFlash"
+                           A    64        XREF __b_framereset:ROM
+                           A    65        XREF __b_frameset00:ROM
+                           A    66        XDEF _checkFlash
+                           A    67        XDEF _unlockFlash
+                           A    68        END
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 69

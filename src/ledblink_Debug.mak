@@ -134,6 +134,14 @@ clean:
             $(RM) "$(WORKDIR)\util.lst"
 	@if exist "$(WORKDIR)\util.src"  \
             $(RM) "$(WORKDIR)\util.src"
+	@if exist "$(WORKDIR)\flash_tools.obj"  \
+            $(RM) "$(WORKDIR)\flash_tools.obj"
+	@if exist "$(WORKDIR)\flash_tools.lis"  \
+            $(RM) "$(WORKDIR)\flash_tools.lis"
+	@if exist "$(WORKDIR)\flash_tools.lst"  \
+            $(RM) "$(WORKDIR)\flash_tools.lst"
+	@if exist "$(WORKDIR)\flash_tools.src"  \
+            $(RM) "$(WORKDIR)\flash_tools.src"
 
 # pre-4.11.0 compatibility
 rebuildall: buildall 
@@ -146,7 +154,8 @@ OBJS =  \
             $(WORKDIR_ESCSPACE)\led.obj  \
             $(WORKDIR_ESCSPACE)\timer.obj  \
             $(WORKDIR_ESCSPACE)\terminal.obj  \
-            $(WORKDIR_ESCSPACE)\util.obj
+            $(WORKDIR_ESCSPACE)\util.obj  \
+            $(WORKDIR_ESCSPACE)\flash_tools.obj
 
 ledblink: $(OBJS)
 	 $(LD) $(LDFLAGS)
@@ -241,4 +250,8 @@ $(WORKDIR_ESCSPACE)\util.obj :  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\uart.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\uartdefs.h
 	 $(CC) $(CFLAGS) "$(PRJDIR)\util.c"
+
+$(WORKDIR_ESCSPACE)\flash_tools.obj :  \
+            $(WORKDIR_ESCSPACE)\flash_tools.c
+	 $(CC) $(CFLAGS) "$(PRJDIR)\flash_tools.c"
 
