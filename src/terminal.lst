@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   1
 
 
 PC     Object              F  Line    Source terminal.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source terminal.src
                            A    50    .value 6
                            A    51    .class 8
                            A    52    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   2
 
 
 PC     Object              F  Line    Source terminal.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source terminal.src
                            A   102    .class 8
                            A   103    .type 162
                            A   104    .endef
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   3
 
 
 PC     Object              F  Line    Source terminal.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source terminal.src
                            A   154    .value 1
                            A   155    .class 8
                            A   156    .type 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   4
 
 
 PC     Object              F  Line    Source terminal.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source terminal.src
 0000                       A   206        DS  2*1
                            A   207    .define "length"
                            A   208    .alias "_length"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   5
 
 
 PC     Object              F  Line    Source terminal.src
@@ -246,46 +246,46 @@ PC     Object              F  Line    Source terminal.src
 0002 002A                  A   226        DW  42
 0004 002A                  A   227        DW  _1_L_0
 0006 0030                  A   228        DW  48
-0008 0170                  A   229        DW  _1_L_11
+0008 01C9                  A   229        DW  _1_L_13
 000A 0031                  A   230        DW  49
-000C 015D                  A   231        DW  _1_L_8
+000C 01B6                  A   231        DW  _1_L_10
 000E 0040                  A   232        DW  64
-0010 02E1                  A   233        DW  _1_L_34
+0010 033A                  A   233        DW  _1_L_36
 0012 0041                  A   234        DW  65
-0014 0176                  A   235        DW  _1_L_12
+0014 01CF                  A   235        DW  _1_L_14
 0016 0042                  A   236        DW  66
-0018 02E1                  A   237        DW  _1_L_30
+0018 033A                  A   237        DW  _1_L_32
 001A 0045                  A   238        DW  69
-001C 02E1                  A   239        DW  _1_L_31
+001C 033A                  A   239        DW  _1_L_33
 001E 0052                  A   240        DW  82
-0020 02E1                  A   241        DW  _1_L_33
+0020 033A                  A   241        DW  _1_L_35
 0022 0055                  A   242        DW  85
-0024 01F0                  A   243        DW  _1_L_22
+0024 0249                  A   243        DW  _1_L_24
 0026 0056                  A   244        DW  86
-0028 02E1                  A   245        DW  _1_L_32
+0028 033A                  A   245        DW  _1_L_34
 002A 0057                  A   246        DW  87
-002C 02E1                  A   247        DW  _1_L_35
+002C 033A                  A   247        DW  _1_L_37
 002E 0064                  A   248        DW  100
-0030 023D                  A   249        DW  _1_L_23
+0030 0296                  A   249        DW  _1_L_25
 0032 0074                  A   250        DW  116
-0034 02B2                  A   251        DW  _1_L_28
+0034 030B                  A   251        DW  _1_L_30
 0036 0075                  A   252        DW  117
-0038 02C6                  A   253        DW  _1_L_29
-003A 02E1                  A   254        DW  _1_L_36
+0038 031F                  A   253        DW  _1_L_31
+003A 033A                  A   254        DW  _1_L_38
                            A   255    ;   Jump Table for Switch Statement at lin
 003C                       A   256    L__2:
 003C 0003                  A   257        DW  3
 003E 003F                  A   258        DW  63
-0040 0106                  A   259        DW  _1_L_3
+0040 015F                  A   259        DW  _1_L_5
 0042 0052                  A   260        DW  82
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   6
 
 
 PC     Object              F  Line    Source terminal.src
 0044 003D                  A   261        DW  _1_L_1
 0046 0057                  A   262        DW  87
 0048 0053                  A   263        DW  _1_L_2
-004A 0153                  A   264        DW  _1_L_4
+004A 01AC                  A   264        DW  _1_L_6
                            A   265    
                            A   266    
                            A   267    ;**************************** _isr_uart0_r
@@ -296,26 +296,26 @@ PC     Object              F  Line    Source terminal.src
                            A   272    ;_sync_ok_response                   IMPOR
                            A   273    ;_string_response                    IMPOR
                            A   274    ;_pageEraseFlash                     IMPOR
-                           A   275    ;_unlockFlash                        IMPOR
-                           A   276    ;___print_putch                      IMPOR
-                           A   277    ;_checkFlash                         IMPOR
-                           A   278    ;__u_ustoa                           IMPOR
-                           A   279    ;___print_putromstring0              IMPOR
-                           A   280    ;_character                          STATI
-                           A   281    ;_putch                              IMPOR
-                           A   282    ;_f_puts                             IMPOR
-                           A   283    ;_getch                              IMPOR
-                           A   284    ;addrPtr                            RR14-3
+                           A   275    ;___print_putch                      IMPOR
+                           A   276    ;_checkFlash                         IMPOR
+                           A   277    ;__u_ustoa                           IMPOR
+                           A   278    ;___print_putromstring0              IMPOR
+                           A   279    ;_character                          STATI
+                           A   280    ;_putch                              IMPOR
+                           A   281    ;_f_puts                             IMPOR
+                           A   282    ;_getch                              IMPOR
+                           A   283    ;addrPtr                            RR14-4
+                           A   284    ;pageEraseRes                       RR14-3
                            A   285    ;str                                RR14-3
                            A   286    ;inputch                            RR14-2
-                           A   287    ;str                                RR14-2
-                           A   288    ;buffPtr                            RR14-1
-                           A   289    ;ch2                                RR14-1
+                           A   287    ;buffPtr                            RR14-2
+                           A   288    ;ch2                                RR14-2
+                           A   289    ;str                                RR14-2
                            A   290    ;newAddress                         RR14-1
                            A   291    ;___clr_print_fmt                    IMPOR
                            A   292    
                            A   293    
-                           A   294    ; Aggregate Stack Size: -40 (words)
+                           A   294    ; Aggregate Stack Size: -42 (words)
                            A   295    
                            A   296    
                            A   297        SEGMENT FAR_TXT
@@ -334,7 +334,7 @@ PC     Object              F  Line    Source terminal.src
 002E 52656164 696E6720     A   307        DB  "Reading byte from memory."
 0036 62797465 2066726F 
 003E 6D206D65 6D6F7279 2E 
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   7
 
 
 PC     Object              F  Line    Source terminal.src
@@ -359,760 +359,814 @@ PC     Object              F  Line    Source terminal.src
 00A2 3D3D                  A   319        DB  "=="
 00A4 00                    A   320        DB  0
 00A5                       A   321    L__9:
-00A5 466C6173 68207374 6174   A   322        DB  "Flash stat"
-00AF 0A                    A   323        DB  10
-00B0 3D3D                  A   324        DB  "=="
-00B2 00                    A   325        DB  0
-00B3                       A   326    L__10:
-00B3 53756363 6573732E     A   327        DB  "Success."
-00BB 0A00                  A   328        DB  10,0
-00BD                       A   329    L__11:
-00BD 466C6173 68207374 6174   A   330        DB  "Flash stat"
-00C7 0A                    A   331        DB  10
-00C8 3D3D                  A   332        DB  "=="
-00CA 00                    A   333        DB  0
-00CB                       A   334    L__13:
-00CB 6E6F7446 6F756E64     A   335        DB  "notFound"
-00D3 00                    A   336        DB  0
-                           A   337        .FRAME _i_isr_uart0_rx,?_i_isr_uart0_r
-                           A   338        .FCALL _n___clr_print_fmt
-                           A   339        .FCALL _n_getch
-                           A   340        .FCALL _n_f_puts
-                           A   341        .FCALL _n_putch
-                           A   342        .FCALL _n___print_putromstring0
-                           A   343        .FCALL _n__u_ustoa
-                           A   344        .FCALL _n_checkFlash
-                           A   345        .FCALL _n___print_putch
-                           A   346        .FCALL _n_unlockFlash
-                           A   347        .FCALL _n_pageEraseFlash
-                           A   348        .FCALL _n_string_response
-                           A   349        .FCALL _n_sync_ok_response
-                           A   350        .FCALL _n_byte_response
-                           A   351        .FRAME _if_isr_uart0_rx,?_if_isr_uart0
-                           A   352        .FCALL _f___clr_print_fmt
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   8
+00A5 4572723A 20706167     A   322        DB  "Err: pageErase"
+00AD 65457261 7365 
+00B3 00                    A   323        DB  0
+00B4                       A   324    L__11:
+00B4 466C6173 68207374 6174   A   325        DB  "Flash stat"
+00BE 0A                    A   326        DB  10
+00BF 3D3D                  A   327        DB  "=="
+00C1 00                    A   328        DB  0
+00C2                       A   329    L__13:
+00C2 53756363 6573732E     A   330        DB  "Success."
+00CA 0A00                  A   331        DB  10,0
+00CC                       A   332    L__14:
+00CC 466C6173 68207374 6174   A   333        DB  "Flash stat"
+00D6 0A                    A   334        DB  10
+00D7 3D3D                  A   335        DB  "=="
+00D9 00                    A   336        DB  0
+00DA                       A   337    L__16:
+00DA 6E6F7446 6F756E64     A   338        DB  "notFound"
+00E2 00                    A   339        DB  0
+                           A   340        .FRAME _i_isr_uart0_rx,?_i_isr_uart0_r
+                           A   341        .FCALL _n___clr_print_fmt
+                           A   342        .FCALL _n_getch
+                           A   343        .FCALL _n_f_puts
+                           A   344        .FCALL _n_putch
+                           A   345        .FCALL _n___print_putromstring0
+                           A   346        .FCALL _n__u_ustoa
+                           A   347        .FCALL _n_checkFlash
+                           A   348        .FCALL _n___print_putch
+                           A   349        .FCALL _n_pageEraseFlash
+                           A   350        .FCALL _n_string_response
+                           A   351        .FCALL _n_sync_ok_response
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   8
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   353        .FCALL _f_getch
-                           A   354        .FCALL _f_f_puts
-                           A   355        .FCALL _f_putch
-                           A   356        .FCALL _f___print_putromstring0
-                           A   357        .FCALL _f__u_ustoa
-                           A   358        .FCALL _f_checkFlash
-                           A   359        .FCALL _f___print_putch
-                           A   360        .FCALL _f_unlockFlash
-                           A   361        .FCALL _f_pageEraseFlash
-                           A   362        .FCALL _f_string_response
-                           A   363        .FCALL _f_sync_ok_response
-                           A   364        .FCALL _f_byte_response
-                           A   365        SEGMENT TEXT
-0000                       A   366    L__15:
-0000 5A382045 6E636F72     A   367        DB  "Z8 Encore! STK"
+                           A   352        .FCALL _n_byte_response
+                           A   353        .FRAME _if_isr_uart0_rx,?_if_isr_uart0
+                           A   354        .FCALL _f___clr_print_fmt
+                           A   355        .FCALL _f_getch
+                           A   356        .FCALL _f_f_puts
+                           A   357        .FCALL _f_putch
+                           A   358        .FCALL _f___print_putromstring0
+                           A   359        .FCALL _f__u_ustoa
+                           A   360        .FCALL _f_checkFlash
+                           A   361        .FCALL _f___print_putch
+                           A   362        .FCALL _f_pageEraseFlash
+                           A   363        .FCALL _f_string_response
+                           A   364        .FCALL _f_sync_ok_response
+                           A   365        .FCALL _f_byte_response
+                           A   366        SEGMENT TEXT
+0000                       A   367    L__18:
+0000 5A382045 6E636F72     A   368        DB  "Z8 Encore! STK"
 0008 65212053 544B 
-000E 00                    A   368        DB  0
-                           A   369        SEGMENT ROM_TEXT
-0000                       A   370    L__7:
-0000 3078                  A   371        DB  "0x"
-0002 00                    A   372        DB  0
-0003                       A   373    L__8:
-0003 3078                  A   374        DB  "0x"
-0005 00                    A   375        DB  0
-0006                       A   376    L__12:
-0006 3078                  A   377        DB  "0x"
-0008 00                    A   378        DB  0
-                           A   379    ;    1  #include "terminal.h"
-                           A   380    ;    2  #include "stk500.h"
-                           A   381    ;    3  #include "util.h"
-                           A   382    ;    4  #include "boot_tools.h"
-                           A   383    ;    5  #include "flash_tools.h"
-                           A   384    ;    6  
-                           A   385    ;    7  register UINT16 address = 0x400; /
-                           A   386    ;    8  register UINT16 length;
-                           A   387    ;    9  
-                           A   388    ;   10  #define RAMSTART  (0x100)
-                           A   389    ;   11  #define NRWWSTART (0x1800)
-                           A   390    ;   12  #define buff      ((UINT8*)(RAMSTA
-                           A   391    ;   13  UINT8 character = ((UINT8)((void*)
-                           A   392        SEGMENT terminal_TEXT
-                           A   393    ;   14  
-                           A   394    ;   15  //////////////////////////////////
-                           A   395    ;   16  //Interrupt routine
-                           A   396    ;   17  
-                           A   397    ;   18  #pragma interrupt
-                           A   398    ;   19  void isr_uart0_rx(void) 
-                           A   399    ;   20  {
-0000                       A   400    _isr_uart0_rx:
-                           A   401    .define "_isr_uart0_rx"
-                           A   402    .value _isr_uart0_rx
-                           A   403    .class 2
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:   9
+000E 00                    A   369        DB  0
+                           A   370        SEGMENT ROM_TEXT
+0000                       A   371    L__7:
+0000 3078                  A   372        DB  "0x"
+0002 00                    A   373        DB  0
+0003                       A   374    L__10:
+0003 3078                  A   375        DB  "0x"
+0005 00                    A   376        DB  0
+0006                       A   377    L__12:
+0006 3078                  A   378        DB  "0x"
+0008 00                    A   379        DB  0
+0009                       A   380    L__15:
+0009 3078                  A   381        DB  "0x"
+000B 00                    A   382        DB  0
+                           A   383    ;    1  #include "terminal.h"
+                           A   384    ;    2  #include "stk500.h"
+                           A   385    ;    3  #include "util.h"
+                           A   386    ;    4  #include "boot_tools.h"
+                           A   387    ;    5  #include "flash_tools.h"
+                           A   388    ;    6  
+                           A   389    ;    7  register UINT16 address = 0x400; /
+                           A   390    ;    8  register UINT16 length;
+                           A   391    ;    9  
+                           A   392    ;   10  #define RAMSTART  (0x100)
+                           A   393    ;   11  #define NRWWSTART (0x1800)
+                           A   394    ;   12  #define buff      ((UINT8*)(RAMSTA
+                           A   395    ;   13  UINT8 character = ((UINT8)((void*)
+                           A   396        SEGMENT terminal_TEXT
+                           A   397    ;   14  
+                           A   398    ;   15  //////////////////////////////////
+                           A   399    ;   16  //Interrupt routine
+                           A   400    ;   17  
+                           A   401    ;   18  #pragma interrupt
+                           A   402    ;   19  void isr_uart0_rx(void) 
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:   9
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   404    .type 65
-                           A   405    .endef
-                           A   406    .begfunc "isr_uart0_rx",20,"_isr_uart0_rx"
-0000 C8FFD0                A   407        PUSHX   4093
-0003 E8 000FFD             A   408        LDX 4093,__intrp
-0007 09100000              A   409        ADDX    __intrp,#16
-000B 5C28                  A   410        LD  R5,#40
-000D D6 0000               A   411        CALL    __b_frameset0
-                           A   412    .line 20
-0010 998EF6                A   413        LEA RR8,246(RR14)
-0013 D6 0000               A   414        CALL    ___clr_print_fmt
-                           A   415    .define "newAddress"
-                           A   416    .class 1
-                           A   417    .value -12
-                           A   418    .type 13
-                           A   419    .endef
-                           A   420    .define "ch2"
-                           A   421    .class 1
-                           A   422    .value -13
-                           A   423    .type 2
-                           A   424    .endef
-                           A   425    .define "buffPtr"
-                           A   426    .class 1
-                           A   427    .value -15
-                           A   428    .type 172
+                           A   403    ;   20  {
+0000                       A   404    _isr_uart0_rx:
+                           A   405    .define "_isr_uart0_rx"
+                           A   406    .value _isr_uart0_rx
+                           A   407    .class 2
+                           A   408    .type 65
+                           A   409    .endef
+                           A   410    .begfunc "isr_uart0_rx",20,"_isr_uart0_rx"
+0000 C8FFD0                A   411        PUSHX   4093
+0003 E8 000FFD             A   412        LDX 4093,__intrp
+0007 09100000              A   413        ADDX    __intrp,#16
+000B 5C2A                  A   414        LD  R5,#42
+000D D6 0000               A   415        CALL    __b_frameset0
+                           A   416    .line 20
+0010 998EF6                A   417        LEA RR8,246(RR14)
+0013 D6 0000               A   418        CALL    ___clr_print_fmt
+                           A   419    .define "newAddress"
+                           A   420    .class 1
+                           A   421    .value -12
+                           A   422    .type 13
+                           A   423    .endef
+                           A   424    .define "str"
+                           A   425    .class 1
+                           A   426    .value -22
+                           A   427    .dim 10
+                           A   428    .type 98
                            A   429    .endef
-                           A   430    .define "str"
+                           A   430    .define "ch2"
                            A   431    .class 1
-                           A   432    .value -25
-                           A   433    .dim 10
-                           A   434    .type 98
-                           A   435    .endef
-                           A   436    .define "inputch"
-                           A   437    .class 1
-                           A   438    .value -26
-                           A   439    .type 12
-                           A   440    .endef
-                           A   441    .define "str"
-                           A   442    .class 1
-                           A   443    .value -36
-                           A   444    .dim 10
-                           A   445    .type 98
-                           A   446    .endef
-                           A   447    .define "addrPtr"
-                           A   448    .class 1
-                           A   449    .value -38
-                           A   450    .type 13
-                           A   451    .endef
-                           A   452    ;   21      UINT8 inputch = getch();
-                           A   453    .line 21
-0016 D6 0000               A   454        CALL    _getch
-0019 89E1E6                A   455        LDX -26(RR14),R1
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  10
+                           A   432    .value -23
+                           A   433    .type 2
+                           A   434    .endef
+                           A   435    .define "buffPtr"
+                           A   436    .class 1
+                           A   437    .value -25
+                           A   438    .type 172
+                           A   439    .endef
+                           A   440    .define "inputch"
+                           A   441    .class 1
+                           A   442    .value -26
+                           A   443    .type 12
+                           A   444    .endef
+                           A   445    .define "str"
+                           A   446    .class 1
+                           A   447    .value -36
+                           A   448    .dim 10
+                           A   449    .type 98
+                           A   450    .endef
+                           A   451    .define "pageEraseRes"
+                           A   452    .class 1
+                           A   453    .value -38
+                           A   454    .type 3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  10
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   456    ;   22      //putch(getch());
-                           A   457    ;   23      switch(inputch){
-                           A   458    .line 23
-001C 881EE6                A   459        LDX R1,-26(RR14)
-001F B0E0                  A   460        CLR R0
-0021 2C 00                 A   461        LD  R2,#high(L__0)
-0023 3C 00                 A   462        LD  R3,#low(L__0)
-0025 D6 0000               A   463        CALL    __b_ucase
-0028 C4E0                  A   464        JP  @RR0
-                           A   465    ;   24          case '*':
-002A                       A   466    _1_L_0:
-                           A   467    .line 24
-                           A   468    ;   25          {
-                           A   469    ;   26              puts("\nUART Terminal\
-                           A   470    .line 26
-002A 8C 00                 A   471        LD  R8,#high(L__1)
-002C 9C 00                 A   472        LD  R9,#low(L__1)
-002E D6 0000               A   473        CALL    _f_puts
-                           A   474    ;   27              while(1){ // No escape
-0031                       A   475    _1_L_5:
-                           A   476    .line 27
-                           A   477    ;   28                  switch(getch()){
-                           A   478    .line 28
-0031 D6 0000               A   479        CALL    _getch
-0034 2C 00                 A   480        LD  R2,#high(L__2)
-0036 3C 3C                 A   481        LD  R3,#low(L__2)
-0038 D6 0000               A   482        CALL    __b_ucase
-003B C4E0                  A   483        JP  @RR0
-                           A   484    ;   29                      case 'R':
-003D                       A   485    _1_L_1:
-                           A   486    .line 29
-                           A   487    ;   30                      {
-                           A   488    ;   31                          // Read by
-                           A   489    ;   32                          puts("Read
-                           A   490    .line 32
-003D 8C 00                 A   491        LD  R8,#high(L__3)
-003F 9C 2E                 A   492        LD  R9,#low(L__3)
-0041 D6 0000               A   493        CALL    _f_puts
-                           A   494    ;   33                          // Read by
-                           A   495    ;   34                          putch(char
-                           A   496    .line 34
-0044 848002                A   497        LDX R8,_character
-0047 D6 0000               A   498        CALL    _putch
-                           A   499    ;   35                          puts("\n\n
-                           A   500    .line 35
-004A 8C 00                 A   501        LD  R8,#high(L__4)
-004C 9C 49                 A   502        LD  R9,#low(L__4)
-004E D6 0000               A   503        CALL    _f_puts
-                           A   504    ;   36                          break;
-                           A   505    .line 36
-0051 8B DE                 A   506        JR  _1_L_5
-                           A   507    ;   37                          
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  11
+                           A   455    .endef
+                           A   456    .define "addrPtr"
+                           A   457    .class 1
+                           A   458    .value -40
+                           A   459    .type 13
+                           A   460    .endef
+                           A   461    ;   21      UINT8 inputch = getch();
+                           A   462    .line 21
+0016 D6 0000               A   463        CALL    _getch
+0019 89E1E6                A   464        LDX -26(RR14),R1
+                           A   465    ;   22      //putch(getch());
+                           A   466    ;   23      switch(inputch){
+                           A   467    .line 23
+001C 881EE6                A   468        LDX R1,-26(RR14)
+001F B0E0                  A   469        CLR R0
+0021 2C 00                 A   470        LD  R2,#high(L__0)
+0023 3C 00                 A   471        LD  R3,#low(L__0)
+0025 D6 0000               A   472        CALL    __b_ucase
+0028 C4E0                  A   473        JP  @RR0
+                           A   474    ;   24          case '*':
+002A                       A   475    _1_L_0:
+                           A   476    .line 24
+                           A   477    ;   25          {
+                           A   478    ;   26              puts("\nUART Terminal\
+                           A   479    .line 26
+002A 8C 00                 A   480        LD  R8,#high(L__1)
+002C 9C 00                 A   481        LD  R9,#low(L__1)
+002E D6 0000               A   482        CALL    _f_puts
+                           A   483    ;   27              while(1){ // No escape
+0031                       A   484    _1_L_7:
+                           A   485    .line 27
+                           A   486    ;   28                  switch(getch()){
+                           A   487    .line 28
+0031 D6 0000               A   488        CALL    _getch
+0034 2C 00                 A   489        LD  R2,#high(L__2)
+0036 3C 3C                 A   490        LD  R3,#low(L__2)
+0038 D6 0000               A   491        CALL    __b_ucase
+003B C4E0                  A   492        JP  @RR0
+                           A   493    ;   29                      case 'R':
+003D                       A   494    _1_L_1:
+                           A   495    .line 29
+                           A   496    ;   30                      {
+                           A   497    ;   31                          // Read by
+                           A   498    ;   32                          puts("Read
+                           A   499    .line 32
+003D 8C 00                 A   500        LD  R8,#high(L__3)
+003F 9C 2E                 A   501        LD  R9,#low(L__3)
+0041 D6 0000               A   502        CALL    _f_puts
+                           A   503    ;   33                          // Read by
+                           A   504    ;   34                          putch(char
+                           A   505    .line 34
+0044 848002                A   506        LDX R8,_character
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  11
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   508    ;   38                      }
-                           A   509    ;   39                      case 'W':
-0053                       A   510    _1_L_2:
-                           A   511    .line 39
-                           A   512    ;   40                      {
-                           A   513    ;   41                          char str[1
-                           A   514    ;   42                          puts("Writ
-                           A   515    .line 42
-0053 8C 00                 A   516        LD  R8,#high(L__5)
-0055 9C 54                 A   517        LD  R9,#low(L__5)
-0057 D6 0000               A   518        CALL    _f_puts
-                           A   519    ;   43                          // Write a
-                           A   520    ;   44                          //characte
-                           A   521    ;   45                          // Check f
-                           A   522    ;   46                          puts("Flas
-                           A   523    .line 46
-005A 8C 00                 A   524        LD  R8,#high(L__6)
-005C 9C 97                 A   525        LD  R9,#low(L__6)
-005E D6 0000               A   526        CALL    _f_puts
-                           A   527    ;   47                          sprintf(st
-                           A   528    .line 47
-0061 1CFF                  A   529        LD  R1,#255
-0063 0CE7                  A   530        LD  R0,#231
-0065 020F                  A   531        ADD R0,R15
-0067 121E                  A   532        ADC R1,R14
-0069 89E1FD                A   533        LDX -3(RR14),R1
-006C 89E0FE                A   534        LDX -2(RR14),R0
-006F 998EF6                A   535        LEA RR8,246(RR14)
-0072 AC 00                 A   536        LD  R10,#high(L__7)
-0074 BC 00                 A   537        LD  R11,#low(L__7)
-0076 D6 0000               A   538        CALL    ___print_putromstring0
-0079 0C02                  A   539        LD  R0,#2
-007B 89E0FA                A   540        LDX -6(RR14),R0
-007E 0C60                  A   541        LD  R0,#96
-0080 89E0F6                A   542        LDX -10(RR14),R0
-0083 0C78                  A   543        LD  R0,#120
-0085 89E0F9                A   544        LDX -7(RR14),R0
-0088 D6 0000               A   545        CALL    _checkFlash
-008B 998EF6                A   546        LEA RR8,246(RR14)
-008E B0EA                  A   547        CLR R10
-0090 E4E0EB                A   548        LD  R11,R0
-0093 D6 0000               A   549        CALL    __u_ustoa
-0096 998EF6                A   550        LEA RR8,246(RR14)
-0099 B0EA                  A   551        CLR R10
-009B D6 0000               A   552        CALL    ___print_putch
-                           A   553    ;   48                          puts(str);
-                           A   554    .line 48
-009E 998EE7                A   555        LEA RR8,231(RR14)
-00A1 D6 0000               A   556        CALL    _f_puts
-                           A   557    ;   49                          unlockFlas
-                           A   558    .line 49
-00A4 D6 0000               A   559        CALL    _unlockFlash
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  12
+0047 D6 0000               A   507        CALL    _putch
+                           A   508    ;   35                          puts("\n\n
+                           A   509    .line 35
+004A 8C 00                 A   510        LD  R8,#high(L__4)
+004C 9C 49                 A   511        LD  R9,#low(L__4)
+004E D6 0000               A   512        CALL    _f_puts
+                           A   513    ;   36                          break;
+                           A   514    .line 36
+0051 8B DE                 A   515        JR  _1_L_7
+                           A   516    ;   37                          
+                           A   517    ;   38                      }
+                           A   518    ;   39                      case 'W':
+0053                       A   519    _1_L_2:
+                           A   520    .line 39
+                           A   521    ;   40                      {
+                           A   522    ;   41                          char str[1
+                           A   523    ;   42                          int pageEr
+                           A   524    ;   43                          puts("Writ
+                           A   525    .line 43
+0053 8C 00                 A   526        LD  R8,#high(L__5)
+0055 9C 54                 A   527        LD  R9,#low(L__5)
+0057 D6 0000               A   528        CALL    _f_puts
+                           A   529    ;   44                          // Write a
+                           A   530    ;   45                          //characte
+                           A   531    ;   46                          // Check f
+                           A   532    ;   47                          puts("Flas
+                           A   533    .line 47
+005A 8C 00                 A   534        LD  R8,#high(L__6)
+005C 9C 97                 A   535        LD  R9,#low(L__6)
+005E D6 0000               A   536        CALL    _f_puts
+                           A   537    ;   48                          sprintf(st
+                           A   538    .line 48
+0061 1CFF                  A   539        LD  R1,#255
+0063 0CEA                  A   540        LD  R0,#234
+0065 020F                  A   541        ADD R0,R15
+0067 121E                  A   542        ADC R1,R14
+0069 89E1FD                A   543        LDX -3(RR14),R1
+006C 89E0FE                A   544        LDX -2(RR14),R0
+006F 998EF6                A   545        LEA RR8,246(RR14)
+0072 AC 00                 A   546        LD  R10,#high(L__7)
+0074 BC 00                 A   547        LD  R11,#low(L__7)
+0076 D6 0000               A   548        CALL    ___print_putromstring0
+0079 0C02                  A   549        LD  R0,#2
+007B 89E0FA                A   550        LDX -6(RR14),R0
+007E 0C60                  A   551        LD  R0,#96
+0080 89E0F6                A   552        LDX -10(RR14),R0
+0083 0C78                  A   553        LD  R0,#120
+0085 89E0F9                A   554        LDX -7(RR14),R0
+0088 D6 0000               A   555        CALL    _checkFlash
+008B 998EF6                A   556        LEA RR8,246(RR14)
+008E B0EA                  A   557        CLR R10
+0090 E4E0EB                A   558        LD  R11,R0
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  12
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   560    ;   50                          pageEraseF
-                           A   561    .line 50
-00A7 B0E8                  A   562        CLR R8
-00A9 B0E9                  A   563        CLR R9
-00AB AC1C                  A   564        LD  R10,#28
-00AD B0EB                  A   565        CLR R11
-00AF D6 0000               A   566        CALL    _pageEraseFlash
-                           A   567    ;   51                          sprintf(st
-                           A   568    .line 51
-00B2 1CFF                  A   569        LD  R1,#255
-00B4 0CE7                  A   570        LD  R0,#231
-00B6 020F                  A   571        ADD R0,R15
-00B8 121E                  A   572        ADC R1,R14
-00BA 89E1FD                A   573        LDX -3(RR14),R1
-00BD 89E0FE                A   574        LDX -2(RR14),R0
-00C0 998EF6                A   575        LEA RR8,246(RR14)
-00C3 AC 00                 A   576        LD  R10,#high(L__8)
-00C5 BC 03                 A   577        LD  R11,#low(L__8)
-00C7 D6 0000               A   578        CALL    ___print_putromstring0
-00CA 0C02                  A   579        LD  R0,#2
-00CC 89E0FA                A   580        LDX -6(RR14),R0
-00CF 0C60                  A   581        LD  R0,#96
-00D1 89E0F6                A   582        LDX -10(RR14),R0
-00D4 0C78                  A   583        LD  R0,#120
-00D6 89E0F9                A   584        LDX -7(RR14),R0
-00D9 D6 0000               A   585        CALL    _checkFlash
-00DC 998EF6                A   586        LEA RR8,246(RR14)
-00DF B0EA                  A   587        CLR R10
-00E1 E4E0EB                A   588        LD  R11,R0
-00E4 D6 0000               A   589        CALL    __u_ustoa
-00E7 998EF6                A   590        LEA RR8,246(RR14)
-00EA B0EA                  A   591        CLR R10
-00EC D6 0000               A   592        CALL    ___print_putch
-                           A   593    ;   52                          puts("Flas
-                           A   594    .line 52
-00EF 8C 00                 A   595        LD  R8,#high(L__9)
-00F1 9C A5                 A   596        LD  R9,#low(L__9)
-00F3 D6 0000               A   597        CALL    _f_puts
-                           A   598    ;   53                          puts(str);
-                           A   599    .line 53
-00F6 998EE7                A   600        LEA RR8,231(RR14)
-00F9 D6 0000               A   601        CALL    _f_puts
-                           A   602    ;   54                          puts("Succ
-                           A   603    .line 54
-00FC 8C 00                 A   604        LD  R8,#high(L__10)
-00FE 9C B3                 A   605        LD  R9,#low(L__10)
-0100 D6 0000               A   606        CALL    _f_puts
-                           A   607    ;   55                          break;
-                           A   608    .line 55
-0103 8D 00 31              A   609        JR  _1_L_5
-                           A   610    ;   56                      }
-                           A   611    ;   57                      case '?':
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  13
+0093 D6 0000               A   559        CALL    __u_ustoa
+0096 998EF6                A   560        LEA RR8,246(RR14)
+0099 B0EA                  A   561        CLR R10
+009B D6 0000               A   562        CALL    ___print_putch
+                           A   563    ;   49                          puts(str);
+                           A   564    .line 49
+009E 998EEA                A   565        LEA RR8,234(RR14)
+00A1 D6 0000               A   566        CALL    _f_puts
+                           A   567    ;   50                          // unlockF
+                           A   568    ;   51                          pageEraseR
+                           A   569    .line 51
+00A4 B0E8                  A   570        CLR R8
+00A6 B0E9                  A   571        CLR R9
+00A8 AC14                  A   572        LD  R10,#20
+00AA B0EB                  A   573        CLR R11
+00AC D6 0000               A   574        CALL    _pageEraseFlash
+00AF 89E0DA                A   575        LDX -38(RR14),R0
+00B2 89E1DB                A   576        LDX -37(RR14),R1
+                           A   577    ;   52                          if (pageEr
+                           A   578    .line 52
+00B5 880EDA                A   579        LDX R0,-38(RR14)
+00B8 881EDB                A   580        LDX R1,-37(RR14)
+00BB A6E1FF                A   581        CP  R1,#255
+00BE 1FA6E0FF              A   582        CPC R0,#255
+00C2 EB 07                 A   583        JR  NE,_1_L_4
+00C4 8C 00                 A   584        LD  R8,#high(L__9)
+00C6 9C A5                 A   585        LD  R9,#low(L__9)
+00C8 D6 0000               A   586        CALL    _f_puts
+00CB                       A   587    _1_L_4:
+                           A   588    ;   53                          sprintf(st
+                           A   589    .line 53
+00CB 1CFF                  A   590        LD  R1,#255
+00CD 0CEA                  A   591        LD  R0,#234
+00CF 020F                  A   592        ADD R0,R15
+00D1 121E                  A   593        ADC R1,R14
+00D3 89E1FD                A   594        LDX -3(RR14),R1
+00D6 89E0FE                A   595        LDX -2(RR14),R0
+00D9 998EF6                A   596        LEA RR8,246(RR14)
+00DC AC 00                 A   597        LD  R10,#high(L__10)
+00DE BC 03                 A   598        LD  R11,#low(L__10)
+00E0 D6 0000               A   599        CALL    ___print_putromstring0
+00E3 0C02                  A   600        LD  R0,#2
+00E5 89E0FA                A   601        LDX -6(RR14),R0
+00E8 0C60                  A   602        LD  R0,#96
+00EA 89E0F6                A   603        LDX -10(RR14),R0
+00ED 0C78                  A   604        LD  R0,#120
+00EF 89E0F9                A   605        LDX -7(RR14),R0
+00F2 D6 0000               A   606        CALL    _checkFlash
+00F5 998EF6                A   607        LEA RR8,246(RR14)
+00F8 B0EA                  A   608        CLR R10
+00FA E4E0EB                A   609        LD  R11,R0
+00FD D6 0000               A   610        CALL    __u_ustoa
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  13
 
 
 PC     Object              F  Line    Source terminal.src
-0106                       A   612    _1_L_3:
-                           A   613    .line 57
-                           A   614    ;   58                      {
-                           A   615    ;   59                          char str[1
-                           A   616    ;   60                          // Check f
-                           A   617    ;   61                          puts("Flas
-                           A   618    .line 61
-0106 8C 00                 A   619        LD  R8,#high(L__11)
-0108 9C BD                 A   620        LD  R9,#low(L__11)
-010A D6 0000               A   621        CALL    _f_puts
-                           A   622    ;   62                          sprintf(st
-                           A   623    .line 62
-010D 1CFF                  A   624        LD  R1,#255
-010F 0CDC                  A   625        LD  R0,#220
-0111 020F                  A   626        ADD R0,R15
-0113 121E                  A   627        ADC R1,R14
-0115 89E1FD                A   628        LDX -3(RR14),R1
-0118 89E0FE                A   629        LDX -2(RR14),R0
-011B 998EF6                A   630        LEA RR8,246(RR14)
-011E AC 00                 A   631        LD  R10,#high(L__12)
-0120 BC 06                 A   632        LD  R11,#low(L__12)
-0122 D6 0000               A   633        CALL    ___print_putromstring0
-0125 0C02                  A   634        LD  R0,#2
-0127 89E0FA                A   635        LDX -6(RR14),R0
-012A 0C60                  A   636        LD  R0,#96
-012C 89E0F6                A   637        LDX -10(RR14),R0
-012F 0C78                  A   638        LD  R0,#120
-0131 89E0F9                A   639        LDX -7(RR14),R0
-0134 D6 0000               A   640        CALL    _checkFlash
-0137 998EF6                A   641        LEA RR8,246(RR14)
-013A B0EA                  A   642        CLR R10
-013C E4E0EB                A   643        LD  R11,R0
-013F D6 0000               A   644        CALL    __u_ustoa
-0142 998EF6                A   645        LEA RR8,246(RR14)
-0145 B0EA                  A   646        CLR R10
-0147 D6 0000               A   647        CALL    ___print_putch
-                           A   648    ;   63                          puts(str);
-                           A   649    .line 63
-014A 998EDC                A   650        LEA RR8,220(RR14)
-014D D6 0000               A   651        CALL    _f_puts
-                           A   652    ;   64                          break;
-                           A   653    .line 64
-0150 8D 00 31              A   654        JR  _1_L_5
-                           A   655    ;   65                      }
-                           A   656    ;   66                      default:
-0153                       A   657    _1_L_4:
-                           A   658    .line 66
-                           A   659    ;   67                          puts("notF
-                           A   660    .line 67
-0153 8C 00                 A   661        LD  R8,#high(L__13)
-0155 9C CB                 A   662        LD  R9,#low(L__13)
-0157 D6 0000               A   663        CALL    _f_puts
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  14
+0100 998EF6                A   611        LEA RR8,246(RR14)
+0103 B0EA                  A   612        CLR R10
+0105 D6 0000               A   613        CALL    ___print_putch
+                           A   614    ;   54                          puts("Flas
+                           A   615    .line 54
+0108 8C 00                 A   616        LD  R8,#high(L__11)
+010A 9C B4                 A   617        LD  R9,#low(L__11)
+010C D6 0000               A   618        CALL    _f_puts
+                           A   619    ;   55                          puts(str);
+                           A   620    .line 55
+010F 998EEA                A   621        LEA RR8,234(RR14)
+0112 D6 0000               A   622        CALL    _f_puts
+                           A   623    ;   56                          sprintf(st
+                           A   624    .line 56
+0115 1CFF                  A   625        LD  R1,#255
+0117 0CEA                  A   626        LD  R0,#234
+0119 020F                  A   627        ADD R0,R15
+011B 121E                  A   628        ADC R1,R14
+011D 89E1FD                A   629        LDX -3(RR14),R1
+0120 89E0FE                A   630        LDX -2(RR14),R0
+0123 998EF6                A   631        LEA RR8,246(RR14)
+0126 AC 00                 A   632        LD  R10,#high(L__12)
+0128 BC 06                 A   633        LD  R11,#low(L__12)
+012A D6 0000               A   634        CALL    ___print_putromstring0
+012D 0C02                  A   635        LD  R0,#2
+012F 89E0FA                A   636        LDX -6(RR14),R0
+0132 0C60                  A   637        LD  R0,#96
+0134 89E0F6                A   638        LDX -10(RR14),R0
+0137 0C78                  A   639        LD  R0,#120
+0139 89E0F9                A   640        LDX -7(RR14),R0
+013C 84B002                A   641        LDX R11,_character
+013F 998EF6                A   642        LEA RR8,246(RR14)
+0142 B0EA                  A   643        CLR R10
+0144 D6 0000               A   644        CALL    __u_ustoa
+0147 998EF6                A   645        LEA RR8,246(RR14)
+014A B0EA                  A   646        CLR R10
+014C D6 0000               A   647        CALL    ___print_putch
+                           A   648    ;   57                          puts(str);
+                           A   649    .line 57
+014F 998EEA                A   650        LEA RR8,234(RR14)
+0152 D6 0000               A   651        CALL    _f_puts
+                           A   652    ;   58                          puts("Succ
+                           A   653    .line 58
+0155 8C 00                 A   654        LD  R8,#high(L__13)
+0157 9C C2                 A   655        LD  R9,#low(L__13)
+0159 D6 0000               A   656        CALL    _f_puts
+                           A   657    ;   59                          break;
+                           A   658    .line 59
+015C 8D 00 31              A   659        JR  _1_L_7
+                           A   660    ;   60                      }
+                           A   661    ;   61                      case '?':
+015F                       A   662    _1_L_5:
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  14
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   664    ;   68                          break;
-                           A   665    .line 68
-015A 8D 00 31              A   666        JR  _1_L_5
-                           A   667    ;   69                  }
-                           A   668    ;   70              }
-                           A   669    ;   71              break;
-                           A   670    ;   72          }   
-                           A   671    ;   73          case CMD_STK_GET_SIGN_ON:
-015D                       A   672    _1_L_8:
-                           A   673    .line 73
-                           A   674    ;   74              //trigger_watchdog(); 
-                           A   675    ;   75              if (inputch == STK_INS
-                           A   676    .line 75
-015D 880EE6                A   677        LDX R0,-26(RR14)
-0160 A6E014                A   678        CP  R0,#20
-0163 ED 02 E4              A   679        JR  NE,_1_L_37
-                           A   680    ;   76                  string_response(ST
-                           A   681    .line 76
-0166 8C 00                 A   682        LD  R8,#high(L__15)
-0168 9C 00                 A   683        LD  R9,#low(L__15)
-016A D6 0000               A   684        CALL    _string_response
-                           A   685    ;   77                  
-                           A   686    ;   78              }
-                           A   687    .line 78
-                           A   688    ;   79              break;
-                           A   689    .line 79
-016D 8D 02 E4              A   690        JR  _1_L_37
-                           A   691    ;   80          case CMD_STK_GET_SYNC:
-0170                       A   692    _1_L_11:
-                           A   693    .line 80
-                           A   694    ;   81              sync_ok_response();
-                           A   695    .line 81
-0170 D6 0000               A   696        CALL    _sync_ok_response
-                           A   697    ;   82              break;
-                           A   698    .line 82
-0173 8D 02 E4              A   699        JR  _1_L_37
-                           A   700    ;   83          case CMD_STK_GET_PARAMETER
-0176                       A   701    _1_L_12:
-                           A   702    .line 83
-                           A   703    ;   84              {
-                           A   704    ;   85                  // trigger_watchdo
-                           A   705    ;   86                  char ch2 = getch()
-                           A   706    .line 86
-0176 D6 0000               A   707        CALL    _getch
-0179 89E1F3                A   708        LDX -13(RR14),R1
-                           A   709    ;   87                  if(ch2 == PARAM_ST
-                           A   710    .line 87
-017C 881EF3                A   711        LDX R1,-13(RR14)
-017F E4E1E0                A   712        LD  R0,R1
-0182 90E0                  A   713        RL  R0
-0184 3200                  A   714        SBC R0,R0
-0186 A6E180                A   715        CP  R1,#128
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  15
+                           A   663    .line 61
+                           A   664    ;   62                      {
+                           A   665    ;   63                          char str[1
+                           A   666    ;   64                          // Check f
+                           A   667    ;   65                          puts("Flas
+                           A   668    .line 65
+015F 8C 00                 A   669        LD  R8,#high(L__14)
+0161 9C CC                 A   670        LD  R9,#low(L__14)
+0163 D6 0000               A   671        CALL    _f_puts
+                           A   672    ;   66                          sprintf(st
+                           A   673    .line 66
+0166 1CFF                  A   674        LD  R1,#255
+0168 0CDC                  A   675        LD  R0,#220
+016A 020F                  A   676        ADD R0,R15
+016C 121E                  A   677        ADC R1,R14
+016E 89E1FD                A   678        LDX -3(RR14),R1
+0171 89E0FE                A   679        LDX -2(RR14),R0
+0174 998EF6                A   680        LEA RR8,246(RR14)
+0177 AC 00                 A   681        LD  R10,#high(L__15)
+0179 BC 09                 A   682        LD  R11,#low(L__15)
+017B D6 0000               A   683        CALL    ___print_putromstring0
+017E 0C02                  A   684        LD  R0,#2
+0180 89E0FA                A   685        LDX -6(RR14),R0
+0183 0C60                  A   686        LD  R0,#96
+0185 89E0F6                A   687        LDX -10(RR14),R0
+0188 0C78                  A   688        LD  R0,#120
+018A 89E0F9                A   689        LDX -7(RR14),R0
+018D D6 0000               A   690        CALL    _checkFlash
+0190 998EF6                A   691        LEA RR8,246(RR14)
+0193 B0EA                  A   692        CLR R10
+0195 E4E0EB                A   693        LD  R11,R0
+0198 D6 0000               A   694        CALL    __u_ustoa
+019B 998EF6                A   695        LEA RR8,246(RR14)
+019E B0EA                  A   696        CLR R10
+01A0 D6 0000               A   697        CALL    ___print_putch
+                           A   698    ;   67                          puts(str);
+                           A   699    .line 67
+01A3 998EDC                A   700        LEA RR8,220(RR14)
+01A6 D6 0000               A   701        CALL    _f_puts
+                           A   702    ;   68                          break;
+                           A   703    .line 68
+01A9 8D 00 31              A   704        JR  _1_L_7
+                           A   705    ;   69                      }
+                           A   706    ;   70                      default:
+01AC                       A   707    _1_L_6:
+                           A   708    .line 70
+                           A   709    ;   71                          puts("notF
+                           A   710    .line 71
+01AC 8C 00                 A   711        LD  R8,#high(L__16)
+01AE 9C DA                 A   712        LD  R9,#low(L__16)
+01B0 D6 0000               A   713        CALL    _f_puts
+                           A   714    ;   72                          break;
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  15
 
 
 PC     Object              F  Line    Source terminal.src
-0189 1FA6E000              A   716        CPC R0,#-0
-018D EB 08                 A   717        JR  NE,_1_L_20
-018F 8C02                  A   718        LD  R8,#2
-0191 D6 0000               A   719        CALL    _byte_response
-                           A   720    ;   88                  else if(ch2 == PAR
-                           A   721    .line 88
-0194 8D 02 E4              A   722        JR  _1_L_37
-0197                       A   723    _1_L_20:
-0197 881EF3                A   724        LDX R1,-13(RR14)
-019A E4E1E0                A   725        LD  R0,R1
-019D 90E0                  A   726        RL  R0
-019F 3200                  A   727        SBC R0,R0
-01A1 A6E181                A   728        CP  R1,#129
-01A4 1FA6E000              A   729        CPC R0,#-0
-01A8 EB 08                 A   730        JR  NE,_1_L_18
-01AA 8C01                  A   731        LD  R8,#1
-01AC D6 0000               A   732        CALL    _byte_response
-                           A   733    ;   89                  else if(ch2 == PAR
-                           A   734    .line 89
-01AF 8D 02 E4              A   735        JR  _1_L_37
-01B2                       A   736    _1_L_18:
-01B2 881EF3                A   737        LDX R1,-13(RR14)
-01B5 E4E1E0                A   738        LD  R0,R1
-01B8 90E0                  A   739        RL  R0
-01BA 3200                  A   740        SBC R0,R0
-01BC A6E182                A   741        CP  R1,#130
-01BF 1FA6E000              A   742        CPC R0,#-0
-01C3 EB 08                 A   743        JR  NE,_1_L_16
-01C5 8C10                  A   744        LD  R8,#16
-01C7 D6 0000               A   745        CALL    _byte_response
-                           A   746    ;   90                  else if(ch2 == PAR
-                           A   747    .line 90
-01CA 8D 02 E4              A   748        JR  _1_L_37
-01CD                       A   749    _1_L_16:
-01CD 881EF3                A   750        LDX R1,-13(RR14)
-01D0 E4E1E0                A   751        LD  R0,R1
-01D3 90E0                  A   752        RL  R0
-01D5 3200                  A   753        SBC R0,R0
-01D7 A6E198                A   754        CP  R1,#152
-01DA 1FA6E000              A   755        CPC R0,#-0
-01DE EB 08                 A   756        JR  NE,_1_L_14
-01E0 8C03                  A   757        LD  R8,#3
-01E2 D6 0000               A   758        CALL    _byte_response
-                           A   759    ;   91                  else byte_response
+                           A   715    .line 72
+01B3 8D 00 31              A   716        JR  _1_L_7
+                           A   717    ;   73                  }
+                           A   718    ;   74              }
+                           A   719    ;   75              break;
+                           A   720    ;   76          }   
+                           A   721    ;   77          case CMD_STK_GET_SIGN_ON:
+01B6                       A   722    _1_L_10:
+                           A   723    .line 77
+                           A   724    ;   78              //trigger_watchdog(); 
+                           A   725    ;   79              if (inputch == STK_INS
+                           A   726    .line 79
+01B6 880EE6                A   727        LDX R0,-26(RR14)
+01B9 A6E014                A   728        CP  R0,#20
+01BC ED 03 3D              A   729        JR  NE,_1_L_39
+                           A   730    ;   80                  string_response(ST
+                           A   731    .line 80
+01BF 8C 00                 A   732        LD  R8,#high(L__18)
+01C1 9C 00                 A   733        LD  R9,#low(L__18)
+01C3 D6 0000               A   734        CALL    _string_response
+                           A   735    ;   81                  
+                           A   736    ;   82              }
+                           A   737    .line 82
+                           A   738    ;   83              break;
+                           A   739    .line 83
+01C6 8D 03 3D              A   740        JR  _1_L_39
+                           A   741    ;   84          case CMD_STK_GET_SYNC:
+01C9                       A   742    _1_L_13:
+                           A   743    .line 84
+                           A   744    ;   85              sync_ok_response();
+                           A   745    .line 85
+01C9 D6 0000               A   746        CALL    _sync_ok_response
+                           A   747    ;   86              break;
+                           A   748    .line 86
+01CC 8D 03 3D              A   749        JR  _1_L_39
+                           A   750    ;   87          case CMD_STK_GET_PARAMETER
+01CF                       A   751    _1_L_14:
+                           A   752    .line 87
+                           A   753    ;   88              {
+                           A   754    ;   89                  // trigger_watchdo
+                           A   755    ;   90                  char ch2 = getch()
+                           A   756    .line 90
+01CF D6 0000               A   757        CALL    _getch
+01D2 89E1E9                A   758        LDX -23(RR14),R1
+                           A   759    ;   91                  if(ch2 == PARAM_ST
                            A   760    .line 91
-01E5 8D 02 E4              A   761        JR  _1_L_37
-01E8                       A   762    _1_L_14:
-01E8 B0E8                  A   763        CLR R8
-01EA D6 0000               A   764        CALL    _byte_response
-                           A   765    ;   92              }
-                           A   766    .line 92
-                           A   767    ;   93              break;
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  16
+01D5 881EE9                A   761        LDX R1,-23(RR14)
+01D8 E4E1E0                A   762        LD  R0,R1
+01DB 90E0                  A   763        RL  R0
+01DD 3200                  A   764        SBC R0,R0
+01DF A6E180                A   765        CP  R1,#128
+01E2 1FA6E000              A   766        CPC R0,#-0
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  16
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   768    .line 93
-01ED 8D 02 E4              A   769        JR  _1_L_37
-                           A   770    ;   94          case CMD_STK_LOAD_ADDRESS:
-01F0                       A   771    _1_L_22:
-                           A   772    .line 94
-                           A   773    ;   95              {
-                           A   774    ;   96                 // Load an address 
-                           A   775    ;   97                 UINT16 newAddress;
-                           A   776    ;   98                 newAddress = getch(
-                           A   777    .line 98
-01F0 D6 0000               A   778        CALL    _getch
-01F3 89E0F4                A   779        LDX -12(RR14),R0
-01F6 89E1F5                A   780        LDX -11(RR14),R1
-                           A   781    ;   99                 newAddress = (newAd
-                           A   782    .line 99
-01F9 883EF5                A   783        LDX R3,-11(RR14)
-01FC B0E2                  A   784        CLR R2
-01FE 89E2D9                A   785        LDX -39(RR14),R2
-0201 89E3D8                A   786        LDX -40(RR14),R3
-0204 D6 0000               A   787        CALL    _getch
-0207 883ED8                A   788        LDX R3,-40(RR14)
-020A 882ED9                A   789        LDX R2,-39(RR14)
-020D 4221                  A   790        OR  R2,R1
-020F 89E2F4                A   791        LDX -12(RR14),R2
-0212 89E3F5                A   792        LDX -11(RR14),R3
-                           A   793    ;  100                 newAddress += newAd
-                           A   794    .line 100
-0215 882EF4                A   795        LDX R2,-12(RR14)
-0218 883EF5                A   796        LDX R3,-11(RR14)
-021B E4E2E1                A   797        LD  R1,R2
-021E E4E3E0                A   798        LD  R0,R3
-0221 0203                  A   799        ADD R0,R3
-0223 1212                  A   800        ADC R1,R2
-0225 89E1F4                A   801        LDX -12(RR14),R1
-0228 89E0F5                A   802        LDX -11(RR14),R0
-                           A   803    ;  101                 address = newAddres
-                           A   804    .line 101
-022B 880EF4                A   805        LDX R0,-12(RR14)
-022E 881EF5                A   806        LDX R1,-11(RR14)
-0231 940000                A   807        LDX _address,R0
-0234 941001                A   808        LDX _address+1,R1
-                           A   809    ;  102                 sync_ok_response();
-                           A   810    .line 102
-0237 D6 0000               A   811        CALL    _sync_ok_response
-                           A   812    ;  103                 //trigger_watchdog(
-                           A   813    ;  104              }
-                           A   814    ;  105                 break;
-                           A   815    .line 105
-023A 8D 02 E4              A   816        JR  _1_L_37
-                           A   817    ;  106          case CMD_STK_PROG_PAGE:
-023D                       A   818    _1_L_23:
-                           A   819    .line 106
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  17
+01E6 EB 08                 A   767        JR  NE,_1_L_22
+01E8 8C02                  A   768        LD  R8,#2
+01EA D6 0000               A   769        CALL    _byte_response
+                           A   770    ;   92                  else if(ch2 == PAR
+                           A   771    .line 92
+01ED 8D 03 3D              A   772        JR  _1_L_39
+01F0                       A   773    _1_L_22:
+01F0 881EE9                A   774        LDX R1,-23(RR14)
+01F3 E4E1E0                A   775        LD  R0,R1
+01F6 90E0                  A   776        RL  R0
+01F8 3200                  A   777        SBC R0,R0
+01FA A6E181                A   778        CP  R1,#129
+01FD 1FA6E000              A   779        CPC R0,#-0
+0201 EB 08                 A   780        JR  NE,_1_L_20
+0203 8C01                  A   781        LD  R8,#1
+0205 D6 0000               A   782        CALL    _byte_response
+                           A   783    ;   93                  else if(ch2 == PAR
+                           A   784    .line 93
+0208 8D 03 3D              A   785        JR  _1_L_39
+020B                       A   786    _1_L_20:
+020B 881EE9                A   787        LDX R1,-23(RR14)
+020E E4E1E0                A   788        LD  R0,R1
+0211 90E0                  A   789        RL  R0
+0213 3200                  A   790        SBC R0,R0
+0215 A6E182                A   791        CP  R1,#130
+0218 1FA6E000              A   792        CPC R0,#-0
+021C EB 08                 A   793        JR  NE,_1_L_18
+021E 8C10                  A   794        LD  R8,#16
+0220 D6 0000               A   795        CALL    _byte_response
+                           A   796    ;   94                  else if(ch2 == PAR
+                           A   797    .line 94
+0223 8D 03 3D              A   798        JR  _1_L_39
+0226                       A   799    _1_L_18:
+0226 881EE9                A   800        LDX R1,-23(RR14)
+0229 E4E1E0                A   801        LD  R0,R1
+022C 90E0                  A   802        RL  R0
+022E 3200                  A   803        SBC R0,R0
+0230 A6E198                A   804        CP  R1,#152
+0233 1FA6E000              A   805        CPC R0,#-0
+0237 EB 08                 A   806        JR  NE,_1_L_16
+0239 8C03                  A   807        LD  R8,#3
+023B D6 0000               A   808        CALL    _byte_response
+                           A   809    ;   95                  else byte_response
+                           A   810    .line 95
+023E 8D 03 3D              A   811        JR  _1_L_39
+0241                       A   812    _1_L_16:
+0241 B0E8                  A   813        CLR R8
+0243 D6 0000               A   814        CALL    _byte_response
+                           A   815    ;   96              }
+                           A   816    .line 96
+                           A   817    ;   97              break;
+                           A   818    .line 97
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  17
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   820    ;  107          {
-                           A   821    ;  108              // Program a page, len
-                           A   822    ;  109              // Program the flash m
-                           A   823    ;  110              UINT8 *buffPtr;
-                           A   824    ;  111              UINT16 addrPtr;
-                           A   825    ;  112              getch(); // Skip bytes
-                           A   826    .line 112
-023D D6 0000               A   827        CALL    _getch
-                           A   828    ;  113              length = getch(); // C
-                           A   829    .line 113
-0240 D6 0000               A   830        CALL    _getch
-0243 940000                A   831        LDX _length,R0
-0246 941001                A   832        LDX _length+1,R1
-                           A   833    ;  114              getch(); // Skip memty
-                           A   834    .line 114
-0249 D6 0000               A   835        CALL    _getch
-                           A   836    ;  115              
-                           A   837    ;  116              // If we are in a RWW 
-                           A   838    ;  117              //if(address < NRWWSTA
-                           A   839    ;  118              
-                           A   840    ;  119              // Read in the page co
-                           A   841    ;  120              buffPtr = buff;
-                           A   842    .line 120
-024C 0C01                  A   843        LD  R0,#1
-024E B0E1                  A   844        CLR R1
-0250 89E0F1                A   845        LDX -15(RR14),R0
-0253 89E1F2                A   846        LDX -14(RR14),R1
-                           A   847    ;  121              do *buffPtr++ = getch(
-0256                       A   848    _1_L_25:
-                           A   849    .line 121
-0256 882EF1                A   850        LDX R2,-15(RR14)
-0259 883EF2                A   851        LDX R3,-14(RR14)
-025C 89E2D9                A   852        LDX -39(RR14),R2
-025F 89E3D8                A   853        LDX -40(RR14),R3
-0262 D6 0000               A   854        CALL    _getch
-0265 883ED8                A   855        LDX R3,-40(RR14)
-0268 882ED9                A   856        LDX R2,-39(RR14)
-026B 1FE8EE2E E4           A   857        LDWX    RR4,RR2
-0270 96E1E4                A   858        LDX @RR4,R1
-0273 882EF1                A   859        LDX R2,-15(RR14)
-0276 883EF2                A   860        LDX R3,-14(RR14)
-0279 A0E2                  A   861        INCW    RR2
-027B 89E2F1                A   862        LDX -15(RR14),R2
-027E 89E3F2                A   863        LDX -14(RR14),R3
-                           A   864    ;  122              while(--length); // th
-                           A   865    .line 122
-0281 29010001              A   866        SUBX    _length+1,#1
-0285 39000000              A   867        SBCX    _length,#-0
-0289 840000                A   868        LDX R0,_length
-028C 48 001EE0             A   869        ORX R0,_length+1
-0290 EB C4                 A   870        JR  NE,_1_L_25
-                           A   871    ;  123              
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  18
+0246 8D 03 3D              A   819        JR  _1_L_39
+                           A   820    ;   98          case CMD_STK_LOAD_ADDRESS:
+0249                       A   821    _1_L_24:
+                           A   822    .line 98
+                           A   823    ;   99              {
+                           A   824    ;  100                 // Load an address 
+                           A   825    ;  101                 UINT16 newAddress;
+                           A   826    ;  102                 newAddress = getch(
+                           A   827    .line 102
+0249 D6 0000               A   828        CALL    _getch
+024C 89E0F4                A   829        LDX -12(RR14),R0
+024F 89E1F5                A   830        LDX -11(RR14),R1
+                           A   831    ;  103                 newAddress = (newAd
+                           A   832    .line 103
+0252 883EF5                A   833        LDX R3,-11(RR14)
+0255 B0E2                  A   834        CLR R2
+0257 89E2D7                A   835        LDX -41(RR14),R2
+025A 89E3D6                A   836        LDX -42(RR14),R3
+025D D6 0000               A   837        CALL    _getch
+0260 883ED6                A   838        LDX R3,-42(RR14)
+0263 882ED7                A   839        LDX R2,-41(RR14)
+0266 4221                  A   840        OR  R2,R1
+0268 89E2F4                A   841        LDX -12(RR14),R2
+026B 89E3F5                A   842        LDX -11(RR14),R3
+                           A   843    ;  104                 newAddress += newAd
+                           A   844    .line 104
+026E 882EF4                A   845        LDX R2,-12(RR14)
+0271 883EF5                A   846        LDX R3,-11(RR14)
+0274 E4E2E1                A   847        LD  R1,R2
+0277 E4E3E0                A   848        LD  R0,R3
+027A 0203                  A   849        ADD R0,R3
+027C 1212                  A   850        ADC R1,R2
+027E 89E1F4                A   851        LDX -12(RR14),R1
+0281 89E0F5                A   852        LDX -11(RR14),R0
+                           A   853    ;  105                 address = newAddres
+                           A   854    .line 105
+0284 880EF4                A   855        LDX R0,-12(RR14)
+0287 881EF5                A   856        LDX R1,-11(RR14)
+028A 940000                A   857        LDX _address,R0
+028D 941001                A   858        LDX _address+1,R1
+                           A   859    ;  106                 sync_ok_response();
+                           A   860    .line 106
+0290 D6 0000               A   861        CALL    _sync_ok_response
+                           A   862    ;  107                 //trigger_watchdog(
+                           A   863    ;  108              }
+                           A   864    ;  109                 break;
+                           A   865    .line 109
+0293 8D 03 3D              A   866        JR  _1_L_39
+                           A   867    ;  110          case CMD_STK_PROG_PAGE:
+0296                       A   868    _1_L_25:
+                           A   869    .line 110
+                           A   870    ;  111          {
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  18
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   872    ;  124              // Check if we have a 
-                           A   873    ;  125              //trigger_watchdog(); 
-                           A   874    ;  126              
-                           A   875    ;  127              // Check if the erase 
-                           A   876    ;  128              // check_if_pageerase_
-                           A   877    ;  129              
-                           A   878    ;  130              // Copy the buffer int
-                           A   879    ;  131              buffPtr = buff;
-                           A   880    .line 131
-0292 0C01                  A   881        LD  R0,#1
-0294 B0E1                  A   882        CLR R1
-0296 89E0F1                A   883        LDX -15(RR14),R0
-0299 89E1F2                A   884        LDX -14(RR14),R1
-                           A   885    ;  132              addrPtr = (UINT16)(voi
-                           A   886    .line 132
-029C 840000                A   887        LDX R0,_address
-029F 841001                A   888        LDX R1,_address+1
-02A2 89E0DA                A   889        LDX -38(RR14),R0
-02A5 89E1DB                A   890        LDX -37(RR14),R1
-                           A   891    ;  133              inputch = 1024 / 2;  /
-                           A   892    .line 133
-02A8 B0E0                  A   893        CLR R0
-02AA 89E0E6                A   894        LDX -26(RR14),R0
-                           A   895    ;  134              //do {
-                           A   896    ;  135                  // TODO: Write int
-                           A   897    ;  136              //} while(--inputch);
-                           A   898    ;  137              
-                           A   899    ;  138              // check_if_flashwrite
-                           A   900    ;  139              
-                           A   901    ;  140              sync_ok_response();
-                           A   902    .line 140
-02AD D6 0000               A   903        CALL    _sync_ok_response
-                           A   904    ;  141          }
-                           A   905    ;  142              break; 
-                           A   906    .line 142
-02B0 8B 32                 A   907        JR  _1_L_37
-                           A   908    ;  143          case CMD_STK_READ_PAGE:
-02B2                       A   909    _1_L_28:
-                           A   910    .line 143
-                           A   911    ;  144          {
-                           A   912    ;  145              // Read the requested 
-                           A   913    ;  146              getch(); // Skip bytes
-                           A   914    .line 146
-02B2 D6 0000               A   915        CALL    _getch
-                           A   916    ;  147              length = getch(); // B
-                           A   917    .line 147
-02B5 D6 0000               A   918        CALL    _getch
-02B8 940000                A   919        LDX _length,R0
-02BB 941001                A   920        LDX _length+1,R1
-                           A   921    ;  148              getch(); // Skip mem-t
-                           A   922    .line 148
-02BE D6 0000               A   923        CALL    _getch
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  19
+                           A   871    ;  112              // Program a page, len
+                           A   872    ;  113              // Program the flash m
+                           A   873    ;  114              UINT8 *buffPtr;
+                           A   874    ;  115              UINT16 addrPtr;
+                           A   875    ;  116              getch(); // Skip bytes
+                           A   876    .line 116
+0296 D6 0000               A   877        CALL    _getch
+                           A   878    ;  117              length = getch(); // C
+                           A   879    .line 117
+0299 D6 0000               A   880        CALL    _getch
+029C 940000                A   881        LDX _length,R0
+029F 941001                A   882        LDX _length+1,R1
+                           A   883    ;  118              getch(); // Skip memty
+                           A   884    .line 118
+02A2 D6 0000               A   885        CALL    _getch
+                           A   886    ;  119              
+                           A   887    ;  120              // If we are in a RWW 
+                           A   888    ;  121              //if(address < NRWWSTA
+                           A   889    ;  122              
+                           A   890    ;  123              // Read in the page co
+                           A   891    ;  124              buffPtr = buff;
+                           A   892    .line 124
+02A5 0C01                  A   893        LD  R0,#1
+02A7 B0E1                  A   894        CLR R1
+02A9 89E0E7                A   895        LDX -25(RR14),R0
+02AC 89E1E8                A   896        LDX -24(RR14),R1
+                           A   897    ;  125              do *buffPtr++ = getch(
+02AF                       A   898    _1_L_27:
+                           A   899    .line 125
+02AF 882EE7                A   900        LDX R2,-25(RR14)
+02B2 883EE8                A   901        LDX R3,-24(RR14)
+02B5 89E2D7                A   902        LDX -41(RR14),R2
+02B8 89E3D6                A   903        LDX -42(RR14),R3
+02BB D6 0000               A   904        CALL    _getch
+02BE 883ED6                A   905        LDX R3,-42(RR14)
+02C1 882ED7                A   906        LDX R2,-41(RR14)
+02C4 1FE8EE2E E4           A   907        LDWX    RR4,RR2
+02C9 96E1E4                A   908        LDX @RR4,R1
+02CC 882EE7                A   909        LDX R2,-25(RR14)
+02CF 883EE8                A   910        LDX R3,-24(RR14)
+02D2 A0E2                  A   911        INCW    RR2
+02D4 89E2E7                A   912        LDX -25(RR14),R2
+02D7 89E3E8                A   913        LDX -24(RR14),R3
+                           A   914    ;  126              while(--length); // th
+                           A   915    .line 126
+02DA 29010001              A   916        SUBX    _length+1,#1
+02DE 39000000              A   917        SBCX    _length,#-0
+02E2 840000                A   918        LDX R0,_length
+02E5 48 001EE0             A   919        ORX R0,_length+1
+02E9 EB C4                 A   920        JR  NE,_1_L_27
+                           A   921    ;  127              
+                           A   922    ;  128              // Check if we have a 
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  19
 
 
 PC     Object              F  Line    Source terminal.src
-                           A   924    ;  149              
-                           A   925    ;  150              sync_ok_response();
-                           A   926    .line 150
-02C1 D6 0000               A   927        CALL    _sync_ok_response
-                           A   928    ;  151              
-                           A   929    ;  152              // trigger_watchdog();
-                           A   930    ;  153              // do putch(read_addre
-                           A   931    ;  154              // while(--length);
-                           A   932    ;  155          }
-                           A   933    ;  156              break;
-                           A   934    .line 156
-02C4 8B 1E                 A   935        JR  _1_L_37
-                           A   936    ;  157          /*case CMD_STK_PROG_FLASH:
-                           A   937    ;  158              // TODO: Program the d
-                           A   938    ;  159              sync_ok_response();
-                           A   939    ;  160              break;*/
-                           A   940    ;  161          case CMD_STK_READ_SIGN:
-02C6                       A   941    _1_L_29:
-                           A   942    .line 161
-                           A   943    ;  162          {
-                           A   944    ;  163              putch(STK_INSYNC);
-                           A   945    .line 163
-02C6 8C14                  A   946        LD  R8,#20
-02C8 D6 0000               A   947        CALL    _putch
-                           A   948    ;  164              // READ SIGN - return 
-                           A   949    ;  165              putch(PROPS_SIGNATURE_
-                           A   950    .line 165
-02CB 8C1E                  A   951        LD  R8,#30
-02CD D6 0000               A   952        CALL    _putch
-                           A   953    ;  166              putch(PROPS_SIGNATURE_
-                           A   954    .line 166
-02D0 8C95                  A   955        LD  R8,#-107
-02D2 D6 0000               A   956        CALL    _putch
-                           A   957    ;  167              putch(PROPS_SIGNATURE_
-                           A   958    .line 167
-02D5 8C0F                  A   959        LD  R8,#15
-02D7 D6 0000               A   960        CALL    _putch
-                           A   961    ;  168              putch(STK_OK);
-                           A   962    .line 168
-02DA 8C10                  A   963        LD  R8,#16
-02DC D6 0000               A   964        CALL    _putch
-                           A   965    ;  169          }
-                           A   966    ;  170              break;      
-                           A   967    .line 170
-02DF 8B 03                 A   968        JR  _1_L_37
-                           A   969    ;  171          case CMD_STK_SET_DEVICE:
-02E1                       A   970    _1_L_30:
-                           A   971    .line 171
-                           A   972    ;  172          case CMD_STK_SET_DEVICE_EX
-02E1                       A   973    _1_L_31:
-                           A   974    .line 172
-                           A   975    ;  173          case CMD_STK_UNIVERSAL:
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:44     page:  20
+                           A   923    ;  129              //trigger_watchdog(); 
+                           A   924    ;  130              
+                           A   925    ;  131              // Check if the erase 
+                           A   926    ;  132              // check_if_pageerase_
+                           A   927    ;  133              
+                           A   928    ;  134              // Copy the buffer int
+                           A   929    ;  135              buffPtr = buff;
+                           A   930    .line 135
+02EB 0C01                  A   931        LD  R0,#1
+02ED B0E1                  A   932        CLR R1
+02EF 89E0E7                A   933        LDX -25(RR14),R0
+02F2 89E1E8                A   934        LDX -24(RR14),R1
+                           A   935    ;  136              addrPtr = (UINT16)(voi
+                           A   936    .line 136
+02F5 840000                A   937        LDX R0,_address
+02F8 841001                A   938        LDX R1,_address+1
+02FB 89E0D8                A   939        LDX -40(RR14),R0
+02FE 89E1D9                A   940        LDX -39(RR14),R1
+                           A   941    ;  137              inputch = 1024 / 2;  /
+                           A   942    .line 137
+0301 B0E0                  A   943        CLR R0
+0303 89E0E6                A   944        LDX -26(RR14),R0
+                           A   945    ;  138              //do {
+                           A   946    ;  139                  // TODO: Write int
+                           A   947    ;  140              //} while(--inputch);
+                           A   948    ;  141              
+                           A   949    ;  142              // check_if_flashwrite
+                           A   950    ;  143              
+                           A   951    ;  144              sync_ok_response();
+                           A   952    .line 144
+0306 D6 0000               A   953        CALL    _sync_ok_response
+                           A   954    ;  145          }
+                           A   955    ;  146              break; 
+                           A   956    .line 146
+0309 8B 32                 A   957        JR  _1_L_39
+                           A   958    ;  147          case CMD_STK_READ_PAGE:
+030B                       A   959    _1_L_30:
+                           A   960    .line 147
+                           A   961    ;  148          {
+                           A   962    ;  149              // Read the requested 
+                           A   963    ;  150              getch(); // Skip bytes
+                           A   964    .line 150
+030B D6 0000               A   965        CALL    _getch
+                           A   966    ;  151              length = getch(); // B
+                           A   967    .line 151
+030E D6 0000               A   968        CALL    _getch
+0311 940000                A   969        LDX _length,R0
+0314 941001                A   970        LDX _length+1,R1
+                           A   971    ;  152              getch(); // Skip mem-t
+                           A   972    .line 152
+0317 D6 0000               A   973        CALL    _getch
+                           A   974    ;  153              
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  20
 
 
 PC     Object              F  Line    Source terminal.src
-02E1                       A   976    _1_L_32:
-                           A   977    .line 173
-                           A   978    ;  174          case CMD_STK_CHIP_ERASE:
-02E1                       A   979    _1_L_33:
-                           A   980    .line 174
-                           A   981    ;  175          case CMD_STK_SET_PARAMETER
-02E1                       A   982    _1_L_34:
-                           A   983    .line 175
-                           A   984    ;  176          case CMD_STK_UNIVERSAL_MUL
-02E1                       A   985    _1_L_35:
-                           A   986    .line 176
-                           A   987    ;  177          default:
-02E1                       A   988    _1_L_36:
-                           A   989    .line 177
-                           A   990    ;  178              sync_ok_response();
-                           A   991    .line 178
-02E1 D6 0000               A   992        CALL    _sync_ok_response
-                           A   993    ;  179      }
-02E4                       A   994    _1_L_37:
-                           A   995    .line 180
-02E4 D6 0000               A   996        CALL    __b_iframereset
-02E7 BF                    A   997        IRET    
-                           A   998    .endfunc "isr_uart0_rx",180,"_isr_uart0_rx
-                           A   999        XREF _pageEraseFlash:ROM
-                           A  1000        XREF _checkFlash:ROM
-                           A  1001        XREF _unlockFlash:ROM
-                           A  1002        XREF _string_response:ROM
-                           A  1003        XREF _byte_response:ROM
-                           A  1004        XREF _sync_ok_response:ROM
-                           A  1005        XREF _getch:ROM
-                           A  1006        XREF _f_puts:ROM
-                           A  1007        XREF _putch:ROM
-                           A  1008        XREF ___clr_print_fmt:ROM
-                           A  1009        XREF __u_ustoa:ROM
-                           A  1010        XREF ___print_putromstring0:ROM
-                           A  1011        XREF ___print_putch:ROM
-                           A  1012        XREF __b_ucase:ROM
-                           A  1013        XREF __b_iframereset:ROM
-                           A  1014        XREF __b_frameset0:ROM
-                           A  1015        XREF __intrp:EDATA
-                           A  1016        XDEF _isr_uart0_rx
-                           A  1017        XDEF _character
-                           A  1018        XDEF _length
-                           A  1019        XDEF _address
-                           A  1020        END
+                           A   975    ;  154              sync_ok_response();
+                           A   976    .line 154
+031A D6 0000               A   977        CALL    _sync_ok_response
+                           A   978    ;  155              
+                           A   979    ;  156              // trigger_watchdog();
+                           A   980    ;  157              // do putch(read_addre
+                           A   981    ;  158              // while(--length);
+                           A   982    ;  159          }
+                           A   983    ;  160              break;
+                           A   984    .line 160
+031D 8B 1E                 A   985        JR  _1_L_39
+                           A   986    ;  161          /*case CMD_STK_PROG_FLASH:
+                           A   987    ;  162              // TODO: Program the d
+                           A   988    ;  163              sync_ok_response();
+                           A   989    ;  164              break;*/
+                           A   990    ;  165          case CMD_STK_READ_SIGN:
+031F                       A   991    _1_L_31:
+                           A   992    .line 165
+                           A   993    ;  166          {
+                           A   994    ;  167              putch(STK_INSYNC);
+                           A   995    .line 167
+031F 8C14                  A   996        LD  R8,#20
+0321 D6 0000               A   997        CALL    _putch
+                           A   998    ;  168              // READ SIGN - return 
+                           A   999    ;  169              putch(PROPS_SIGNATURE_
+                           A  1000    .line 169
+0324 8C1E                  A  1001        LD  R8,#30
+0326 D6 0000               A  1002        CALL    _putch
+                           A  1003    ;  170              putch(PROPS_SIGNATURE_
+                           A  1004    .line 170
+0329 8C95                  A  1005        LD  R8,#-107
+032B D6 0000               A  1006        CALL    _putch
+                           A  1007    ;  171              putch(PROPS_SIGNATURE_
+                           A  1008    .line 171
+032E 8C0F                  A  1009        LD  R8,#15
+0330 D6 0000               A  1010        CALL    _putch
+                           A  1011    ;  172              putch(STK_OK);
+                           A  1012    .line 172
+0333 8C10                  A  1013        LD  R8,#16
+0335 D6 0000               A  1014        CALL    _putch
+                           A  1015    ;  173          }
+                           A  1016    ;  174              break;      
+                           A  1017    .line 174
+0338 8B 03                 A  1018        JR  _1_L_39
+                           A  1019    ;  175          case CMD_STK_SET_DEVICE:
+033A                       A  1020    _1_L_32:
+                           A  1021    .line 175
+                           A  1022    ;  176          case CMD_STK_SET_DEVICE_EX
+033A                       A  1023    _1_L_33:
+                           A  1024    .line 176
+                           A  1025    ;  177          case CMD_STK_UNIVERSAL:
+033A                       A  1026    _1_L_34:
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:23     page:  21
+
+
+PC     Object              F  Line    Source terminal.src
+                           A  1027    .line 177
+                           A  1028    ;  178          case CMD_STK_CHIP_ERASE:
+033A                       A  1029    _1_L_35:
+                           A  1030    .line 178
+                           A  1031    ;  179          case CMD_STK_SET_PARAMETER
+033A                       A  1032    _1_L_36:
+                           A  1033    .line 179
+                           A  1034    ;  180          case CMD_STK_UNIVERSAL_MUL
+033A                       A  1035    _1_L_37:
+                           A  1036    .line 180
+                           A  1037    ;  181          default:
+033A                       A  1038    _1_L_38:
+                           A  1039    .line 181
+                           A  1040    ;  182              sync_ok_response();
+                           A  1041    .line 182
+033A D6 0000               A  1042        CALL    _sync_ok_response
+                           A  1043    ;  183      }
+033D                       A  1044    _1_L_39:
+                           A  1045    .line 184
+033D D6 0000               A  1046        CALL    __b_iframereset
+0340 BF                    A  1047        IRET    
+                           A  1048    .endfunc "isr_uart0_rx",184,"_isr_uart0_rx
+                           A  1049        XREF _pageEraseFlash:ROM
+                           A  1050        XREF _checkFlash:ROM
+                           A  1051        XREF _string_response:ROM
+                           A  1052        XREF _byte_response:ROM
+                           A  1053        XREF _sync_ok_response:ROM
+                           A  1054        XREF _getch:ROM
+                           A  1055        XREF _f_puts:ROM
+                           A  1056        XREF _putch:ROM
+                           A  1057        XREF ___clr_print_fmt:ROM
+                           A  1058        XREF __u_ustoa:ROM
+                           A  1059        XREF ___print_putromstring0:ROM
+                           A  1060        XREF ___print_putch:ROM
+                           A  1061        XREF __b_ucase:ROM
+                           A  1062        XREF __b_iframereset:ROM
+                           A  1063        XREF __b_frameset0:ROM
+                           A  1064        XREF __intrp:EDATA
+                           A  1065        XDEF _isr_uart0_rx
+                           A  1066        XDEF _character
+                           A  1067        XDEF _length
+                           A  1068        XDEF _address
+                           A  1069        END
 
 
 Errors: 0
 Warnings: 0
-Lines Assembled: 1021
+Lines Assembled: 1070

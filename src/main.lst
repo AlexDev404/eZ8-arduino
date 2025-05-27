@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   1
 
 
 PC     Object              F  Line    Source main.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source main.src
                            A    50    .type 2
                            A    51    .endef
                            A    52    .define "print_leading_char"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   2
 
 
 PC     Object              F  Line    Source main.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source main.src
                            A   102    .begrec "_set_type",4
                            A   103    .define "begin"
                            A   104    .value 0
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   3
 
 
 PC     Object              F  Line    Source main.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source main.src
                            A   154    .type 12
                            A   155    .endef
                            A   156    .define "exp"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   4
 
 
 PC     Object              F  Line    Source main.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source main.src
                            A   206    .endrec "NONAME1"
 0000                       A   207    _osc_delay:
                            A   208    .define "_osc_delay"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   5
 
 
 PC     Object              F  Line    Source main.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source main.src
 0032 50EF                  A   258        pop R15
                            A   259    .line 35
 0034 50EE                  A   260        pop R14
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   6
 
 
 PC     Object              F  Line    Source main.src
@@ -334,7 +334,7 @@ PC     Object              F  Line    Source main.src
                            A   310    .define "ProgStat"
                            A   311    .alias "_ProgStat"
                            A   312    .class 69
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   7
 
 
 PC     Object              F  Line    Source main.src
@@ -390,7 +390,7 @@ PC     Object              F  Line    Source main.src
                            A   362    .type 65
                            A   363    .endef
                            A   364    .begfunc "main",15,"_main"
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   8
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   8
 
 
 PC     Object              F  Line    Source main.src
@@ -446,7 +446,7 @@ PC     Object              F  Line    Source main.src
                            A   414        XREF __b_frameset00:ROM
                            A   415        XDEF _main
                            A   416        XDEF _ProgStat
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     02:12:32     page:   9
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:29:22     page:   9
 
 
 PC     Object              F  Line    Source main.src

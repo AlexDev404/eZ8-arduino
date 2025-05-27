@@ -10,7 +10,7 @@ register UINT16 length;
 #define RAMSTART  (0x100)
 #define NRWWSTART (0x1800)
 #define buff      ((UINT8*)(RAMSTART))
-UINT8 character = ((UINT8)((void*)(0x1C00))); // Start of sector 7
+UINT8 character = ((UINT8)((void*)(0x1400))); // Start of sector 7
 
 //////////////////////////////////////////////////////////
 //Interrupt routine
@@ -39,6 +39,7 @@ void isr_uart0_rx(void)
 					case 'W':
 					{
 						char str[10];
+						int pageEraseRes;
 						puts("Writing byte to memory. Reboot to check to see if it has written.\n");
 						// Write a byte to memory
 						//character = 'X';
@@ -46,10 +47,13 @@ void isr_uart0_rx(void)
 						puts("Flash stat\n==");
 						sprintf(str, "0x%02X", checkFlash());
 						puts(str);
-						unlockFlash();
-						pageEraseFlash(0x1C00);
+						// unlockFlash();
+						pageEraseRes = pageEraseFlash(0x1400);
+						if (pageEraseRes == -1) puts("Err: pageErase");
 						sprintf(str, "0x%02X", checkFlash());
 						puts("Flash stat\n==");
+						puts(str);
+						sprintf(str, "0x%02X", character);
 						puts(str);
 						puts("Success.\n");
 						break;
