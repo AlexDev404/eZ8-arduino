@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   1
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source flash_tools.src
 0019 E98C0FF8              A    50        LDX 4088,#140
                            A    51    ;   10      while (FCMD != 0x02); // Wait 
 001D                       A    52    _1_L_6:
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   2
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source flash_tools.src
                            A   102    ;address                             RR14-
                            A   103    
                            A   104    
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   3
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source flash_tools.src
 004C A9030FF8              A   154        CPX 4088,#3
 0050 EB 06                 A   155        JR  NE,_3_L_11
 0052 0CFF                  A   156        LD  R0,#255
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   4
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source flash_tools.src
 009A 880EF9                A   206        LDX R0,-7(RR14)
 009D 940FF9                A   207        LDX 4089,R0
                            A   208    ;   35          // Erase
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   5
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source flash_tools.src
                            A   258    .line 58
 00CF B0E0                  A   259        CLR R0
 00D1 B0E1                  A   260        CLR R1
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   6
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -334,7 +334,7 @@ PC     Object              F  Line    Source flash_tools.src
                            A   310        XREF __b_frameset00:ROM
                            A   311        XDEF _massEraseFlash
                            A   312        XDEF _pageEraseFlash
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:40:57     page:   7
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   7
 
 
 PC     Object              F  Line    Source flash_tools.src

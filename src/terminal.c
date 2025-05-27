@@ -53,8 +53,6 @@ void isr_uart0_rx(void)
 						sprintf(str, "0x%02X", checkFlash());
 						puts("Flash stat\n==");
 						puts(str);
-						sprintf(str, "0x%02X", character);
-						puts(str);
 						puts("Success.\n");
 						break;
 					}
