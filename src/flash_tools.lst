@@ -1,4 +1,4 @@
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   1
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   1
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -54,7 +54,7 @@ PC     Object              F  Line    Source flash_tools.src
 0019 E98C0FF8              A    50        LDX 4088,#140
                            A    51    ;   10      while (FCMD != 0x02); // Wait 
 001D                       A    52    _1_L_6:
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   2
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -110,7 +110,7 @@ PC     Object              F  Line    Source flash_tools.src
                            A   102    ;address                             RR14-
                            A   103    
                            A   104    
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   3
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   3
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -166,7 +166,7 @@ PC     Object              F  Line    Source flash_tools.src
 004C A9030FF8              A   154        CPX 4088,#3
 0050 EB 06                 A   155        JR  NE,_3_L_11
 0052 0CFF                  A   156        LD  R0,#255
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   4
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   4
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -222,7 +222,7 @@ PC     Object              F  Line    Source flash_tools.src
 009A 880EF9                A   206        LDX R0,-7(RR14)
 009D 940FF9                A   207        LDX 4089,R0
                            A   208    ;   35          // Erase
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   5
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   5
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -278,7 +278,7 @@ PC     Object              F  Line    Source flash_tools.src
                            A   258    .line 58
 00CF B0E0                  A   259        CLR R0
 00D1 B0E1                  A   260        CLR R1
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   6
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   6
 
 
 PC     Object              F  Line    Source flash_tools.src
@@ -329,20 +329,226 @@ PC     Object              F  Line    Source flash_tools.src
 00EA D6 0000               A   305        CALL    __b_framereset
 00ED AF                    A   306        RET 
                            A   307    .endfunc "massEraseFlash",65,"_massEraseFl
-                           A   308        XREF __b_framereset:ROM
-                           A   309        XREF __b_frameset0:ROM
-                           A   310        XREF __b_frameset00:ROM
-                           A   311        XDEF _massEraseFlash
-                           A   312        XDEF _pageEraseFlash
-Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     03:45:27     page:   7
+                           A   308        SEGMENT ROM_DATA
+                           A   309    
+                           A   310    
+                           A   311    ;**************************** _programFlas
+                           A   312    ;Name                         Addr/Registe
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   7
 
 
 PC     Object              F  Line    Source flash_tools.src
-                           A   313        XDEF _checkFlash
-                           A   314        XDEF _unlockFlash
-                           A   315        END
+                           A   313    ;value                                  R1
+                           A   314    ;addr                                RR14-
+                           A   315    
+                           A   316    
+                           A   317    ; Aggregate Stack Size: -4 (words)
+                           A   318    
+                           A   319    
+                           A   320        .FRAME _n_programFlashByte,?_n_program
+                           A   321        .FRAME _f_programFlashByte,?_f_program
+                           A   322        SEGMENT flash_tools_TEXT
+                           A   323    ;   66  
+                           A   324    ;   67  // C function, uses inline assembl
+                           A   325    ;   68  void programFlashByte(unsigned lon
+00EE                       A   326    _programFlashByte:
+                           A   327    .define "_programFlashByte"
+                           A   328    .value _programFlashByte
+                           A   329    .class 2
+                           A   330    .type 65
+                           A   331    .endef
+                           A   332    .begfunc "programFlashByte",68,"_programFl
+00EE 5C04                  A   333        LD  R5,#4
+00F0 D6 0000               A   334        CALL    __b_frameset0
+                           A   335    .line 68
+00F3 89E8FC                A   336        LDX -4(RR14),R8
+00F6 89E9FD                A   337        LDX -3(RR14),R9
+00F9 89EAFE                A   338        LDX -2(RR14),R10
+00FC 89EBFF                A   339        LDX -1(RR14),R11
+                           A   340    .define "addr"
+                           A   341    .class 9
+                           A   342    .value -4
+                           A   343    .type 15
+                           A   344    .endef
+                           A   345    .define "value"
+                           A   346    .class 17
+                           A   347    .reg 13
+                           A   348    .type 12
+                           A   349    .endef
+                           A   350    ;   69      // Unlock and page-select code
+                           A   351    ;   70      if (FCMD != 0x03) return;
+                           A   352    .line 70
+00FF 840FF8                A   353        LDX R0,4088
+                           A   354    ;   71      
+                           A   355    ;   72      // Now program the byte
+                           A   356    ;   73      // Load 8-bit immediate value 
+                           A   357    ;   74      // Load the 16-bit immediate v
+                           A   358    ;   75      // This requires loading the h
+                           A   359    ;   76      // as there is no direct LD in
+                           A   360    ;   77      #pragma asm
+                           A   361    ;   78          LD   R2, 41h ; 'A'
+                           A   362    ;   79          LD   R6, 14h ; High
+                           A   363    ;   80          LD   R7, 00h ; Low
+                           A   364    ;   81          LDC  @RR6, R2
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   8
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A   365    ;   82      #pragma endasm
+                           A   366    ;   83  }
+                           A   367    .line 83
+0102 D6 0000               A   368        CALL    __b_framereset
+0105 AF                    A   369        RET 
+                           A   370    .endfunc "programFlashByte",83,"_programFl
+                           A   371        SEGMENT ROM_DATA
+                           A   372    
+                           A   373    
+                           A   374    ;**************************** _flash_read_
+                           A   375    ;Name                         Addr/Registe
+                           A   376    ;addr                                RR14-
+                           A   377    
+                           A   378    
+                           A   379    ; Aggregate Stack Size: -4 (words)
+                           A   380    
+                           A   381    
+                           A   382        .FRAME _n_flash_read_byte,?_n_flash_re
+                           A   383        .FRAME _f_flash_read_byte,?_f_flash_re
+                           A   384        SEGMENT flash_tools_TEXT
+                           A   385    ;   84  
+                           A   386    ;   85  // Read a single byte from flash
+                           A   387    ;   86  unsigned char flash_read_byte(unsi
+0106                       A   388    _flash_read_byte:
+                           A   389    .define "_flash_read_byte"
+                           A   390    .value _flash_read_byte
+                           A   391    .class 2
+                           A   392    .type 76
+                           A   393    .endef
+                           A   394    .begfunc "flash_read_byte",86,"_flash_read
+0106 5C04                  A   395        LD  R5,#4
+0108 D6 0000               A   396        CALL    __b_frameset0
+                           A   397    .line 86
+010B 89E8FC                A   398        LDX -4(RR14),R8
+010E 89E9FD                A   399        LDX -3(RR14),R9
+0111 89EAFE                A   400        LDX -2(RR14),R10
+0114 89EBFF                A   401        LDX -1(RR14),R11
+                           A   402    .define "addr"
+                           A   403    .class 9
+                           A   404    .value -4
+                           A   405    .type 15
+                           A   406    .endef
+                           A   407    ;   87      // Flash memory is part of Pro
+                           A   408    ;   88      // Reading Program Memory requ
+                           A   409    ;   89  
+                           A   410    ;   90      
+                           A   411    ;   91      // LDC r1, @rr2 syntax [9]:
+                           A   412    ;   92      // r1 = destination register (
+                           A   413    ;   93      // @rr2 = source indirect regi
+                           A   414    ;   94      //asm("ldc r0, @rr0  ; Load by
+                           A   415    ;   95      #pragma asm
+                           A   416    ;   96          LD   R2, 41h ; 'A'
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:   9
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A   417    .line 96
+0117 E441E2                A   418            LD R2, 41h ; 'A' 
+                           A   419    ;   97          LD   R6, 14h ; High
+                           A   420    .line 97
+011A E414E6                A   421            LD R6, 14h ; High 
+                           A   422    ;   98          LD   R7, 00h ; Low
+                           A   423    .line 98
+011D E400E7                A   424            LD R7, 00h ; Low 
+                           A   425    ;   99          LDC  R0, @RR6
+                           A   426    .line 99
+0120 C206                  A   427            LDC R0, @RR6 
+                           A   428    ;  100      #pragma endasm
+                           A   429    ;  101  
+                           A   430    ;  102      // The result is now in R0. Th
+                           A   431    ;  103      // No explicit 'return' statem
+                           A   432    ;  104  }
+                           A   433    .line 104
+0122 D6 0000               A   434        CALL    __b_framereset
+0125 AF                    A   435        RET 
+                           A   436    .endfunc "flash_read_byte",104,"_flash_rea
+                           A   437        SEGMENT ROM_DATA
+                           A   438    
+                           A   439    
+                           A   440    ;**************************** _someFunctio
+                           A   441    ;Name                         Addr/Registe
+                           A   442    ;b                                     RR1
+                           A   443    ;a                                      RR
+                           A   444    
+                           A   445    
+                           A   446    ; Aggregate Stack Size: 0 (words)
+                           A   447    
+                           A   448    
+                           A   449        .FRAME _n_someFunction,?_n_someFunctio
+                           A   450        .FRAME _f_someFunction,?_f_someFunctio
+                           A   451        SEGMENT flash_tools_TEXT
+                           A   452    ;  105  
+                           A   453    ;  106  
+                           A   454    ;  107  // Read a single byte from flash
+                           A   455    ;  108  //unsigned char flash_read_byte(un
+                           A   456    ;  109      //return *(volatile const char
+                           A   457    ;  110  //}
+                           A   458    ;  111  
+                           A   459    ;  112  
+                           A   460    ;  113  int someFunction(int a, int b) {
+0126                       A   461    _someFunction:
+                           A   462    .define "_someFunction"
+                           A   463    .value _someFunction
+                           A   464    .class 2
+                           A   465    .type 67
+                           A   466    .endef
+                           A   467    .begfunc "someFunction",113,"_someFunction
+                           A   468    .define "a"
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 28-May-25     00:04:11     page:  10
+
+
+PC     Object              F  Line    Source flash_tools.src
+                           A   469    .class 17
+                           A   470    .reg 21
+                           A   471    .type 3
+                           A   472    .endef
+                           A   473    .define "b"
+                           A   474    .class 17
+                           A   475    .reg 22
+                           A   476    .type 3
+                           A   477    .endef
+0126 D6 0000               A   478        CALL    __b_frameset00
+                           A   479    ;  114      
+                           A   480    ;  115      //#pragma asm
+                           A   481    ;  116      //  ldx r0, (ix+6)
+                           A   482    ;  117      //  ldx r1, (ix+9)
+                           A   483    ;  118      //#pragma endasm
+                           A   484    ;  119      asm("add r0, r1");      // Add
+                           A   485    .line 119
+0129 0201                  A   486    add r0, r1
+                           A   487    ;  120  
+                           A   488    ;  121      // Move the 8-bit sum from r0 
+                           A   489    ;  122      //asm("ld R13, r0");      // L
+                           A   490    ;  123  
+                           A   491    ;  124      // Clear the H register (R12, 
+                           A   492    ;  125      //asm("ld R12, #0");      // L
+                           A   493    ;  126  
+                           A   494    ;  127      // HL (RR12) now holds 0x0008,
+                           A   495    .line 128
+012B D6 0000               A   496        CALL    __b_framereset
+012E AF                    A   497        RET 
+                           A   498    .endfunc "someFunction",128,"_someFunction
+                           A   499        XREF __b_framereset:ROM
+                           A   500        XREF __b_frameset0:ROM
+                           A   501        XREF __b_frameset00:ROM
+                           A   502        XDEF _someFunction
+                           A   503        XDEF _flash_read_byte
+                           A   504        XDEF _programFlashByte
+                           A   505        XDEF _massEraseFlash
+                           A   506        XDEF _pageEraseFlash
+                           A   507        XDEF _checkFlash
+                           A   508        XDEF _unlockFlash
+                           A   509        END
 
 
 Errors: 0
 Warnings: 0
-Lines Assembled: 316
+Lines Assembled: 510

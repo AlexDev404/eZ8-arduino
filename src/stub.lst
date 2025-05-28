@@ -1,0 +1,91 @@
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     23:57:45     page:   1
+
+
+PC     Object              F  Line    Source C:\Data\zilog\XP_F082A_uART\src\stub.asm
+                           A     1    ;-----------------------------------------
+                           A     2    ; File: my_asm_logic.asm
+                           A     3    ; Description: Assembly function to demons
+                           A     4    ;              and performing a simple add
+                           A     5    ; For use with Zilog Developer Studio II (
+                           A     6    ;-----------------------------------------
+                           A     7    
+                           A     8    ; Define segment for code
+                           A     9    ; This tells the assembler where the code 
+                           A    10        segment CODE
+                           A    11    
+                           A    12    ; Export the function name for C linkage
+                           A    13    ; The XDEF directive makes the label (func
+                           A    14    ; and linker. The ZDS II assembler automat
+                           A    15    ; underscore '_' for C linkage [an0333.pdf
+                           A    16        XDEF _my_add_ints
+                           A    17    
+                           A    18    ; Define the assembly function entry point
+0000                       A    19    _my_add_ints:
+                           A    20    ; This function is called from C as: int m
+                           A    21    
+                           A    22    ; C Calling Convention Prologue [an0333.pd
+                           A    23    ; Parameters are passed on the stack. The 
+                           A    24    ; The C compiler pushes parameters in reve
+                           A    25    ; The return address is pushed onto the st
+                           A    26    ; A typical prologue in the called functio
+0000 70 00                 A    27        push    ix          ; Save the caller'
+-----WARNING (505) Label "ix" not defined, treated as XREF.
+0002 E4 00 00              A    28        ld      ix, sp      ; Set IX as the fr
+-----WARNING (505) Label "sp" not defined, treated as XREF.
+                           A    29    
+                           A    30    ; Access parameters from the stack frame u
+                           A    31    ; According to the ZDS II C calling conven
+                           A    32    ; - Return address is 2 bytes (PC is 16-bi
+                           A    33    ; - If the callee pushes IX (as we just di
+                           A    34    ; - Parameters are pushed after the return
+                           A    35    ; Based on AN0333 Example 4B [an0333.pdf, 
+                           A    36    ; and 'int b' at (ix+9), we will use these
+                           A    37    ; IX (2 bytes) and the return address (2 b
+                           A    38    ; parameters themselves, which the documen
+                           A    39    ; The example loads these 3-byte parameter
+                           A    40    ; suggesting either padding or a specific 
+                           A    41    ; We follow the example's register usage f
+                           A    42    
+0005 E4 06 00              A    43        ld      de, (ix+6)  ; Load parameter '
+-----WARNING (505) Label "de" not defined, treated as XREF.
+                           A    44                            ; This loads 16 bi
+0008 E4 09 00              A    45        ld      hl, (ix+9)  ; Load parameter '
+-----WARNING (505) Label "hl" not defined, treated as XREF.
+                           A    46                            ; This loads 16 bi
+                           A    47    
+                           A    48    ; Perform the desired logic: Add parameter
+                           A    49    ; The eZ8 CPU has 16-bit addition instruct
+                           A    50    ; Since the example loaded into 16-bit reg
+                           A    51    ; using these registers. Note the potentia
+                           A    52    ; which isn't fully resolvable based *sole
+Zilog eZ8 Encore! Macro Assembler Version 2.53 (20121701) 27-May-25     23:57:45     page:   2
+
+
+PC     Object              F  Line    Source C:\Data\zilog\XP_F082A_uART\src\stub.asm
+                           A    53    ; register usage in the documented example
+000B 04 00 00              A    54        add     hl, de      ; Add the contents
+                           A    55                            ; HL = HL + DE (ef
+                           A    56    
+                           A    57    ; The result of the addition is now in the
+                           A    58    ; According to the C calling convention fo
+                           A    59    ; 'int' are returned in the HL register pa
+                           A    60    
+                           A    61    ; C Calling Convention Epilogue [an0333.pd
+                           A    62    ; Restore the stack pointer and the saved 
+                           A    63    ; The epilogue must restore SP to what it 
+                           A    64    ; and restore the caller's IX.
+000E E4 00 00              A    65        ld      sp, ix      ; Restore SP to th
+                           A    66                            ; SP is now pointi
+0011 50 00                 A    67        pop     ix          ; Restore the call
+                           A    68    
+                           A    69    ; Return from the function
+                           A    70    ; RET instruction pops the return address 
+0013 AF                    A    71        ret
+                           A    72    
+                           A    73    ; End of assembly file
+                           A    74        end
+
+
+Errors: 0
+Warnings: 4
+Lines Assembled: 75

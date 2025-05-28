@@ -14,3 +14,10 @@ int pageEraseFlash(unsigned long address);
 
 // Function to erase the entire flash
 void massEraseFlash(void);
+
+// Function to write a byte to the flash memory (after an unlock)
+void programFlashByte(unsigned long addr, unsigned char value);
+
+unsigned char flash_read_byte(unsigned long addr);
+
+int someFunction(int a, int b);

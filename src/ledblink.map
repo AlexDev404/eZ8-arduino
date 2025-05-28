@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Tue May 27 03:45:28 2025
+DATE:      Wed May 28 00:04:12 2025
 PROCESSOR: assembler
 FILES:     C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\startupf08xL.obj
            .\main.obj             .\uart.obj             .\led.obj              
@@ -113,10 +113,10 @@ SPACE ALLOCATION:
 
 Space                     Base         Top      Size      Used    Unused
 ------------------ ----------- ----------- --------- --------- ---------
-EDATA                   E:0100      E:01FE      300H       FFH      201H
-                                          (      768       255       513)
-ROM                     C:0000      C:1169     2000H     116AH      E96H
-                                          (     8192      4458      3734)
+EDATA                   E:0100      E:01FD      300H       FEH      202H
+                                          (      768       254       514)
+ROM                     C:0000      C:129B     2000H     129CH      D64H
+                                          (     8192      4764      3428)
 
 
 SEGMENTS WITHIN SPACE:
@@ -125,7 +125,7 @@ SEGMENTS WITHIN SPACE:
 EDATA                             Type        Base         Top      Size
 ------------------ ------------------- ----------- ----------- ---------
 FAR_BSS            normal data              E:0100      E:0101        2h
-FAR_DATA           normal data              E:0102      E:01FE       fdh
+FAR_DATA           normal data              E:0102      E:01FD       fch
 
 
 ROM                               Type        Base         Top      Size
@@ -162,32 +162,32 @@ __VECTORS_036      absolute data            C:0036      C:0037        2h
 __VECTORS_038      absolute data            C:0038      C:0039        2h
 __VECTORS_03A      absolute data            C:003A      C:003B        2h
 __VECTORS_03C      absolute data            C:003C      C:003D        2h
-abs_TEXT           normal data              C:0F4C      C:0F7B       30h
-clr_print_fmt_TEXT normal data              C:0A13      C:0A37       25h
+abs_TEXT           normal data              C:107F      C:10AE       30h
+clr_print_fmt_TEXT normal data              C:0B46      C:0B6A       25h
 CODE               normal data              C:00AE      C:023A      18dh
-csio_TEXT          normal data              C:08F9      C:09D2       dah
-FAR_DATA           * segment copy *         C:106D      C:1169       fdh
-flash_tools_TEXT   normal data              C:07A3      C:0890       eeh
-fmemset_TEXT       normal data              C:0A38      C:0A5B       24h
-fputs_TEXT         normal data              C:0891      C:08D6       46h
-fstrlen_TEXT       normal data              C:0F7C      C:0F9B       20h
-getch_TEXT         normal data              C:09D3      C:0A12       40h
-led_TEXT           normal data              C:035E      C:03DA       7dh
-main_TEXT          normal data              C:02A6      C:031F       7ah
-print_putch_TEXT   normal data              C:0A98      C:0B2A       93h
-print_putromstring normal data              C:1029      C:106C       44h
-print_send_TEXT    normal data              C:0D8A      C:0F4B      1c2h
-putch_TEXT         normal data              C:0A5C      C:0A97       3ch
+csio_TEXT          normal data              C:0A2C      C:0B05       dah
+FAR_DATA           * segment copy *         C:11A0      C:129B       fch
+flash_tools_TEXT   normal data              C:0895      C:09C3      12fh
+fmemset_TEXT       normal data              C:0B6B      C:0B8E       24h
+fputs_TEXT         normal data              C:09C4      C:0A09       46h
+fstrlen_TEXT       normal data              C:10AF      C:10CE       20h
+getch_TEXT         normal data              C:0B06      C:0B45       40h
+led_TEXT           normal data              C:0367      C:03E3       7dh
+main_TEXT          normal data              C:02AF      C:0328       7ah
+print_putch_TEXT   normal data              C:0BCB      C:0C5D       93h
+print_putromstring normal data              C:115C      C:119F       44h
+print_send_TEXT    normal data              C:0EBD      C:107E      1c2h
+putch_TEXT         normal data              C:0B8F      C:0BCA       3ch
 ROM_DATA           normal data              C:003E      C:00AD       70h
-ROM_TEXT           normal data              C:023B      C:0243        9h
-startup            normal data              C:0244      C:02A5       62h
-terminal_TEXT      normal data              C:040F      C:070F      301h
-timer_TEXT         normal data              C:03DB      C:040E       34h
-uart_TEXT          normal data              C:0320      C:035D       3eh
-ureverse_TEXT      normal data              C:0F9C      C:1028       8dh
-util_TEXT          normal data              C:0710      C:07A2       93h
-uultoa_TEXT        normal data              C:0B2B      C:0D89      25fh
-uustoa_TEXT        normal data              C:08D7      C:08F8       22h
+ROM_TEXT           normal data              C:023B      C:024C       12h
+startup            normal data              C:024D      C:02AE       62h
+terminal_TEXT      normal data              C:0418      C:0801      3eah
+timer_TEXT         normal data              C:03E4      C:0417       34h
+uart_TEXT          normal data              C:0329      C:0366       3eh
+ureverse_TEXT      normal data              C:10CF      C:115B       8dh
+util_TEXT          normal data              C:0802      C:0894       93h
+uultoa_TEXT        normal data              C:0C5E      C:0EBC      25fh
+uustoa_TEXT        normal data              C:0A0A      C:0A2B       22h
 
 SEGMENTS WITHIN MODULES:
 ========================
@@ -197,89 +197,89 @@ Module: ..\..\src\boot\common\startupl.asm (File: startupf08xL.obj) Version: 1:0
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: __VECTORS_002                       C:0002      C:0003        2h
-    Segment: startup                             C:0244      C:02A5       62h
+    Segment: startup                             C:024D      C:02AE       62h
 
 
-Module: .\flash_tools.c (File: flash_tools.obj) Version: 1:0 05/27/2025 03:45:27
+Module: .\flash_tools.c (File: flash_tools.obj) Version: 1:0 05/28/2025 00:04:11
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: flash_tools_TEXT                    C:07A3      C:0890       eeh
+    Segment: flash_tools_TEXT                    C:0895      C:09C3      12fh
 
 
-Module: .\led.c (File: led.obj) Version: 1:0 05/27/2025 03:45:25
+Module: .\led.c (File: led.obj) Version: 1:0 05/28/2025 00:04:10
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0104      E:0105        2h
-    Segment: led_TEXT                            C:035E      C:03DA       7dh
+    Segment: led_TEXT                            C:0367      C:03E3       7dh
 
 
-Module: .\main.c (File: main.obj) Version: 1:0 05/27/2025 03:45:24
+Module: .\main.c (File: main.obj) Version: 1:0 05/28/2025 00:04:09
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0102      E:0103        2h
-    Segment: main_TEXT                           C:02A6      C:031F       7ah
+    Segment: main_TEXT                           C:02AF      C:0328       7ah
 
 
-Module: .\terminal.c (File: terminal.obj) Version: 1:0 05/27/2025 03:45:26
+Module: .\terminal.c (File: terminal.obj) Version: 1:0 05/28/2025 00:04:11
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_BSS                             E:0100      E:0101        2h
-    Segment: FAR_DATA                            E:0108      E:010A        3h
-    Segment: FAR_DATA (was TEXT)                 E:010D      E:011B        fh
-    Segment: FAR_DATA (was FAR_TXT)              E:011C      E:01FE       e3h
+    Segment: FAR_DATA                            E:0108      E:0109        2h
+    Segment: FAR_DATA (was TEXT)                 E:010C      E:011A        fh
+    Segment: FAR_DATA (was FAR_TXT)              E:011B      E:01FD       e3h
     Segment: ROM_DATA                            C:003E      C:0089       4ch
-    Segment: ROM_TEXT                            C:023B      C:0243        9h
-    Segment: terminal_TEXT                       C:040F      C:070F      301h
+    Segment: ROM_TEXT                            C:023B      C:024C       12h
+    Segment: terminal_TEXT                       C:0418      C:0801      3eah
 
 
-Module: .\timer.c (File: timer.obj) Version: 1:0 05/27/2025 03:45:26
+Module: .\timer.c (File: timer.obj) Version: 1:0 05/28/2025 00:04:10
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: __VECTORS_00C                       C:000C      C:000D        2h
     Segment: FAR_DATA                            E:0106      E:0107        2h
-    Segment: timer_TEXT                          C:03DB      C:040E       34h
+    Segment: timer_TEXT                          C:03E4      C:0417       34h
 
 
-Module: .\uart.c (File: uart.obj) Version: 1:0 05/27/2025 03:45:25
+Module: .\uart.c (File: uart.obj) Version: 1:0 05/28/2025 00:04:09
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: __VECTORS_00E                       C:000E      C:000F        2h
-    Segment: uart_TEXT                           C:0320      C:035D       3eh
+    Segment: uart_TEXT                           C:0329      C:0366       3eh
 
 
-Module: .\util.c (File: util.obj) Version: 1:0 05/27/2025 03:45:27
+Module: .\util.c (File: util.obj) Version: 1:0 05/28/2025 00:04:11
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: util_TEXT                           C:0710      C:07A2       93h
+    Segment: util_TEXT                           C:0802      C:0894       93h
 
 
 Module: common\abs.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:51
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: abs_TEXT                            C:0F4C      C:0F7B       30h
+    Segment: abs_TEXT                            C:107F      C:10AE       30h
 
 
 Module: common\clr_print_fmt.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:52
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: clr_print_fmt_TEXT                  C:0A13      C:0A37       25h
+    Segment: clr_print_fmt_TEXT                  C:0B46      C:0B6A       25h
 
 
 Module: common\csio.c (Library: csioLDFD.lib) Version: 1:0 09/02/2021 17:08:56
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: csio_TEXT                           C:08F9      C:09D2       dah
-    Segment: FAR_DATA                            E:010B      E:010B        1h
+    Segment: csio_TEXT                           C:0A2C      C:0B05       dah
+    Segment: FAR_DATA                            E:010A      E:010A        1h
 
 
 Module: common\flash1.c (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:47
@@ -300,14 +300,14 @@ Module: common\fmemset.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:0
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: fmemset_TEXT                        C:0A38      C:0A5B       24h
+    Segment: fmemset_TEXT                        C:0B6B      C:0B8E       24h
 
 
 Module: common\fputs.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:03:17
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: fputs_TEXT                          C:0891      C:08D6       46h
+    Segment: fputs_TEXT                          C:09C4      C:0A09       46h
 
 
 Module: common\frame.asm (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:48
@@ -328,7 +328,7 @@ Module: common\fstrlen.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:0
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: fstrlen_TEXT                        C:0F7C      C:0F9B       20h
+    Segment: fstrlen_TEXT                        C:10AF      C:10CE       20h
 
 
 Module: common\get_freq.asm (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:04:40
@@ -342,7 +342,7 @@ Module: common\getch.c (Library: csioLDFD.lib) Version: 1:0 09/02/2021 17:08:56
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: getch_TEXT                          C:09D3      C:0A12       40h
+    Segment: getch_TEXT                          C:0B06      C:0B45       40h
 
 
 Module: common\iframer.asm (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:48
@@ -356,7 +356,7 @@ Module: common\intrp.c (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:48
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: FAR_DATA                            E:010C      E:010C        1h
+    Segment: FAR_DATA                            E:010B      E:010B        1h
 
 
 Module: common\ldxlr0.asm (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:50
@@ -370,28 +370,28 @@ Module: common\print_putch.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: print_putch_TEXT                    C:0A98      C:0B2A       93h
+    Segment: print_putch_TEXT                    C:0BCB      C:0C5D       93h
 
 
 Module: common\print_putromstring0.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:56
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: print_putromstring0_TEXT            C:1029      C:106C       44h
+    Segment: print_putromstring0_TEXT            C:115C      C:119F       44h
 
 
 Module: common\print_send.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:56
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: print_send_TEXT                     C:0D8A      C:0F4B      1c2h
+    Segment: print_send_TEXT                     C:0EBD      C:107E      1c2h
 
 
 Module: common\putch.c (Library: csioLDFD.lib) Version: 1:0 09/02/2021 17:08:56
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: putch_TEXT                          C:0A5C      C:0A97       3ch
+    Segment: putch_TEXT                          C:0B8F      C:0BCA       3ch
 
 
 Module: common\stxlr0.asm (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:50
@@ -433,7 +433,7 @@ Module: common\ureverse.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: ureverse_TEXT                       C:0F9C      C:1028       8dh
+    Segment: ureverse_TEXT                       C:10CF      C:115B       8dh
 
 
 Module: common\uultoa.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:59
@@ -441,14 +441,14 @@ Module: common\uultoa.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: ROM_DATA                            C:008A      C:00AD       24h
-    Segment: uultoa_TEXT                         C:0B2B      C:0D89      25fh
+    Segment: uultoa_TEXT                         C:0C5E      C:0EBC      25fh
 
 
 Module: common\uustoa.c (Library: crtf04aLDFD.lib) Version: 1:0 09/02/2021 17:02:59
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: uustoa_TEXT                         C:08D7      C:08F8       22h
+    Segment: uustoa_TEXT                         C:0A0A      C:0A2B       22h
 
 
 Module: common\vect04.asm (Library: chelpLD.lib) Version: 1:0 09/02/2021 17:07:49
@@ -652,10 +652,10 @@ EXTERNAL DEFINITIONS:
 Symbol                               Address Module          Segment
 -------------------------------- ----------- --------------- --------------------------------
 _0_exit                               E:0000 startupl        $_f_exit                        
-___clr_print_fmt                      C:0A13 clr_print_fmt   clr_print_fmt_TEXT              
-___print_putch                        C:0A98 print_putch     print_putch_TEXT                
-___print_putromstring0                C:1029 print_putromstr print_putromstring0_TEXT        
-___print_send                         C:0D8A print_send      print_send_TEXT                 
+___clr_print_fmt                      C:0B46 clr_print_fmt   clr_print_fmt_TEXT              
+___print_putch                        C:0BCB print_putch     print_putch_TEXT                
+___print_putromstring0                C:115C print_putromstr print_putromstring0_TEXT        
+___print_send                         C:0EBD print_send      print_send_TEXT                 
 __b_framereset                        C:022B framer          CODE                            
 __b_frameset                          C:0213 frame           CODE                            
 __b_frameset0                         C:0211 frame           CODE                            
@@ -670,19 +670,19 @@ __b_uldiv                             C:013B uldiv           CODE
 __b_ulmul                             C:00C5 ulmul           CODE                            
 __b_umul4X1                           C:010A ulmulc          CODE                            
 __close_periphdevice                  C:00AE zsldevinitdummy CODE                            
-__current_port                        E:010B csio            FAR_DATA                        
+__current_port                        E:010A csio            FAR_DATA                        
 __framereset                          C:022B framer          CODE                            
 __frameset                            C:0213 frame           CODE                            
 __frameset0                           C:0211 frame           CODE                            
 __frameset00                          C:020F frame           CODE                            
 __iframereset                         C:01E9 iframer         CODE                            
 __iframeset00                         C:0207 frame           CODE                            
-__intrp                               E:010C intrp           FAR_DATA                        
+__intrp                               E:010B intrp           FAR_DATA                        
 __open_periphdevice                   C:00AE zsldevinitdummy CODE                            
 __slmul                               C:00C5 ulmul           CODE                            
-__u_reverse                           C:0F9C ureverse        ureverse_TEXT                   
-__u_ultoa                             C:0B2B uultoa          uultoa_TEXT                     
-__u_ustoa                             C:08D7 uustoa          uustoa_TEXT                     
+__u_reverse                           C:10CF ureverse        ureverse_TEXT                   
+__u_ultoa                             C:0C5E uultoa          uultoa_TEXT                     
+__u_ustoa                             C:0A0A uustoa          uustoa_TEXT                     
 __ucase                               C:01AB ucase           CODE                            
 __uldiv                               C:013B uldiv           CODE                            
 __ulmul                               C:00C5 ulmul           CODE                            
@@ -720,41 +720,41 @@ __VECTOR_03C                          C:003C vect3c          __VECTORS_03C
 __VECTOR_reset                        C:0000 startupl        __VECTORS_002                   
 __VECTOR_timer0                       C:0000 timer           __VECTORS_00C                   
 __VECTOR_uart0_rx                     C:0000 uart            __VECTORS_00E                   
-_abs                                  C:0F4C abs             abs_TEXT                        
+_abs                                  C:107F abs             abs_TEXT                        
 _address                              E:0108 terminal        FAR_DATA                        
-_byte_response                        C:072D util            util_TEXT                       
-_c_startup                            C:0244 startupl        startup                         
-_character                            E:010A terminal        FAR_DATA                        
-_checkFlash                           C:07CA flash_tools     flash_tools_TEXT                
+_byte_response                        C:081F util            util_TEXT                       
+_c_startup                            C:024D startupl        startup                         
+_checkFlash                           C:08BC flash_tools     flash_tools_TEXT                
 _close_periphdevice                   C:00AE zsldevinitdummy CODE                            
-_exit                                 C:02A4 startupl        startup                         
-_f_memset                             C:0A38 fmemset         fmemset_TEXT                    
-_f_puts                               C:0891 fputs           fputs_TEXT                      
-_f_strlen                             C:0F7C fstrlen         fstrlen_TEXT                    
-_far_heapbot                        000001FE (User Defined)
+_exit                                 C:02AD startupl        startup                         
+_f_memset                             C:0B6B fmemset         fmemset_TEXT                    
+_f_puts                               C:09C4 fputs           fputs_TEXT                      
+_f_strlen                             C:10AF fstrlen         fstrlen_TEXT                    
+_far_heapbot                        000001FD (User Defined)
 _far_heaptop                        000003FF (User Defined)
 _far_stack                          000003FF (User Defined)
-_flash_led                            C:038A led             led_TEXT                        
+_flash_led                            C:0393 led             led_TEXT                        
 _flash_option1                        C:0000 flash1          ___flash_option1_segment        
 _flash_option2                        C:0001 flash2          ___flash_option2_segment        
+_flash_read_byte                      C:099B flash_tools     flash_tools_TEXT                
 _get_freq                             C:00AF get_freq        CODE                            
-_getch                                C:09D3 getch           getch_TEXT                      
-_getNch                               C:0783 util            util_TEXT                       
-_init_led                             C:036B led             led_TEXT                        
-_init_systemclock                     C:02E4 main            main_TEXT                       
-_init_timer0                          C:03EC timer           timer_TEXT                      
-_init_uart                            C:0917 csio            csio_TEXT                       
-_init_uart0                           C:0320 uart            uart_TEXT                       
-_isr_timer0                           C:03DB timer           timer_TEXT                      
-_isr_uart0_rx                         C:040F terminal        terminal_TEXT                   
+_getch                                C:0B06 getch           getch_TEXT                      
+_getNch                               C:0875 util            util_TEXT                       
+_init_led                             C:0374 led             led_TEXT                        
+_init_systemclock                     C:02ED main            main_TEXT                       
+_init_timer0                          C:03F5 timer           timer_TEXT                      
+_init_uart                            C:0A4A csio            csio_TEXT                       
+_init_uart0                           C:0329 uart            uart_TEXT                       
+_isr_timer0                           C:03E4 timer           timer_TEXT                      
+_isr_uart0_rx                         C:0418 terminal        terminal_TEXT                   
 _len_farbss                         00000002 (User Defined)
-_len_fardata                        000000FD (User Defined)
+_len_fardata                        000000FC (User Defined)
 _len_nearbss                        00000000 (User Defined)
 _len_neardata                       00000000 (User Defined)
 _len_pageEbss                       00000000 (User Defined)
 _len_pageEdata                      00000000 (User Defined)
 _length                               E:0100 terminal        FAR_BSS                         
-_low_far_romdata                    0000106D (User Defined)
+_low_far_romdata                    000011A0 (User Defined)
 _low_farbss                         00000100 (User Defined)
 _low_fardata                        00000102 (User Defined)
 _low_near_romdata                   00000000 (User Defined)
@@ -763,23 +763,25 @@ _low_neardata                       00000000 (User Defined)
 _low_pageE_romdata                  00000000 (User Defined)
 _low_pageEbss                       00000000 (User Defined)
 _low_pageEdata                      00000000 (User Defined)
-_main                                 C:0305 main            main_TEXT                       
-_massEraseFlash                       C:087A flash_tools     flash_tools_TEXT                
+_main                                 C:030E main            main_TEXT                       
+_massEraseFlash                       C:096C flash_tools     flash_tools_TEXT                
 _near_heapbot                       0000000F (User Defined)
 _near_heaptop                       000000DF (User Defined)
 _near_stack                         000000DF (User Defined)
 _open_periphdevice                    C:00AE zsldevinitdummy CODE                            
-_osc_delay                            C:02A6 main            main_TEXT                       
-_pageEraseFlash                       C:07D4 flash_tools     flash_tools_TEXT                
+_osc_delay                            C:02AF main            main_TEXT                       
+_pageEraseFlash                       C:08C6 flash_tools     flash_tools_TEXT                
+_programFlashByte                     C:0983 flash_tools     flash_tools_TEXT                
 _ProgStat                             E:0106 timer           FAR_DATA                        
-_putch                                C:0A77 putch           putch_TEXT                      
-_select_port                          C:08F9 csio            csio_TEXT                       
-_setStatus                            C:035E led             led_TEXT                        
-_string_response                      C:0755 util            util_TEXT                       
-_sync_ok_response                     C:0710 util            util_TEXT                       
-_unlockFlash                          C:07A3 flash_tools     flash_tools_TEXT                
+_putch                                C:0BAA putch           putch_TEXT                      
+_select_port                          C:0A2C csio            csio_TEXT                       
+_setStatus                            C:0367 led             led_TEXT                        
+_someFunction                         C:09BB flash_tools     flash_tools_TEXT                
+_string_response                      C:0847 util            util_TEXT                       
+_sync_ok_response                     C:0802 util            util_TEXT                       
+_unlockFlash                          C:0895 flash_tools     flash_tools_TEXT                
 
-127 external symbol(s).
+129 external symbol(s).
 
 SYMBOL CROSS REFERENCE:
 =======================
@@ -956,7 +958,6 @@ _address                          Defined     .\terminal.c
 _byte_response                    Defined     .\util.c
                                   Referenced  .\terminal.c
 _c_startup                        Defined     ..\..\src\boot\common\startupl.asm
-_character                        Defined     .\terminal.c
 _checkFlash                       Defined     .\flash_tools.c
                                   Referenced  .\terminal.c
 _close_periphdevice               Defined     zsldevinitdummy.asm
@@ -979,6 +980,7 @@ _flash_option1                    Defined     common\flash1.c
                                   Referenced  ..\..\src\boot\common\startupl.asm
 _flash_option2                    Defined     common\flash2.c
                                   Referenced  ..\..\src\boot\common\startupl.asm
+_flash_read_byte                  Defined     .\flash_tools.c
 _get_freq                         Defined     common\get_freq.asm
                                   Referenced  .\uart.c
 _getch                            Defined     common\getch.c
@@ -1033,6 +1035,8 @@ _open_periphdevice                Defined     zsldevinitdummy.asm
 _osc_delay                        Defined     .\main.c
 _pageEraseFlash                   Defined     .\flash_tools.c
                                   Referenced  .\terminal.c
+_programFlashByte                 Defined     .\flash_tools.c
+                                  Referenced  .\terminal.c
 _ProgStat                         Defined     .\timer.c
 _putch                            Defined     common\putch.c
                                   Referenced  .\terminal.c
@@ -1043,6 +1047,8 @@ _select_port                      Defined     common\csio.c
                                   Referenced  .\uart.c
 _setStatus                        Defined     .\led.c
                                   Referenced  .\timer.c
+_someFunction                     Defined     .\flash_tools.c
+                                  Referenced  .\terminal.c
 _string_response                  Defined     .\util.c
                                   Referenced  .\terminal.c
 _sync_ok_response                 Defined     .\util.c
@@ -1056,141 +1062,151 @@ Function: init_uart0           calls undefined Function: get_freq
 
 START ADDRESS:
 ==============
-(C:0244) set in module ..\..\src\boot\common\startupl.asm.
+(C:024D) set in module ..\..\src\boot\common\startupl.asm.
 
 CALL GRAPH
 ==========
 Depth Address    CF T Function                       Calls Function
 ----- ---------- -- - ------------------------------ --------------------------------
     1 E:0000      0 * massEraseFlash                 ->
-    2 R:00        0 * massEraseFlash                 ->
-    3 R:00        0 * getNch                         ->getch
+    2 R:00        0 * flash_read_byte                ->
+    3 E:0000      0 * flash_read_byte                ->
+    4 R:00        0 * massEraseFlash                 ->
+    5 R:00        0 * getNch                         ->getch
                                                      ->putch
-    4 E:0000      0 * getNch                         ->getch
+    6 E:0000      0 * getNch                         ->getch
                                                      ->putch
-    5 R:10        0 + isr_uart0_rx                   ->__clr_print_fmt
+    7 R:10        0 + isr_uart0_rx                   ->__clr_print_fmt
                                                      ->getch
                                                      ->f_puts
-                                                     ->putch
                                                      ->__print_putromstring0
                                                      ->_u_ustoa
-                                                     ->checkFlash
+                                                     ->someFunction
                                                      ->__print_putch
+                                                     ->checkFlash
                                                      ->pageEraseFlash
+                                                     ->programFlashByte
                                                      ->string_response
                                                      ->sync_ok_response
                                                      ->byte_response
-    6 E:0100      0 * _isr_uart0_rx                  ->__clr_print_fmt
+                                                     ->putch
+    8 E:0100      0 * _isr_uart0_rx                  ->__clr_print_fmt
                                                      ->getch
                                                      ->f_puts
-                                                     ->putch
                                                      ->__print_putromstring0
                                                      ->_u_ustoa
-                                                     ->checkFlash
+                                                     ->someFunction
                                                      ->__print_putch
+                                                     ->checkFlash
                                                      ->pageEraseFlash
+                                                     ->programFlashByte
                                                      ->string_response
                                                      ->sync_ok_response
                                                      ->byte_response
-    7 E:0100      0 * _isr_timer0                    ->setStatus
-    8 R:10        0 + isr_timer0                     ->setStatus
-    9 E:0000      0 * osc_delay                      ->
-   10 R:00        0 * osc_delay                      ->
-   11 R:10        0 + main                           ->init_timer0
+                                                     ->putch
+    9 E:0100      0 * _isr_timer0                    ->setStatus
+   10 R:10        0 + isr_timer0                     ->setStatus
+   11 E:0000      0 * osc_delay                      ->
+   12 R:00        0 * osc_delay                      ->
+   13 R:10        0 + main                           ->init_timer0
                                                      ->init_uart0
                                                      ->init_led
                                                      ->flash_led
-   12 E:0000      0 * init_systemclock               ->
-   13 E:0100      0 + main                           ->init_timer0
+   14 E:0000      0 * init_systemclock               ->
+   15 E:0100      0 + main                           ->init_timer0
                                                      ->init_uart0
                                                      ->init_led
                                                      ->flash_led
-   14 R:00        0 * init_systemclock               ->
-   15 E:0000      0 * exit                           ->
-   16 R:00        0 * exit                           ->
-   17 R:10        1   __print_putromstring0          ->__print_putch
-   17 E:0100      1   __print_putromstring0          ->__print_putch
-   17 R:10        1   _u_ustoa                       ->_u_ultoa
-   17 E:0100      1   _u_ustoa                       ->_u_ultoa
-   17 E:0100      1   pageEraseFlash                 ->unlockFlash
-   17 R:10        1   checkFlash                     ->
-   17 R:10        1   pageEraseFlash                 ->unlockFlash
-   17 E:0100      1   checkFlash                     ->
-   17 R:10        1   byte_response                  ->getch
+   16 R:00        0 * init_systemclock               ->
+   17 E:0000      0 * exit                           ->
+   18 R:00        0 * exit                           ->
+   19 R:10        1   __print_putromstring0          ->__print_putch
+   19 E:0100      1   __print_putromstring0          ->__print_putch
+   19 R:10        1   _u_ustoa                       ->_u_ultoa
+   19 E:0100      1   _u_ustoa                       ->_u_ultoa
+   19 R:10        1   programFlashByte               ->
+   19 E:0100      1   pageEraseFlash                 ->unlockFlash
+   19 R:10        1   checkFlash                     ->
+   19 E:0100      1   programFlashByte               ->
+   19 E:0100      1   someFunction                   ->
+   19 R:10        1   pageEraseFlash                 ->unlockFlash
+   19 E:0100      1   checkFlash                     ->
+   19 R:10        1   someFunction                   ->
+   19 R:10        1   byte_response                  ->getch
                                                      ->putch
-   17 R:10        1   sync_ok_response               ->getch
+   19 R:10        1   sync_ok_response               ->getch
                                                      ->putch
-   17 E:0100      1   string_response                ->getch
+   19 E:0100      1   string_response                ->getch
                                                      ->putch
                                                      ->f_puts
-   17 R:10        1   string_response                ->getch
+   19 R:10        1   string_response                ->getch
                                                      ->putch
                                                      ->f_puts
-   17 E:0100      1   sync_ok_response               ->getch
+   19 E:0100      1   sync_ok_response               ->getch
                                                      ->putch
-   17 E:0100      1   byte_response                  ->getch
+   19 E:0100      1   byte_response                  ->getch
                                                      ->putch
-   17 R:10        1   init_timer0                    ->
-   17 E:0100      1   init_timer0                    ->
-   17 R:10        1   init_led                       ->
-   17 E:0100      1   flash_led                      ->
-   17 R:10        1   flash_led                      ->
-   17 R:10        1   setStatus                      ->
-   17 E:0100      1   init_led                       ->
-   17 E:0100      1   setStatus                      ->
-   17 E:0100      1   init_uart0                     ->init_uart
+   19 R:10        1   init_timer0                    ->
+   19 E:0100      1   init_timer0                    ->
+   19 R:10        1   init_led                       ->
+   19 E:0100      1   flash_led                      ->
+   19 R:10        1   flash_led                      ->
+   19 R:10        1   setStatus                      ->
+   19 E:0100      1   init_led                       ->
+   19 E:0100      1   setStatus                      ->
+   19 E:0100      1   init_uart0                     ->init_uart
                                                      ->get_freq
                                                      ->select_port
-   17 R:10        1   init_uart0                     ->init_uart
+   19 R:10        1   init_uart0                     ->init_uart
                                                      ->get_freq
                                                      ->select_port
-   18 R:10        1   _u_ultoa                       ->_u_reverse
+   20 R:10        1   _u_ultoa                       ->_u_reverse
                                                      ->__print_send
-   18 E:0100      1   _u_ultoa                       ->_u_reverse
+   20 E:0100      1   _u_ultoa                       ->_u_reverse
                                                      ->__print_send
-   18 R:10        1   get_freq                       ->
-   18 R:10        1   init_uart                      ->select_port
-   18 E:0100      1   init_uart                      ->select_port
-   18 E:0100      1   unlockFlash                    ->
-   18 R:10        1   unlockFlash                    ->
-   18 R:10        2   f_puts                         ->putch
-   18 E:0100      2   f_puts                         ->putch
-   18 R:10        5   getch                          ->
-   18 E:0100      5   getch                          ->
-   19 R:10        1   _u_reverse                     ->f_strlen
-   19 E:0100      1   _u_reverse                     ->f_strlen
-   19 E:0100      1   __print_send                   ->__print_putch
+   20 R:10        1   get_freq                       ->
+   20 R:10        1   init_uart                      ->select_port
+   20 E:0100      1   init_uart                      ->select_port
+   20 E:0100      1   unlockFlash                    ->
+   20 R:10        1   unlockFlash                    ->
+   20 R:10        2   f_puts                         ->putch
+   20 E:0100      2   f_puts                         ->putch
+   20 R:10        5   getch                          ->
+   20 E:0100      5   getch                          ->
+   21 R:10        1   _u_reverse                     ->f_strlen
+   21 E:0100      1   _u_reverse                     ->f_strlen
+   21 E:0100      1   __print_send                   ->__print_putch
                                                      ->abs
                                                      ->f_strlen
                                                      ->__clr_print_fmt
-   19 R:10        1   __print_send                   ->__print_putch
+   21 R:10        1   __print_send                   ->__print_putch
                                                      ->abs
                                                      ->f_strlen
                                                      ->__clr_print_fmt
-   19 R:10        2   select_port                    ->
-   19 E:0100      2   select_port                    ->
-   20 R:10        1   abs                            ->
-   20 E:0100      1   abs                            ->
-   20 E:0100      2   f_strlen                       ->
-   20 R:10        2   f_strlen                       ->
-   20 E:0100      2   __clr_print_fmt                ->f_memset
-   20 R:10        2   __clr_print_fmt                ->f_memset
-   20 E:0100      3   __print_putch                  ->putch
-   20 R:10        3   __print_putch                  ->putch
-   21 E:0100      1   f_memset                       ->
-   21 R:10        1   f_memset                       ->
-   21 E:0100      7   putch                          ->send
-   21 R:10        7   putch                          ->send
-   22 E:0100      1   send                           ->
-   22 R:10        1   send                           ->
+   21 R:10        2   select_port                    ->
+   21 E:0100      2   select_port                    ->
+   22 R:10        1   abs                            ->
+   22 E:0100      1   abs                            ->
+   22 E:0100      2   f_strlen                       ->
+   22 R:10        2   f_strlen                       ->
+   22 E:0100      2   __clr_print_fmt                ->f_memset
+   22 R:10        2   __clr_print_fmt                ->f_memset
+   22 E:0100      3   __print_putch                  ->putch
+   22 R:10        3   __print_putch                  ->putch
+   23 E:0100      1   f_memset                       ->
+   23 R:10        1   f_memset                       ->
+   23 E:0100      7   putch                          ->send
+   23 R:10        7   putch                          ->send
+   24 E:0100      1   send                           ->
+   24 R:10        1   send                           ->
 
     + Thread
     * Unused function
 
 OUTPUT CHECKSUM
 ===============
-ledblink.hex         50DB
-ledblink.lod         50DB
+ledblink.hex         0199
+ledblink.lod         0199
 
 
 
