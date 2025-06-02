@@ -18,64 +18,46 @@ register UINT16 length;
 void isr_uart0_rx(void) 
 {
 	UINT8 inputch = getch();
+	char str[10];
+	char FLASHSTAT[13] = "Flash stat\n==";
     //putch(getch());
 	switch(inputch){
 		case '*':
 		{
-			puts("\nUART Terminal\n===\n\nType a command to begin.\n");
+			puts("\nUART Terminal\n");
 		    while(1){ // No escape
 				switch(getch()){
 					case 'R':
 					{
-						char str[10];
-						char str1[10];
-						rom unsigned char* p = (rom unsigned char*)0x1B12;
-						*p = 'A';
-						//char str2[10];
 						// Read byte from memory
-						puts("Reading byte from memory.\n");
-						// Read byte and display
-						sprintf(str, "0x%02X", flash_read_byte(0x1B12));
-						sprintf(str1, "0x%02X", *p);
-						//sprintf(str1, "0x%02X", flash_read_byte(0xFFF));
-
-						//sprintf(str, "0x%02X", someFunction(2, 2)); // Should return 0x04
-						//sprintf(str1, "0x%02X", someFunction(2, 3)); // Should return 0x05
-						//sprintf(str2, "0x%02X", someFunction(2, 4)); // Should return 0x06
+						puts("RBFM\n");
+						sprintf(str, "0x%02X", flash_read_byte(0x1000));
+						// Display
 						puts(str);
-						puts(str1);
-						
-						//puts(str2);
-						puts("\n\nSuccess.");
 						break;
 						
 					}
 					case 'W':
 					{
-						char str[10];
 						int pageEraseRes;
-						puts("Writing byte to memory. Reboot to check to see if it has written.\n");
+						puts("WBTM\n");
 						// Write a byte to memory
-						//character = 'X';
 						// Check flash
-						puts("Flash stat\n==");
+						puts(FLASHSTAT);
 						sprintf(str, "0x%02X", checkFlash());
 						puts(str);
-						// unlockFlash();
-						pageEraseRes = pageEraseFlash(0x1B12);
+						pageEraseRes = pageEraseFlash(0x1000);
 						if (pageEraseRes == -1) puts("Err: pageErase");
 						sprintf(str, "0x%02X", checkFlash());
-						puts("Flash stat\n==");
+						puts(FLASHSTAT);
 						puts(str);
-						programFlashByte(0x1B12, 'X');
+						programFlashByte(0x1000, 'X');
 						puts("Success.\n");
 						break;
 					}
 					case '?':
 					{
-						char str[10];
 						// Check flash
-						puts("Flash stat\n==");
 						sprintf(str, "0x%02X", checkFlash());
 						puts(str);
 						break;
