@@ -9,7 +9,7 @@
 /* -define:_Z8ENCORE_XP_F08XA_SERIES -define:_Z8ENCORE_XP_8K_SERIES */
 /* -define:_Z8ENCORE_F08XA -define:_Z8ENCORE_XP_F082A_SERIES */
 /* -define:_Z8ENCORE_F04XA -genprintf -keepasm -keeplst -NOlist */
-/* -NOlistinc -model:L -optlink -promote -regvar:8 -NOreduceopt */
+/* -NOlistinc -model:S -optlink -promote -regvar:8 -NOreduceopt */
 /* -stdinc:"\"C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\std;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\Z8Encore_F04XA\"" */
 /* -usrinc:"\"..\include\"" -NOexpmac -NOpagee -debug -NOrevaa */
 /* -cpu:Z8F082A */
@@ -38,14 +38,14 @@
 
 /* Memory space ranges */
 RANGE ROM $0000 : $1FFF
-RANGE RDATA $010 : $0DF
+RANGE RDATA $020 : $0FF
 RANGE EDATA $100 : $3FF
 RANGE PRAM FORBIDDEN
 RANGE PAGE_E FORBIDDEN
 
 /* directives for c segments */
-CHANGE TEXT=EDATA
-CHANGE TEXT=FAR_DATA
+CHANGE TEXT=RDATA
+CHANGE TEXT=NEAR_DATA
 CHANGE NEAR_TXT=NEAR_DATA
 CHANGE FAR_TXT=FAR_DATA
 ORDER FAR_BSS, FAR_DATA
@@ -80,7 +80,7 @@ define __user_frequency = 5529600
 
 /* Object and librray files */
 "C:\Data\zilog\XP_F082A_uART\src\ledblink"= \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\startupf08xL.obj", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\startupf08xS.obj", \
  ".\main.obj", \
  ".\uart.obj", \
  ".\led.obj", \
@@ -88,9 +88,9 @@ define __user_frequency = 5529600
  ".\terminal.obj", \
  ".\util.obj", \
  ".\flash_tools.obj", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\fpdumyLD.lib", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\chelpLD.lib", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\crtf04aLSFD.lib", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\csioLSFD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\fpdumySD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\chelpSD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\crtf04aSSFD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\csioSSFD.lib", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\zsldevinitdummy.lib"
 
