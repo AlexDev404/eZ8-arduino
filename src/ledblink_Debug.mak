@@ -166,6 +166,7 @@ $(WORKDIR_ESCSPACE)\main.obj :  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\led.h  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\timer.h  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\uart.h  \
+            $(PRJDIR_ESCSPACE)\flash_tools.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\FORMAT.H  \
