@@ -1,6 +1,8 @@
 #pragma once
-#define FCMD (*(volatile unsigned char far *)0x0FF8)  // Define special function register
-#define PAGE (*(volatile unsigned char far *)0x0FF9)
+#define FCMD   (*(volatile unsigned char far *)0x0FF8)  // Define special function register
+#define PAGE   (*(volatile unsigned char far *)0x0FF9)  // Page-select byte
+#define FFREQH (*(volatile unsigned char far *)0x0FFA)  // Flash Frequency High
+#define FFREQL (*(volatile unsigned char far *)0x0FFB)  // Flash Frequency Low
 
 // Function to unlock the flash controller
 void unlockFlash(void);
@@ -16,8 +18,10 @@ int pageEraseFlash(unsigned long address);
 void massEraseFlash(void);
 
 // Function to write a byte to the flash memory (after an unlock)
-void programFlashByte(unsigned long addr, unsigned char value);
+int programFlashByte(unsigned long addr, unsigned char data);
 
 unsigned char flash_read_byte(unsigned long addr);
+
+void setFlashFreq(unsigned int systemClockKhz);
 
 int someFunction(int a, int b);

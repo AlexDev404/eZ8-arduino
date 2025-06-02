@@ -8,8 +8,8 @@
 /* -bfpack:compatible -fastcall -const:RAM -define:_Z8F082A */
 /* -define:_Z8ENCORE_XP_F08XA_SERIES -define:_Z8ENCORE_XP_8K_SERIES */
 /* -define:_Z8ENCORE_F08XA -define:_Z8ENCORE_XP_F082A_SERIES */
-/* -define:_Z8ENCORE_F04XA -genprintf -NOkeepasm -keeplst -NOlist */
-/* -NOlistinc -model:L -NOoptlink -promote -noregvar -reduceopt */
+/* -define:_Z8ENCORE_F04XA -genprintf -keepasm -keeplst -NOlist */
+/* -NOlistinc -model:L -optlink -promote -regvar:8 -NOreduceopt */
 /* -stdinc:"\"C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\std;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\Z8Encore_F04XA\"" */
 /* -usrinc:"\"..\include\"" -NOexpmac -NOpagee -debug -NOrevaa */
 /* -cpu:Z8F082A */
@@ -38,7 +38,7 @@
 
 /* Memory space ranges */
 RANGE ROM $0000 : $1FFF
-RANGE RDATA $010 : $DF
+RANGE RDATA $010 : $0DF
 RANGE EDATA $100 : $3FF
 RANGE PRAM FORBIDDEN
 RANGE PAGE_E FORBIDDEN
@@ -90,7 +90,7 @@ define __user_frequency = 5529600
  ".\flash_tools.obj", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\fpdumyLD.lib", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\chelpLD.lib", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\crtf04aLDFD.lib", \
- "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\csioLDFD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\std\crtf04aLSFD.lib", \
+ "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\csioLSFD.lib", \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\zsldevinitdummy.lib"
 

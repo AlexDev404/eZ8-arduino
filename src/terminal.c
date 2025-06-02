@@ -29,19 +29,23 @@ void isr_uart0_rx(void)
 					{
 						char str[10];
 						char str1[10];
-						char str2[10];
+						rom unsigned char* p = (rom unsigned char*)0x1B12;
+						*p = 'A';
+						//char str2[10];
 						// Read byte from memory
 						puts("Reading byte from memory.\n");
 						// Read byte and display
-						//sprintf(str, "0x%02X", flash_read_byte(0x1400));
-						//sprintf(str, "0x%02X", flash_read_byte(0xFFF));
+						sprintf(str, "0x%02X", flash_read_byte(0x1B12));
+						sprintf(str1, "0x%02X", *p);
+						//sprintf(str1, "0x%02X", flash_read_byte(0xFFF));
 
-						sprintf(str, "0x%02X", someFunction(2, 2)); // Should return 0x04
-						sprintf(str1, "0x%02X", someFunction(2, 3)); // Should return 0x05
-						sprintf(str2, "0x%02X", someFunction(2, 4)); // Should return 0x06
+						//sprintf(str, "0x%02X", someFunction(2, 2)); // Should return 0x04
+						//sprintf(str1, "0x%02X", someFunction(2, 3)); // Should return 0x05
+						//sprintf(str2, "0x%02X", someFunction(2, 4)); // Should return 0x06
 						puts(str);
 						puts(str1);
-						puts(str2);
+						
+						//puts(str2);
 						puts("\n\nSuccess.");
 						break;
 						
@@ -58,12 +62,12 @@ void isr_uart0_rx(void)
 						sprintf(str, "0x%02X", checkFlash());
 						puts(str);
 						// unlockFlash();
-						pageEraseRes = pageEraseFlash(0x1400);
+						pageEraseRes = pageEraseFlash(0x1B12);
 						if (pageEraseRes == -1) puts("Err: pageErase");
 						sprintf(str, "0x%02X", checkFlash());
 						puts("Flash stat\n==");
 						puts(str);
-						programFlashByte(0x1400, 'X');
+						programFlashByte(0x1B12, 'X');
 						puts("Success.\n");
 						break;
 					}

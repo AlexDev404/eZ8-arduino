@@ -6,6 +6,7 @@
 #include "clock.h"
 #include "uart.h"
 #include "led.h"
+#include "flash_tools.h"
 
 #ifndef LED_START_FLASHES
 #define LED_START_FLASHES 1
@@ -15,7 +16,8 @@ void main ()
 {
 	//init_systemclock();
 	init_timer0();
-	DI();	
+	DI();
+    setFlashFreq(5530);	
 	init_uart0();                   // Intialize UART
 	init_led();
  	EI();							// Enable Interrupts

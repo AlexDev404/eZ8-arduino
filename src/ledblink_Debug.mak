@@ -43,8 +43,8 @@ CFLAGS =  \
 -bfpack:compatible -fastcall -const:RAM -define:_Z8F082A  \
 -define:_Z8ENCORE_XP_F08XA_SERIES -define:_Z8ENCORE_XP_8K_SERIES  \
 -define:_Z8ENCORE_F08XA -define:_Z8ENCORE_XP_F082A_SERIES  \
--define:_Z8ENCORE_F04XA -genprintf -NOkeepasm -keeplst -NOlist  \
--NOlistinc -model:L -NOoptlink -promote -noregvar -reduceopt  \
+-define:_Z8ENCORE_F04XA -genprintf -keepasm -keeplst -NOlist  \
+-NOlistinc -model:L -optlink -promote -regvar:8 -NOreduceopt  \
 -stdinc:"\"C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\std;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog;C:\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\Z8Encore_F04XA\""  \
 -usrinc:"\"..\include\"" -NOexpmac -NOpagee -debug -NOrevaa  \
 -cpu:Z8F082A  \
@@ -221,6 +221,7 @@ $(WORKDIR_ESCSPACE)\terminal.obj :  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\stk500.h  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\terminal.h  \
             $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\util.h  \
+            $(PRJDIR_ESCSPACE)\flash_tools.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\FORMAT.H  \
