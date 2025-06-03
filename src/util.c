@@ -7,7 +7,8 @@ void sync_ok_response(void)
 		putch(STK_INSYNC);
 		putch(STK_OK);
 	} else {
-		putch(STK_NOSYNC);
+		putch(getch());
+		//putch(STK_NOSYNC);
 		reset_device();
 	}
 }
@@ -31,7 +32,8 @@ void string_response(__CONST__ char* val)
 		putch(STK_OK);
 	}
 	else {
-		putch(STK_NOSYNC);
+		putch(getch());
+		//putch(STK_NOSYNC);
 		reset_device();
 		// if (++error_count == MAX_ERROR_COUNT)
 		// 	app_start();
