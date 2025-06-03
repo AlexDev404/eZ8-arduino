@@ -4,7 +4,7 @@
 #include "boot_tools.h"
 #include "flash_tools.h"
 
-register UINT16 address = 0x400; // Sector 1 and beyond
+rom unsigned char* address = (rom unsigned char*)0x1000; // Page 8 and beyond
 register UINT16 length;
 
 #define RAMSTART  (0x100)
@@ -97,7 +97,7 @@ void isr_uart0_rx(void)
 		       newAddress = getch();
 		       newAddress = (newAddress & 0xff) | (getch() << 8);
 		       newAddress += newAddress; // Convert from word address to byte address
-		       address = newAddress;
+		       address = (rom unsigned char*)newAddress;
 		       sync_ok_response();
 			   //trigger_watchdog(); // FUTURE
 			}
@@ -113,7 +113,7 @@ void isr_uart0_rx(void)
 			getch(); // Skip memtype
 			
 			// If we are in a RWW section, start a page erase
-			//if(address < NRWWSTART) __boot_page_erase_short((UINT16)(void*)address); // FUTURE
+			if(address < NRWWSTART) pageEraseFlash((UINT16)(void*)address);
 			
 			// Read in the page contents
 			buffPtr = buff;
@@ -124,7 +124,7 @@ void isr_uart0_rx(void)
 			//trigger_watchdog(); // FUTURE
 			
 			// Check if the erase is complete
-			// check_if_pageerase_iscomplete(); // FUTURE
+			while (FCMD != 0x03);
 			
 			// Copy the buffer into the program memory (below the bootloader)
 			buffPtr = buff;
