@@ -4,8 +4,16 @@
 #define FFREQH (*(volatile unsigned char far *)0x0FFA)  // Flash Frequency High
 #define FFREQL (*(volatile unsigned char far *)0x0FFB)  // Flash Frequency Low
 
+#define WDTCTL (*(volatile unsigned char far *)0x0FF0)  // Watchdog timer control (Write-only)
+#define WDTU   (*(volatile unsigned char far *)0x0FF1)  // Watchdog Timer Reload Upper Byte
+#define WDTH   (*(volatile unsigned char far *)0x0FF2)  // Watchdog Timer Reload High Byte
+#define WDTL   (*(volatile unsigned char far *)0x0FF3)  // Watchdog Timer Reload Low Byte
+
 // Function to unlock the flash controller
 void unlockFlash(void);
+
+// Function to unlock the watchdog timer and reset the device
+void reset_device(void);
 
 // Function to check the current status of the flash controller
 unsigned char checkFlash(void);

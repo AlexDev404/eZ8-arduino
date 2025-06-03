@@ -28,11 +28,11 @@ void main ()
 	//PCOUT |= 0x08;	// Turn off PC3 Led
 	//flash_led(10);
 
-	for(;;)						// Forever loop
-	{
+	//for(;;)						// Forever loop
+	//{
 		//flash_led(2);
 		//putch(getch());
 		
-	}
+	//}
 
 }	// End of main program

@@ -16,9 +16,9 @@
 #define PROPS_SIGNATURE_2__ 0xFF
 
 // Spoof the Arduino ATMega328P Signature
-#define PROPS_SIGNATURE_0 0x1E
-#define PROPS_SIGNATURE_1 0x95
-#define PROPS_SIGNATURE_2 0x0F
+#define PROPS_SIGNATURE_H 0x1E
+#define PROPS_SIGNATURE_M 0x95
+#define PROPS_SIGNATURE_L 0x0F
 
 /*#define PROPS_SIGNATURE_0 0x1E
 #define PROPS_SIGNATURE_1 0x94
@@ -34,7 +34,7 @@
 #define STK_UNKNOWN         0x12  // Not used
 #define STK_NODEVICE        0x13  // Not used
 #define STK_INSYNC          0x14  // ' '
-#define STK_NOSYNC          0x15  // Not used
+#define STK_NOSYNC          0x15  // Used
 #define ADC_CHANNEL_ERROR   0x16  // Not used
 #define ADC_MEASURE_OK      0x17  // Not used
 #define PWM_CHANNEL_ERROR   0x18  // Not used

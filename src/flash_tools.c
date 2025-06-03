@@ -10,6 +10,30 @@ void unlockFlash(void) {
 	while (FCMD != 0x02); // Wait for "second key received"
 }
 
+// Unlock the watchdog timer and reset the device
+void reset_device(void) {
+	// 1. Unlock the Watchdog Timer Reload Registers
+    // The WDTCTL register (FF0H) is a write-only register used to unlock access to the reload registers [1, 2].
+    // The unlock sequence involves two sequential writes without any other register writes in between [10].
+    // Writing these values to WDTCTL produces no effect on its own bits; they solely control the lock state [2].
+   
+	WDTCTL = 0x55;
+	WDTCTL = 0xAA;
+	
+	// Set the minimum timeout delay (400us)
+	// This should be a 24-bit reload value of 0x000004
+	
+	WDTU = 0x00; // Upper
+	WDTH = 0x00; // High
+	WDTL = 0x04; // Low
+	
+	// Enable the timer (because by default it's disabled)
+	asm("WDT");
+	
+	// Do nothing (and wait for the reset)
+	while(1); // Busy loop + reset
+}
+
 // Return the Flash Controller Status
 unsigned char checkFlash(void) {
     return FCMD;
@@ -160,7 +184,7 @@ void setFlashFreq(unsigned int systemClockKhz) {
     FFREQL = freq_val & 0xFF;        // Set Flash Frequency Low Byte  (FFBH)
 }
 
-int someFunction(int a, int b) {
+/*int someFunction(int a, int b) {
 	
 	//#pragma asm
 	//	ldx r0, (hl+6)
@@ -176,4 +200,4 @@ int someFunction(int a, int b) {
     //asm("ld R12, #0");      // Load R12 with immediate 0 [19, 20] (assuming R12 maps to H)
 
     // HL (RR12) now holds 0x0008, which is the expected return location [4, 15]
-}
+}*/

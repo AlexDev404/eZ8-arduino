@@ -8,7 +8,7 @@ rom unsigned char* address = (rom unsigned char*)0x1000; // Page 8 and beyond
 register UINT16 length;
 
 #define RAMSTART  (0x100)
-#define NRWWSTART (0x1800)
+#define NRWWSTART (0x1000)
 #define buff      ((UINT8*)(RAMSTART))
 
 //////////////////////////////////////////////////////////
@@ -18,11 +18,11 @@ register UINT16 length;
 void isr_uart0_rx(void) 
 {
 	UINT8 inputch = getch();
-	char str[10];
-	char FLASHSTAT[13] = "Flash stat\n==";
+	//char str[10];
+	//char FLASHSTAT[13] = "Flash stat\n==";
     //putch(getch());
 	switch(inputch){
-		case '*':
+		/*case '*':
 		{
 			puts("\nUART Terminal\n");
 		    while(1){ // No escape
@@ -68,16 +68,20 @@ void isr_uart0_rx(void)
 				}
 			}
 			break;
-		}	
+		}*/	
 		case CMD_STK_GET_SIGN_ON:
+		{
 			//trigger_watchdog(); // FUTURE
 			if (inputch == STK_INSYNC) {
 				string_response(STK_SIGN_ON_MESSAGE);
 				
 			}
+		}
 			break;
 		case CMD_STK_GET_SYNC:
+		{
 			sync_ok_response();
+		}
 		    break;
 		case CMD_STK_GET_PARAMETER:
 			{
@@ -101,40 +105,45 @@ void isr_uart0_rx(void)
 		       sync_ok_response();
 			   //trigger_watchdog(); // FUTURE
 			}
-		       break;
+		    break;
 		case CMD_STK_PROG_PAGE:
 		{
 			// Program a page, length in big endian and in bytes
 		    // Program the flash memory
 			UINT8 *buffPtr;
 			UINT16 addrPtr;
+			UINT16 i;
+			
 			getch(); // Skip bytes high
-			length = getch(); // Content-Length of data
+			length = getch(); // Content-Length of data in bytes
 			getch(); // Skip memtype
+					// Calculate the page address (start of page containing the target address)
+			addrPtr = (UINT16)(unsigned long)address;
 			
-			// If we are in a RWW section, start a page erase
-			if(address < NRWWSTART) pageEraseFlash((UINT16)(void*)address);
+			// Erase the page if it's in our target range (0x1000 to 0x1FFF)
+			if(addrPtr >= 0x1000 && addrPtr < 0x2000) {
+				// Each page is 512 bytes, so erase the page containing the address
+				UINT16 pageAddr = addrPtr & ~0x1FF; // Clear low 9 bits to get page start address
+				pageEraseFlash(pageAddr);
+				
+				// Wait for the erase to complete
+				while (FCMD != 0x03);
+			}
 			
-			// Read in the page contents
+			// Read in the page contents into the buffer
 			buffPtr = buff;
-			do *buffPtr++ = getch(); // Populate the buffer with
-			while(--length); // the contents from the serial
+			i = length;
+			do {
+				*buffPtr++ = getch(); // Populate the buffer with data from serial
+			} while(--i);
 			
-			// Check if we have a terminator and then reply
-			//trigger_watchdog(); // FUTURE
-			
-			// Check if the erase is complete
-			while (FCMD != 0x03);
-			
-			// Copy the buffer into the program memory (below the bootloader)
+			// Write the buffer to flash memory byte by byte
 			buffPtr = buff;
-			addrPtr = (UINT16)(void*)address; // Where we will copy into
-			inputch = 1024 / 2;  // The number of pages to copy
-			//do {
-				// TODO: Write into the program memory
-			//} while(--inputch);
-			
-			// check_if_flashwrite_iscomplete(); // FUTURE
+			for(i = 0; i < length; i++) {
+				programFlashByte(addrPtr, *buffPtr++);
+				while (FCMD != 0x03);
+				addrPtr++;
+			}
 			
 			sync_ok_response();
 		}
@@ -142,15 +151,23 @@ void isr_uart0_rx(void)
 		case CMD_STK_READ_PAGE:
 		{
 			// Read the requested memory block and return it back
+			UINT16 i;
+			UINT16 addrPtr;
+			
 			getch(); // Skip bytes-high
-			length = getch(); // Bytes-low
+			length = getch(); // Bytes-low - number of bytes to read
 			getch(); // Skip mem-type
 			
-			sync_ok_response();
+			// Send sync response before sending the data
+			putch(STK_INSYNC);
+			// Read the requested memory content byte by byte
+			addrPtr = (UINT16)(unsigned long)address;
+			for(i = 0; i < length; i++) {
+				putch(flash_read_byte(addrPtr++));
+			}
 			
-			// trigger_watchdog(); // FUTURE
-			// do putch(read_address(address++));
-			// while(--length);
+			// Send final OK status
+			putch(STK_OK);
 		}
 			break;
 		/*case CMD_STK_PROG_FLASH:
