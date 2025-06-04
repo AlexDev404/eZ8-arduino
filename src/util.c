@@ -43,6 +43,7 @@ void string_response(__CONST__ char* val)
 void getNch(UINT8 count) {
   do getch(); while (--count);
   putch(STK_INSYNC);
+  putch(STK_OK);
 }
 
 // FUTURE
