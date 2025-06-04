@@ -3,7 +3,7 @@
 
 void sync_ok_response(void)
 {
-	if (getch() == ' ') { // Check if next command (typically Sync_CRC_EOP) is received
+	if (getch() == SPECIAL_Sync_CRC_EOP) { // Check if next command (typically Sync_CRC_EOP) is received
 		putch(STK_INSYNC);
 		putch(STK_OK);
 	} else {
@@ -15,7 +15,7 @@ void sync_ok_response(void)
 
 void byte_response(UINT8 val)
 {
-	if (getch() == ' ') { // Check if next command (typically Sync_CRC_EOP) is received
+	if (getch() == SPECIAL_Sync_CRC_EOP) { // Check if next command (typically Sync_CRC_EOP) is received
 		putch(STK_INSYNC);
 		putch(val);
 		putch(STK_OK);
@@ -26,7 +26,7 @@ void byte_response(UINT8 val)
 }
 void string_response(__CONST__ char* val)
 {
-	if (getch() == ' ') { // Check if next command (typically Sync_CRC_EOP) is received
+	if (getch() == SPECIAL_Sync_CRC_EOP) { // Check if next command (typically Sync_CRC_EOP) is received
 		putch(STK_INSYNC);
 		puts(val);
 		putch(STK_OK);

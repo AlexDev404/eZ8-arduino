@@ -4,21 +4,27 @@
 //* Filename:		command.h
 //* Version:		1.0
 //* Last updated:	05.20.2024
-//* Modified on 05.20.2024 by AlexDev404 (Immanuel DGarcia)
+//* Modified on 06.03.2025 by AlexDev404 (Immanuel DGarcia)
 //* Support E-mail:	avr@atmel.com
 //*
 //**************************************************************************
 
+// *****************[ STK Version constants ]***************************
+
+#define HW_VER      0x02  // Hardware version
+#define SW_MAJOR    0x01  // Software major version
+#define SW_MINOR    0x12  // Software minor version
+
 // *****************[ STK Message constants ]***************************
 
-#define PROPS_SIGNATURE_0__  0xF0
-#define PROPS_SIGNATURE_1__  0x08
-#define PROPS_SIGNATURE_2__ 0xFF
+//#define PROPS_SIGNATURE_0__  0xF0
+//#define PROPS_SIGNATURE_1__  0x08
+//#define PROPS_SIGNATURE_2__ 0xFF
 
-// Spoof the Arduino ATMega328P Signature
-#define PROPS_SIGNATURE_H 0x1E
-#define PROPS_SIGNATURE_M 0x95
-#define PROPS_SIGNATURE_L 0x0F
+// Custom AVDUDE configuration for Z8 Encore!
+#define PROPS_SIGNATURE_H 0x73
+#define PROPS_SIGNATURE_M 0xFF
+#define PROPS_SIGNATURE_L 0x96
 
 /*#define PROPS_SIGNATURE_0 0x1E
 #define PROPS_SIGNATURE_1 0x94

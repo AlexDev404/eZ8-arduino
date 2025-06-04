@@ -60,11 +60,11 @@ void isr_uart0_rx(void)
 		       newAddress = (newAddress & 0xff) | (getch() << 8);
 		       newAddress += newAddress; // Convert from word address to byte address
 		       address = (rom unsigned char*)newAddress;
-		       sync_ok_response();
-			   reset_device();
+			   sync_ok_response();
+			   break;
+			   //reset_device();
 			   //trigger_watchdog(); // FUTURE
 			}
-		    break;
 		case CMD_STK_PROG_PAGE:
 		{
 			// Program a page, length in big endian and in bytes
