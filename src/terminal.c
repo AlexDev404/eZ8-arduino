@@ -64,12 +64,13 @@ void isr_uart0_rx(void)
 			    * According to STK500 protocol spec, this should receive two bytes
 			    * (low then high) and convert from word address to byte address
 			    */
-		       UINT16 newAddress;
-		       newAddress = getch();
-		       newAddress = (newAddress & 0xff) | (getch() << 8);
-		       newAddress += newAddress; /* Convert from word address to byte address */
-		       address = (rom unsigned char*)newAddress;
-		       sync_ok_response();
+		       //UINT16 newAddress;
+		       //newAddress = getch();
+		       //newAddress = (newAddress & 0xff) | (getch() << 8);
+		       //newAddress += newAddress; /* Convert from word address to byte address */
+		       //address = (rom unsigned char*)newAddress;
+		       //sync_ok_response();
+			   getNch(2);
 			   break;
 			}
 		case CMD_STK_PROG_PAGE:
@@ -87,7 +88,8 @@ void isr_uart0_rx(void)
 			addrPtr = (UINT16)(unsigned long)address;
 			
 			/* Erase the page if it's in our target range (0x1000 to 0x1FFF) */
-			if(addrPtr >= 0x1000 && addrPtr < 0x2000) {
+			if(addrPtr >= 0x1000 && addrPtr < 0x2000) 
+			{
 				/* Each page is 512 bytes, so erase the page containing the address */
 				UINT16 pageAddr = addrPtr & ~0x1FF; /* Clear low 9 bits to get page start address */
 				pageEraseFlash(pageAddr);
