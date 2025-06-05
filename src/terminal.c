@@ -68,9 +68,6 @@ void isr_uart0_rx(void)
 			   getNch(3);
 			   putch(STK_INSYNC);  // Dumb protocol has me have this extra bit here.
 			   putch(STK_OK);
-			   getNch(3);
-			   putch(STK_INSYNC);  // Dumb protocol has me have this extra bit here.
-			   putch(STK_OK);
 			   break;
 			}
 		case CMD_STK_PROG_PAGE:
@@ -106,7 +103,6 @@ void isr_uart0_rx(void)
 			/* Write the buffer to flash memory byte by byte */
 			for(z = 0; z < i; z++) {
 				programFlashByte(addrPtr, getch());
-				getch();
 				while (FCMD != 0x03);
 				addrPtr++;
 			}			
@@ -163,12 +159,10 @@ void isr_uart0_rx(void)
 			break;
 		}	
 		case CMD_STK_SET_DEVICE_EXT:
-		case CMD_STK_SET_DEVICE_EXT:
 		{
 			getNch(7);
 			break;
 		}
-		case CMD_STK_SET_DEVICE:
 		case CMD_STK_SET_DEVICE:
 		{
 			getNch(21);
@@ -177,26 +171,6 @@ void isr_uart0_rx(void)
 			reset_device();
 			break;
 		}
-		// case CMD_STK_SET_DEVICE:
-		// {
-		// 	/* According to STK500 protocol, this command has 20 device parameters:
-		// 	 * DeviceCode, Revision, ProgType, ParamMode, Polling, SelfTimed, LockBytes,
-		// 	 * FuseBytes, FlashPollVal1, FlashPollVal2, EepromPollVal1, EepromPollVal2,
-		// 	 * PageSize, EepromSize, FlashSize4, FlashSize3, FlashSize2, FlashSize1,
-		// 	 * ExtParams, HvspParams
-		// 	 * We need to skip over all of them and acknowledge
-		// 	 */
-		// 	getNch(20); /* Discard the 20 device parameters */
-		// 	break;
-		// }
-		// case CMD_STK_SET_DEVICE_EXT:
-		// {
-		// 	/* According to STK500 protocol, this command has 5 extended parameters:
-		// 	 * CommandSize, EepromPageSize, SignatureBytes, ResetDisable, Wdton
-		// 	 */
-		// 	getNch(5);
-		// 	break;
-		// }
 		case CMD_STK_UNIVERSAL:
 		{
 			/* The Universal command has 4 command bytes followed by the end marker */
