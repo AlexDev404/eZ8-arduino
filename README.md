@@ -46,7 +46,7 @@ For more details, see [official documentation (UM0294)](https://www.zilog.com/do
 - Connect power to the chip:
   - **VDD (POS/P4)**
   - **VSS (NEG/P7)**
-- Connect the breadboard power supply to the power rails.
+- **Do not connect 5V to the chip.** Connect the breadboard power supply (3V) to the power rails.
 
 ---
 
