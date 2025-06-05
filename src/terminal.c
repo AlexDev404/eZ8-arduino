@@ -77,13 +77,13 @@ void isr_uart0_rx(void)
 			}
 		case CMD_STK_PROG_PAGE:
 		{
-			int i, z, a = 0;
+			int i, z, a, b = 0;
 			/* Program a page, length in big endian and in bytes */
 			z = getch(); /* Skip bytes high */
-			i = (int)getch(); /* Content-Length of data in bytes */
+			i = (unsigned char)getch(); /* Content-Length of data in bytes */
 			a = getch(); /* Skip memtype (usually 'F' 0x46 for FLASH) */
 			
-			//putch(i);
+			//putch(length);
 
 			/*do {
 				getch();
@@ -92,10 +92,10 @@ void isr_uart0_rx(void)
 			
 			
 			/* Read in the page contents */
-			for (i = 0; i < 128; i++) {
+			for (b = 0; b < i; b++) {
 				getch(); // Discard data bytes
 			}
-			
+		
 			getch(); /* Consume the end marker (SPECIAL_Sync_CRC_EOP) */	
 			putch(STK_INSYNC);
 		
