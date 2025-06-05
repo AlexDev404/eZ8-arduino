@@ -53,7 +53,7 @@ For more details, see [official documentation (UM0294)](https://www.zilog.com/do
 ## FTDI UART Connection
 
 > [!TIP]  
-> After all wiring, connect the FTDI adapter as follows:  
+> After all wiring, connect the FTDI adapter to the chip as follows:  
 > **RX → TX, TX → RX, CTS → CTS**
 
 ---
