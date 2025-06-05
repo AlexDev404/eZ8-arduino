@@ -77,51 +77,31 @@ void isr_uart0_rx(void)
 			}
 		case CMD_STK_PROG_PAGE:
 		{
+			int i, z, a = 0;
 			/* Program a page, length in big endian and in bytes */
-			UINT8 *buffPtr;
-			UINT16 addrPtr;
-			UINT16 i;
+			z = getch(); /* Skip bytes high */
+			i = (int)getch(); /* Content-Length of data in bytes */
+			a = getch(); /* Skip memtype (usually 'F' 0x46 for FLASH) */
 			
-			getch(); /* Skip bytes high */
-			length = getch(); /* Content-Length of data in bytes */
-			getch(); /* Skip memtype */
-					
-			/* Calculate the page address (start of page containing the target address) */
-			addrPtr = (UINT16)(unsigned long)address;
+			//putch(i);
+
+			/*do {
+				getch();
+				//*buffPtr++ = getch(); // Populate the buffer with data from serial
+			} while(--i);*/
 			
-			/* Erase the page if it's in our target range (0x1000 to 0x1FFF) */
-			if(addrPtr >= 0x1000 && addrPtr < 0x2000) 
-			{
-				/* Each page is 512 bytes, so erase the page containing the address */
-				UINT16 pageAddr = addrPtr & ~0x1FF; /* Clear low 9 bits to get page start address */
-				pageEraseFlash(pageAddr);
-				
-				/* Wait for the erase to complete */
-				while (FCMD != 0x03);
+			
+			/* Read in the page contents */
+			for (i = 0; i < 128; i++) {
+				getch(); // Discard data bytes
 			}
 			
-			/* Read in the page contents into the buffer */
-			buffPtr = buff;
-			i = length;
-			do {
-				*buffPtr++ = getch(); // Populate the buffer with data from serial
-			} while(--i);
-			
-			/* Send INSYNC response */
-			//putch(getch());
-			//putch(0xFF);
+			getch(); /* Consume the end marker (SPECIAL_Sync_CRC_EOP) */	
 			putch(STK_INSYNC);
-			
-			/* Write the buffer to flash memory byte by byte */
-			/*buffPtr = buff;
-			for(i = 0; i < length; i++) {
-				programFlashByte(addrPtr, *buffPtr++);
-				while (FCMD != 0x03);
-				addrPtr++;
-			}*/
-			
+		
 			/* Send OK status */
 			putch(STK_OK);
+			//reset_device();
 			break;
 		}
 	
