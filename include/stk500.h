@@ -22,9 +22,9 @@
 //#define PROPS_SIGNATURE_2__ 0xFF
 
 // Custom AVDUDE configuration for Z8 Encore! (1E 95 0F for spoofing ATMega328p)
-#define PROPS_SIGNATURE_H 0x1E  //0x73
-#define PROPS_SIGNATURE_M 0x95  //0xFF
-#define PROPS_SIGNATURE_L 0x0F  //0x96
+#define PROPS_SIGNATURE_H 0x1E
+#define PROPS_SIGNATURE_M 0x95
+#define PROPS_SIGNATURE_L 0x0F
 
 /*#define PROPS_SIGNATURE_0 0x1E
 #define PROPS_SIGNATURE_1 0x94

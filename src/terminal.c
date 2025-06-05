@@ -66,8 +66,6 @@ void isr_uart0_rx(void)
 		       //address = (rom unsigned char*)newAddress;
 		       //sync_ok_response();
 			   getNch(3);
-			   putch(STK_INSYNC);  // Dumb protocol has me have this extra bit here.
-			   putch(STK_OK);
 			   break;
 			}
 		case CMD_STK_PROG_PAGE:
