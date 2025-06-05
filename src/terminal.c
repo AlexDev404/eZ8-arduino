@@ -5,11 +5,6 @@
 #include "flash_tools.h"
 
 rom unsigned char* address = (rom unsigned char*)0x1000; // Page 8 and beyond
-register UINT16 length;
-
-#define RAMSTART  (0x100)
-#define NRWWSTART (0x1000)
-#define buff      ((UINT8*)(RAMSTART))
 
 //////////////////////////////////////////////////////////
 //Interrupt routine
@@ -78,16 +73,16 @@ void isr_uart0_rx(void)
 		case CMD_STK_PROG_PAGE:
 		{
 			/* Program a page, length in big endian and in bytes */
-			UINT8 *buffPtr;
-			UINT16 addrPtr;
-			UINT16 i;
+			/* We don't need a buffer since this chip supports byte-programming :D */
+			unsigned long addrPtr;
+			int i, z = 0;
 			
 			getch(); /* Skip bytes high */
-			length = getch(); /* Content-Length of data in bytes */
-			getch(); /* Skip memtype */
+			i = (unsigned char)getch(); /* Content-Length of data in bytes (UNSIGNED... please+thanks) */
+			getch(); /* Skip memtype (usually 'F' 0x46 for FLASH) */
 					
 			/* Calculate the page address (start of page containing the target address) */
-			addrPtr = (UINT16)(unsigned long)address;
+			addrPtr = (unsigned long)address;
 			
 			/* Erase the page if it's in our target range (0x1000 to 0x1FFF) */
 			if(addrPtr >= 0x1000 && addrPtr < 0x2000) 
@@ -100,25 +95,19 @@ void isr_uart0_rx(void)
 				while (FCMD != 0x03);
 			}
 			
-			/* Read in the page contents into the buffer */
-			buffPtr = buff;
-			i = length;
-			do {
-				*buffPtr++ = getch(); // Populate the buffer with data from serial
-			} while(--i);
-			
 			/* Send INSYNC response */
-			//putch(getch());
-			//putch(0xFF);
+			getch(); /* Consume the end marker (SPECIAL_Sync_CRC_EOP) */	
 			putch(STK_INSYNC);
 			
 			/* Write the buffer to flash memory byte by byte */
-			/*buffPtr = buff;
-			for(i = 0; i < length; i++) {
-				programFlashByte(addrPtr, *buffPtr++);
+			for(z = 0; z < i; z++) {
+				programFlashByte(addrPtr, getch());
 				while (FCMD != 0x03);
 				addrPtr++;
-			}*/
+			}
+			
+			/* Save where we stopped */
+			address = (rom unsigned char *)addrPtr;
 			
 			/* Send OK status */
 			putch(STK_OK);
