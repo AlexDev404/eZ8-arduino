@@ -11,7 +11,7 @@ Mostly testing for eZ80 to see if I can write a working STK200v1 bootloader onto
 - 1× Z8F082A chip
 - 1× Zilog Encore! Smart Cable
 - Lots of Dupont jumper wires
-- 1× USB Male-to-Male breadboard power supply
+- 1× USB breadboard power supply ([Amazon link](https://a.co/d/hTb9MdM))
 - 2× breadboards
 - Headers to fit the 2×3 debug header
 - 2× 10K resistors
