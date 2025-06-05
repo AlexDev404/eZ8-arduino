@@ -16,7 +16,6 @@
 <file filter-key="">..\include\util.h</file>
 <file filter-key="">.\util.c</file>
 <file filter-key="">..\include\boot_tools.h</file>
-<file filter-key="flash">C:\Users\Immanuel\Downloads\sketch_may19a.hex\sketch_may19a.hex.ino.standard.hex</file>
 <file filter-key="">.\flash_tools.h</file>
 <file filter-key="">.\flash_tools.c</file>
 </files>
