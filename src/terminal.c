@@ -83,6 +83,8 @@ void isr_uart0_rx(void)
 					
 			/* Calculate the page address (start of page containing the target address) */
 			addrPtr = (unsigned long)address;
+			/* Save where we'll stop */
+			address = (rom unsigned char *)(addrPtr + i);
 			
 			/* Erase the page if it's in our target range (0x1000 to 0x1FFF) */
 			if(addrPtr >= 0x1000 && addrPtr < 0x2000) 
@@ -104,11 +106,7 @@ void isr_uart0_rx(void)
 				programFlashByte(addrPtr, getch());
 				while (FCMD != 0x03);
 				addrPtr++;
-			}
-			
-			/* Save where we stopped */
-			address = (rom unsigned char *)addrPtr;
-			
+			}			
 			/* Send OK status */
 			putch(STK_OK);
 			break;
@@ -117,26 +115,20 @@ void isr_uart0_rx(void)
 		case CMD_STK_READ_PAGE:
 		{
 			/* Read the requested memory block and return it back */
-			UINT16 i;
-			UINT16 addrPtr;
+			int i, z = 0;
+			unsigned long addrPtr;
 			
 			getch(); /* Skip bytes-high */
-			length = getch(); /* Bytes-low - number of bytes to read */
+			z = (unsigned char)getch(); /* Bytes-low - number of bytes to read */
 			getch(); /* Skip mem-type */
 			
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				/* If we don't get the expected marker, send error response */
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			/* Send sync response before sending the data */
+			/* Send INSYNC response */
+			getch(); /* Consume the end marker (SPECIAL_Sync_CRC_EOP) */	
 			putch(STK_INSYNC);
 			
 			/* Read the requested memory content byte by byte */
-			addrPtr = (UINT16)(unsigned long)address;
-			for(i = 0; i < length; i++) {
+			addrPtr = (unsigned long)address;
+			for(i = 0; i < z; i++) {
 				putch(flash_read_byte(addrPtr++));
 			}
 			
