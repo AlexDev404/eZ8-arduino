@@ -1,6 +1,6 @@
 # eZ8-arduino
 
-Mostly testing for eZ80 to see if I can write a working STK200v1 bootloader onto it.
+Mostly testing for eZ80 to see if I can write a working STK500v1 bootloader onto it.
 
 ---
 
