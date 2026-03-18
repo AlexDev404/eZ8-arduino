@@ -1,0 +1,289 @@
+Maintenance of the run time libraries for the Encore compiler is somewhat
+more complicated than other Zilog compilers because of the horde of ZiLOG
+extensions of the standard C runtime library to add space qualifiers "near", 
+"far", and "rom" to the parameters.  This note is to give an overview of how
+the library is maintained and point to the key files.
+
+How to build the library:
+
+As with all ZiLOG compilers, the run time support libraries are build by the
+dos command
+
+        buildrtl
+
+Building the Build Script
+
+The build script, buildrtl.bat, calls the script buildlib.bat to actually
+build each library. Buildlib expects certain parameters to be passed as
+system variables:
+
+
+  COMMON_C_SRC - file giving C source files common to all libs of given type
+  SPECIFIC_C_SRC - file giving C source files specific to given library
+  COMMON_ASM_SRC - List of ASM source files common to all libs of given type
+  SPECIFIC_ASM_SRC - List of ASM source files specific to given library
+
+  CC  -  The compiler to use
+  ASM -  The assembler to use
+  LIB -  The librarian to use
+  CFLAGS - Compile flags common to all libs of a given type
+  SPECIFIC_CFLAGS - Compile flags specific to a given library
+  AFLAGS  - Assembler flags common to all libs of a given type
+  SPECIFIC_AFLAGS - Assembler flags specific to a given library
+
+The file lists for the crt and fp library are themselves built by running
+the command
+
+        ../../bin/make.exe -f buildrtl.mak
+
+The reason for placing the lists of C source files into files, rather than 
+passing the list as a system variable as with the assembler files, is that
+on some WINDOWS systems the list of files exceeds the permitted length of a
+command.
+
+The reason for building these files with a makefile is to correctly generate
+the required names for all the variants of a standard C function
+required when we have separate versions with the parameters in near and far
+memory, in rom, and in erom.  The list of files for the floating point library
+is built in the same way for consistency.
+
+It is intended that them make command be run out of a UNIX like environment as
+provided by cygwin.
+
+Building the Source Files
+
+All source files for the Run Time Library are in the directory "common".
+
+The C source for functions such as strcmp(), which has variants n_n_strcmp(),
+n_f_strcmp(), n_r_strcmp(), and so forth (17 in all), are built from template
+files such as common/STRCMP.TPL by running the commands
+
+        cd common
+        ../../../bin/make.exe -f makeCfiles.mak 
+
+The makefile basically passes the names of the target and template files, and 
+a list of prefixes and qualifiers to insert, to the script common/makeCfile.bsh.
+Again, this makefile is intended to run in a UNIX like environment.
+
+THE ENCORE RTL: COMPONENT LIBRARIES & CPU DEPENDENCE
+
+For the Encore, maintaining the RTL is further complicated by the vast array
+of different CPU families.  These affect the several different "families" of 
+libraries that make up the RTL in different ways.  The details of this
+knowledge had been lost and had to be somewhat painfully reverse-engineered
+when preparing for the Encore 5.2.0 release which is to support the new
+Z8F6482 CPU family.  The information below is added to make all this less
+mysterious in future, especially if more CPU families are added again.  A
+main practical goal here is to answer the question, "What are the differences
+among the existing CPU families that made it necessary to build different
+library versions, so we can decide if a further division must be made to
+support a newly designed CPU family?"
+
+There are 7 "families" of libraries that compose the Encore RTL.  I call
+these families because we provide multiple versions of each of the 7 
+libraries in our distribution to users.  The different versions of these
+libraries are needed so that they can be linked to a user's application
+with compatible build settings, etc., so the linked application will
+work correctly.  The IDE automatically takes care of selecting the 
+correct version of each library that's needed in a user's build, based on the
+user's project settings.  I don't include the ZSL, which has its own
+dependencies, among the libraries I'm discussing here.
+
+The 7 families of libraries in the RTL, with the number of variants that are
+supplied in the Encore 5.4.0 distribution, are as follows:
+
+* pchelp  --	 2 variants
+* chelp   --	 4 variants
+* fpdumy  --	 4 variants
+* startup --	17 variants (.obj, not .lib); all new names in 5.4.0, see below
+* fp      --	24 variants
+* crt	  --	40 variants
+* csio	  -- 	72 variants!
+
+Most of the differences among the variants of a given family are due to 
+differences in the build settings with which the variant was built.  For
+some settings, the setting used to build the library needs to be the
+same as the setting used to build the user's application, so that the
+object files will be compatible.  Thus, there can be differences between
+debug and non-debug versions; small and large model; static and dynamic
+frames; "fastcall" (i.e. parameters passed in registers vs. on the
+stack).  These differences are easy to understand.  But in some of the
+library families, there are also distinctions made on the basis of CPU
+family, which are not so straightforward to understand.  Until now, the
+reasons for the differing dependencies of the libraries on CPU families
+have not been documented.
+
+The CPU family dependences of the 7 families are as follows.  The name 
+used for each CPU grouping below is the string used to differentiate the
+library variant name, such as the string 'f04a' in the library variant
+crtf04asdfd.lib, except that this "chip substring" is left blank for the 
+default group:
+
+* pchelp, fpdumy: 		none
+* chelp, fp:			default, revaa
+* crt:					default, revaa, f04a
+* csio:					default, revaa, f8pin, fmc, f1680
+* startup:				F08X, F083X, F64XX, F1680, F6482
+
+For future purposes, we don't need to worry much about the distinction
+between default and revaa versions.  The revaa libraries support the
+(by now, I think, long since obsolete) Rev AA silicon, which had 
+several silicon errata for which we provided software workarounds. 
+What's important is to understand the distinction between default
+and non-default CPU groupings in the crt, csio, and startup families.
+
+Based on research done by Roger Ball in July-August 2012, here are the
+meanings of these CPU groupings:
+
+* Note on the chelp family: As of the Encore 5.5.0 release which is
+currently in preparation, the chelp family has now had to be split
+into small and large model support, thus increasing the number of
+variants from 4 to 8.  This is necessary to support the module
+intrp.c being divided into 2 initializations of variable _intrp, to 
+address CRs 13581 & 13522.
+
+The crt family: In this context, 'f04a' is applied to 10 of the 12 
+existing (prior to release 5.2.0) Encore CPU families, all of them
+except the XP_64XX Series and the XP_F0822 Series.  The difference
+between the default and f04a libraries is entirely in the flash
+read and write algorithms which are given in the 2 source code files
+flash.asm and flashf.asm.  In other words, the flash operations are
+different between the default and 'f04a' CPU families.  For the new
+F6482 family, its flash operation is (in these respects) identical to
+most of the other Encore CPU families, and so the F6482 will join the
+'f04a' grouping for this family of libraries.
+Update with release 5.4.0: The new F3224 or FXX24 family (its
+nomenclature is still somewhat in flux at the time of this writing)
+is identical to the F6482 family in terms of flash operations.
+Therefore, this new family will also be grouped with the 'f04a'
+families.
+
+The csio family: Aside from the revaa variants, the terms f8pin,
+fmc, and f1680 are applied straightforwardly to those CPU families
+that obviously map to those names.  The differences among these 
+variants are all caused by conditionally-compiled code in the
+function init_uart() in module csio.c.  These differences are due
+to different UART SFRs, which are used by name in that function.
+The relevant UART SFRs for the new F6482 family are the same as for
+the F1680 family, so the F6482 will use the 'f1680' variants of the
+csio family of libraries.
+Update with release 5.4.0: the F3224 UART is identical to those
+of the F6482 family, except that there is only 1 UART and so the
+U0/U1 distinction is not part of its SFR names.  I have been
+able to handle this with some name redefinitions in SIO.C.
+Therefore, this new family will again be treated as one of the
+'f1680' families for csio purposes.
+
+The startup family: In release 5.40, a number of new startup 
+modules have been added and the names of all have been changed.
+It is hoped that the names will now be slightly more 
+comprehensible to users.  
+
+The differences among the 5 CPU 
+groupings for the startup module have to do with: how many 
+interrupt vectors are provided; whether EData is supported; 
+whether PRAM is supported; whether Page E of RAM can be
+present.  A further wrinkle is that for CPUs in the F6482 
+family, separate versions must be built to support running
+in the simulator because otherwise the startup code waits
+for the FLLDONE condition.
+
+The breakdown of the various CPU groupings for the startup
+modules is as follows:
+
+* F64xx (formerly "default")
+	Applies to: 	 XP_64XX Series
+	Vectors: 		 04 - 36
+	EData support:	 yes
+	PRAM support: 	 no
+	Page E support:  yes (optional)
+	
+* F083X (formerly "f01a")
+	Applies to:		 F0830 Series, F083A Series; 
+						also, members of the F08X
+						startup group that have no
+						EData
+	Vectors:		 04 - 3C
+	EData support:   no
+	PRAM support:	 no
+	Page E support:  no
+	
+* F08X (formerly "f04a")
+	Applies to:		 XP_8022 Series, 
+					 XP_F082A Series, XP_F082A_8Pin Series,
+					 XP_F0823 Series, XP_F0823_8Pin Series,
+					 FMC16100 Series, ZMOTION Series,
+                     ZMOTION_8Pin Series
+	Vectors:		 04 - 3C
+	EData support:	 yes
+	PRAM support:	 no
+	Page E support:  no
+	
+* F1680
+	Applies to:		 XP_F1680_8K Series, XP_F1680_16K Series,
+					 XP_F1680_24K Series
+	Vectors:		 04 - 3C
+	EData support:	 yes
+	PRAM support:	 yes
+	Page E support:  no
+	
+* F6482 (added in 5.2.0)
+	Applies to:		 XP_F6482 Series, F3224_Series
+	Vectors:		 04 - 4A
+	EData support:	 yes
+	PRAM support:	 no
+	Page E support:  yes (optional)
+	
+THE ENCORE ZSL: BUILD DEPENDENCIES
+
+A few words on the Encore ZSL are also in order.  The ZSL ("Zilog Standard 
+Library") is not part of the RTL, but rather a library of peripheral support
+code from an older project (circa 2004) that never really took off.  But like
+the RTL component libraries, we offer a number of ZSL variants in our
+distribution.  It's worth briefly explaining these variants, which primarily
+reflect different build options.
+
+The Encore 5.4.0 release includes 80 ZSL variants that are pre-built in the
+distribution provided to users.  These libraries have names of the form:
+
+     zsl[1680|mc][u0|u1][L|S][T|Y][F][D].lib
+	 
+[1680]:  Means built for the F1680 family. 
+[mc]  :  Means built for the Motor Control MCUs.
+         If this part of the name is blank, built for the "normal" (non-
+		 F1680, non-motor control) MCUs.
+		
+[u0|u1]: This option applies only to the F1680 family.  At a guess, it
+         indicates whether to use UART0 or UART1.
+
+[L|S] :  L => Large Memeory Model
+         S => Small Memory Model
+		
+[T|Y] :  T => Static frames
+         Y => Dynamic frames
+
+[F] :    Fastcall, i.e., function parameters passed in registers.
+         If blank, no fastcall, i.e., parameters passed on the stack.
+		
+[D] :    Debug version
+         If blank, non-debug version.
+
+All of these are simply options for the build, which will allow the library to
+be compatible with the user's application, except for the "mc" or Motor Control
+designation and the "1680" designation which does the same for the F1680 MCU
+family.  The Motor Control MCUs have a somewhat different set of
+peripherals and SFRs than other families of Encore parts, and the ZSL source
+code actually includes distinct C modules written to use those SFRs.  For
+example, in the folder src\uart\common, you will find a module openuart0.c
+and a counterpart openmcuart0.c which performs the same tasks for the Motor
+Control parts.  The F1680 family, like the MC family, has its own distinct set 
+of SFRs.
+
+In the ZDS II distribution, there are also tools provided to the user with
+which he can build still more ZSL variants.  Some of these support the F1680
+MCU family, which like the MC family, has its own distinct set of SFRs.  The
+user may also choose to place some of his Interrupt Service Routines in the
+PRAM address space which the F1680 family supports, for better performance.
+However, these F1680-specific libraries originally were not pre-built for the 
+user and provided in the distribution as the MC libraries are.  In later
+distributions, more of these have been added to the pre-built libraries.

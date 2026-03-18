@@ -1,0 +1,38 @@
+; Floating point library C Source Files
+; This file is "made"; do not edit directly
+; Edit buildrtl.mak and run make
+acos.c
+asin.c
+atan.c
+atan2.c
+ceil.c
+cos.c
+cosh.c
+exp.c
+fabs.c
+fatof.c
+floor.c
+fmod.c
+modf.c
+fmodf.c
+fpdata.c
+frexp.c
+ffrexp.c
+ldexp.c
+log.c
+log10.c
+nmodf.c
+nfrexp.c
+pow.c
+satan.c
+sin.c
+sinh.c
+sinus.c
+sqrt.c
+tan.c
+tanh.c
+udtof.c
+udtog.c
+ufltrnd.c
+uultoa.c
+xcoef.c

@@ -1,0 +1,41 @@
+;-----------------------------------------------------------------
+; ZDS II script file to add UART source files into the ZSL project
+; ZiLOG, Inc.
+;-----------------------------------------------------------------
+
+; Add UART0 related files.
+add file ".\uart\common\closeuart0.c"
+add file ".\uart\common\controluart0.c"
+add file ".\uart\common\openuart0.c"
+add file ".\uart\common\readuart0.c"
+add file ".\uart\common\getrxstatusuart0.c"
+add file ".\uart\common\setbauduart0.c"
+add file ".\uart\common\setparityuart0.c"
+add file ".\uart\common\setstopbitsuart0.c"
+add file ".\uart\common\gettxstatusuart0.c"
+add file ".\uart\common\writeuart0.c"
+add file ".\uart\common\flushuart0.c"
+add file ".\uart\common\isrrxuart0.c"
+add file ".\uart\common\isrtxuart0.c"
+
+; Add UART1 related files.
+add file ".\uart\common\closeuart1.c"
+add file ".\uart\common\controluart1.c"
+add file ".\uart\common\openuart1.c"
+add file ".\uart\common\readuart1.c"
+add file ".\uart\common\getrxstatusuart1.c"
+add file ".\uart\common\setbauduart1.c"
+add file ".\uart\common\setparityuart1.c"
+add file ".\uart\common\setstopbitsuart1.c"
+add file ".\uart\common\gettxstatusuart1.c"
+add file ".\uart\common\writeuart1.c"
+add file ".\uart\common\flushuart1.c"
+add file ".\uart\common\isrrxuart1.c"
+add file ".\uart\common\isrtxuart1.c"
+
+; Add common files.
+add file ".\uart\common\getch.c"
+add file ".\uart\common\isrdma.c"
+add file ".\uart\common\kbhit.c"
+add file ".\uart\common\putch.c"
+add file ".\rtl\common\csio.c"

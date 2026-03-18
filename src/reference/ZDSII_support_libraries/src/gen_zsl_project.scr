@@ -1,0 +1,462 @@
+;------------------------------------------------------------------------------
+; ZDS II script file to run ZDSII and generate project file for
+; Z8 Encore! ZiLOG Standard Library
+;
+; ZiLOG, Inc.
+;------------------------------------------------------------------------------
+;
+;   to run: zds2ide @build_projects.scr with desired Z8 Encore!
+;   installation bin directory in path
+;
+;   Library naming conventions:
+;
+;   <lib> <model> <frames> [<D>]
+;     |      |        |      +--- Debug if exists, else no debug info
+;     |      |        +---------- T = static frames, Y = dynamic frames
+;     |      +------------------- S = Small model, L = large model
+;     +-------------------------- ZSL = ZiLOG Standard Lib
+;
+; 
+
+;
+;
+log "zsl.log"
+log on
+
+;------------------------------------------------------------------------------
+; zsl
+;
+new project "zsl" "eZ8" "Library"
+
+;------------------------------------------------------------------------------
+; Add source files to the project
+;
+batch wait "add_gpio_projectfiles.scr"
+batch wait "add_uart_projectfiles.scr"
+
+
+;------------------------------------------------------------------------------
+; zslSTD
+; Model:  Small
+; Frames: Static
+; Debug:  Yes
+
+set config "Debug"
+set config "Small-Static-Debug(STD)"
+;General tab
+option general debug=TRUE
+option general outputdir="STD"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=FALSE
+option compiler watch=FALSE
+option compiler model="Small"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=TRUE
+;----------------------
+;Optimization category
+;----------------------
+option compiler reduceopt=TRUE
+;
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "_DEBUG"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslSTD"
+
+
+
+
+;------------------------------------------------------------------------------
+; zslST
+; Model:  Small
+; Frames: Static
+; Debug:  No
+
+set config "Release"
+set config "Small-Static-Release(ST)"
+;General tab
+option general debug=FALSE
+option general outputdir="ST"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=TRUE
+option compiler watch=FALSE
+option compiler model="Small"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=TRUE
+;----------------------
+;Optimization category
+;----------------------
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslST"
+
+
+
+;------------------------------------------------------------------------------
+; zslSYD
+; Model:  Small
+; Frames: Dynamic
+; Debug:  Yes
+
+set config "Debug"
+set config "Small-Dynamic-Debug(SYD)"
+;General tab
+option general debug=TRUE
+option general outputdir="SYD"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=FALSE
+option compiler watch=FALSE
+option compiler model="Small"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=FALSE
+;----------------------
+;Optimization category
+;----------------------
+option compiler reduceopt=TRUE
+;
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "_DEBUG"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslSYD"
+
+
+
+;------------------------------------------------------------------------------
+; zslSY
+; Model:  Small
+; Frames: Dynamic
+; Debug:  No
+
+set config "Release"
+set config "Small-Dynamic-Release(SY)"
+;General tab
+option general debug=FALSE
+option general outputdir="SY"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=TRUE
+option compiler watch=FALSE
+option compiler model="Small"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=FALSE
+;----------------------
+;Optimization category
+;----------------------
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslSY"
+
+
+
+
+;------------------------------------------------------------------------------
+; zslLTD
+; Model:  Large
+; Frames: Static
+; Debug:  Yes
+
+set config "Debug"
+set config "Large-Static-Debug(LTD)"
+;General tab
+option general debug=TRUE
+option general outputdir="LTD"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=FALSE
+option compiler watch=FALSE
+option compiler model="Large"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=TRUE
+;----------------------
+;Optimization category
+;----------------------
+option compiler reduceopt=TRUE
+;
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "_DEBUG"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslLTD"
+
+
+
+
+;------------------------------------------------------------------------------
+; zslLT
+; Model:  Large
+; Frames: Static
+; Debug:  No
+
+set config "Release"
+set config "Large-Static-Release(LT)"
+;General tab
+option general debug=FALSE
+option general outputdir="LT"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=TRUE
+option compiler watch=FALSE
+option compiler model="Large"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=TRUE
+;----------------------
+;Optimization category
+;----------------------
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslLT"
+
+
+
+
+;------------------------------------------------------------------------------
+; zslLYD
+; Model:  Large
+; Frames: Dynamic
+; Debug:  Yes
+
+set config "Debug"
+set config "Large-Dynamic-Debug(LYD)"
+;General tab
+option general debug=TRUE
+option general outputdir="LYD"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=FALSE
+option compiler watch=FALSE
+option compiler model="Large"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=FALSE
+;----------------------
+;Optimization category
+;----------------------
+option compiler reduceopt=FALSE
+;
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "_DEBUG"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslLYD"
+
+
+
+;------------------------------------------------------------------------------
+; zslLY
+; Model:  Large
+; Frames: Dynamic
+; Debug:  No
+
+set config "Release"
+set config "Large-Dynamic-Release(LY)"
+;General tab
+option general debug=FALSE
+option general outputdir="LY"
+;------------------------------------------------------------------------------
+;C tab settings
+;------------------------------------------------------------------------------
+;General category
+;----------------
+option compiler optspeed=TRUE
+option compiler watch=FALSE
+option compiler model="Large"
+;-------------------------------------------
+; Code generation category
+;-------------------------------------------
+option compiler promote=TRUE
+option compiler regvar=TRUE
+option compiler optlink=FALSE
+;----------------------
+;Optimization category
+;----------------------
+;------------------------------------------
+;listing files category - keep all defaults
+;------------------------------------------
+;
+;---------------------
+;preprocessor category
+;---------------------
+option compiler stdinc="..\..\include\std;..\..\include\zilog"
+defines compiler ADD "__ZSLBUILD"
+;----------------------
+;assembler tab settings
+;-----------------------
+option assembler list=FALSE
+;
+;----------------------
+;librarian tab settings 
+;do not include the extention here as it will be appended by default.
+;----------------------
+option librarian outfile="zslLY"
+
+
+
+close project
+
+
+;------------------------------------------------------------------------------
+log off
+
+; Exit IDE, we're done
+exit
+

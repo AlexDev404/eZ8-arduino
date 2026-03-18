@@ -1,0 +1,61 @@
+/*************************************************
+ *  Copyright (C) 1999-2008 by  Zilog, Inc.
+ *  All Rights Reserved
+ *************************************************/
+#include <string.h>
+#include <stdlib.h>
+#include <format.h>
+
+/* Send a string from EDATA to the printf/sprintf destination                */
+/* The compiler may generate direct calls to this to bypass the runtime    */
+/* parsing of printf formats.                                              */
+
+#undef __print_putfarstring
+PF_REENTRANT void __print_putfarstring(PRINT_FMT_ARG  __CONST__ far char * sp)
+{
+  unsigned char i = 0;
+  unsigned short j, jmax;
+  __CONST__ far char* s = sp;
+  char padRight = 0;
+  if (__print_fmt.field_width != 0)
+  {
+      padRight = ((__print_fmt.flags & FMT_FLAG_MINUS) || __print_fmt.field_width < 0);
+      if (!padRight)
+      {
+         signed char pad = f_strlen(s);
+         if (__print_fmt.flags & FMT_FLAG_PRECISION && pad > __print_fmt.precision)
+            pad = __print_fmt.precision;
+
+         pad = __print_fmt.field_width-pad;
+         while(pad > 0)
+         {
+           __print_putch(PRNT_FMT_ARG ' ');
+           i++;
+           pad--;
+         }
+         
+      }
+
+  }
+  /* If precision not specified, make it max */
+  if (!(__print_fmt.flags & FMT_FLAG_PRECISION))
+    jmax = 0xffff;
+  else
+    jmax = (unsigned int)__print_fmt.precision;
+
+  for (j=0;j<jmax && *s;j++)
+      __print_putch(PRNT_FMT_ARG *s++);
+  i += j;
+  if (padRight)
+  {
+     __print_fmt.field_width = abs(__print_fmt.field_width);
+     while (i < __print_fmt.field_width)
+     {
+        __print_putch(PRNT_FMT_ARG ' ');
+        i++;
+     }
+  }
+  /*  Reset the data manipulated by the compiler, so that no code is needed */
+  /*  to set default values.                                                */
+  __clr_print_fmt(PRNT_FMT_ARG0);
+}

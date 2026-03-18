@@ -1,0 +1,189 @@
+;------------------------------------------------------------------------------
+; ZDS II script file to run ZDSII and export MC ZSL makefiles from existing
+; projects. See gen_zslmc_projects.bat to create projects.
+;
+; ZiLOG, Inc.
+;------------------------------------------------------------------------------
+;
+; usage: ZDS2IDE @gen_zslmc_makefiles.scr
+;
+;   Library naming conventions:
+;
+;   <lib> <model> <frames> [<D>]
+;     |      |        |      +--- Debug if exists, else no debug info
+;     |      |        +---------- S = static frames, D = dynamic frames
+;     |      +------------------- S = Small model, L = large model
+;     +-------------------------- CRT = standard lib, FP = floating point
+;
+
+
+log "zslmc_mak.log"
+log on
+open project "zslmc"
+
+
+;------------------------------------------------------------------------------
+; zslSTD
+; Model:  Small
+; Frames: Static
+; Debug:  Yes
+set config "Small-Static-Debug(STD)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcSTD"
+makfile ".\STD\zslmcSTD.mak"
+;------------------------------------------------------------------------------
+; zslSTFD
+; Model:  Small
+; Frames: Static
+; Debug:  Yes
+set config "Small-Static-Debug(STD)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcSTFD"
+makfile ".\STD\zslmcSTFD.mak"
+
+;------------------------------------------------------------------------------
+; zslST
+; Model:  Small
+; Frames: Static
+; Debug:  No
+set config "Small-Static-Release(ST)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcST"
+makfile ".\ST\zslmcST.mak"
+
+;------------------------------------------------------------------------------
+; zslSTF
+; Model:  Small
+; Frames: Static
+; Debug:  No
+set config "Small-Static-Release(ST)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcSTF"
+makfile ".\ST\zslmcSTF.mak"
+
+;------------------------------------------------------------------------------
+; zslSYD
+; Model:  Small
+; Frames: Dynamic
+; Debug:  Yes
+set config "Small-Dynamic-Debug(SYD)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcSYD"
+makfile ".\SYD\zslmcSYD.mak"
+
+;------------------------------------------------------------------------------
+; zslSYFD
+; Model:  Small
+; Frames: Dynamic
+; Debug:  Yes
+set config "Small-Dynamic-Debug(SYD)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcSYFD"
+makfile ".\SYD\zslmcSYFD.mak"
+
+;------------------------------------------------------------------------------
+; zslSY
+; Model:  Small
+; Frames: Dynamic
+; Debug:  No
+set config "Small-Dynamic-Release(SY)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcSY"
+makfile ".\SY\zslmcSY.mak"
+
+;------------------------------------------------------------------------------
+; zslSYF
+; Model:  Small
+; Frames: Dynamic
+; Debug:  No
+set config "Small-Dynamic-Release(SY)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcSYF"
+makfile ".\SY\zslmcSYF.mak"
+
+;------------------------------------------------------------------------------
+; zslLTD
+; Model:  Large
+; Frames: Static
+; Debug:  Yes
+set config "Large-Static-Debug(LTD)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcLTD"
+makfile ".\LTD\zslmcLTD.mak"
+
+;------------------------------------------------------------------------------
+; zslLTFD
+; Model:  Large
+; Frames: Static
+; Debug:  Yes
+set config "Large-Static-Debug(LTD)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcLTFD"
+makfile ".\LTD\zslmcLTFD.mak"
+
+;------------------------------------------------------------------------------
+; zslLT
+; Model:  Large
+; Frames: Static
+; Debug:  No
+set config "Large-Static-Release(LT)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcLT"
+makfile ".\LT\zslmcLT.mak"
+
+;------------------------------------------------------------------------------
+; zslLTF
+; Model:  Large
+; Frames: Static
+; Debug:  No
+set config "Large-Static-Release(LT)"
+option librarian outfile="zslLTF"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcLTF"
+makfile ".\LT\zslmcLTF.mak"
+
+;------------------------------------------------------------------------------
+; zslLYD
+; Model:  Large
+; Frames: Dynamic
+; Debug:  Yes
+set config "Large-Dynamic-Debug(LYD)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcLYD"
+makfile ".\LYD\zslmcLYD.mak"
+
+;------------------------------------------------------------------------------
+; zslLYFD
+; Model:  Large
+; Frames: Dynamic
+; Debug:  Yes
+set config "Large-Dynamic-Debug(LYD)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcLYFD"
+makfile ".\LYD\zslmcLYFD.mak"
+
+;------------------------------------------------------------------------------
+; zslLY
+; Model:  Large
+; Frames: Dynamic
+; Debug:  No
+set config "Large-Dynamic-Release(LY)"
+option compiler fastcall=FALSE
+option librarian outfile="zslmcLY"
+makfile ".\LY\zslmcLY.mak"
+
+;------------------------------------------------------------------------------
+; zslLYF
+; Model:  Large
+; Frames: Dynamic
+; Debug:  No
+set config "Large-Dynamic-Release(LY)"
+option compiler fastcall=TRUE
+option librarian outfile="zslmcLYF"
+makfile ".\LY\zslmcLYF.mak"
+
+
+; Exit IDE, we're done
+log off
+exit
+
