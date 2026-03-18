@@ -62,7 +62,7 @@ void isr_uart0_rx(void)
 			    */
 		       UINT16 newAddress;
 		       newAddress = (UINT16)getch();  /* Get low byte */
-		       newAddress = (newAddress & 0xff) | ((UINT16)getch() << 8);  /* Get high byte */
+		       newAddress |= ((UINT16)getch() << 8);  /* Get high byte */
 		       newAddress += newAddress; /* Convert from word address to byte address */
 		       /* Add base offset for our flash area (0x1000) */
 		       address = (rom unsigned char*)(0x1000 + newAddress);
@@ -188,7 +188,7 @@ void isr_uart0_rx(void)
 		{
 			/* Set extended device parameters */
 			/* Command: commandsize, eeprompagesize, signalpagel, signalbs2, resetdisable, Sync_CRC_EOP */
-			/* Read 5 bytes (parameters) and EOP, then respond with INSYNC+OK */
+			/* Read 5 bytes of parameters + EOP = 6 total bytes, then respond with INSYNC+OK */
 			getNch(6);
 			break;
 		}
