@@ -3,13 +3,15 @@
  *  All Rights Reserved
  *************************************************/
 #include "uart.h"
-#include "terminal.h"
 
 void init_uart0(void)
 {
-    init_uart(_UART0,_DEFFREQ, BAUD_115200); // Setup Uart0 
-    select_port(_UART0);				 // Select port
-	SET_VECTOR(UART0_RX, isr_uart0_rx);  // Define interrupt routine
-	IRQ0ENH |= 0x10;					// Set Interrupt Priority High
-	IRQ0ENL |= 0x10;					// Set Interrupt Priority High
+    /* Initialize UART0 for STK500 communication
+     * Note: We use polling-based I/O (getch/putch from sio.h),
+     * NOT interrupt-driven. This matches how optiboot and other
+     * Arduino bootloaders work - they poll in main loop.
+     */
+    init_uart(_UART0, _DEFFREQ, BAUD_115200); // Setup Uart0 at 115200 baud
+    select_port(_UART0);                      // Select port for stdio
+    /* No interrupt setup - we use polling in main loop */
 }

@@ -3,4 +3,5 @@
 #include <stdio.h>
 #include <sio.h> // non-standard I/O
 
-void isr_uart0_rx(void);
+/* Main STK500 command processing loop - call this from main() */
+void stk500_loop(void);

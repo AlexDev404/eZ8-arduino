@@ -1,272 +1,192 @@
+/*
+ * STK500v1 Protocol Handler for Z8 Encore!
+ * Based on optiboot structure - uses polling loop, not interrupts
+ * 
+ * Copyright (c) 2024 AlexDev404 (Immanuel DGarcia)
+ */
+
 #include "terminal.h"
 #include "stk500.h"
 #include "util.h"
 #include "boot_tools.h"
 #include "flash_tools.h"
 
-rom unsigned char* address = (rom unsigned char*)0x1000; // Page 8 and beyond
+/* Current address pointer for flash operations */
+static rom unsigned char* address = (rom unsigned char*)0x1000;
 
-//////////////////////////////////////////////////////////
-//Interrupt routine
+/* Flag to track if verifySpace succeeded */
+static UINT8 sync_ok = 1;
 
-#pragma interrupt
-void isr_uart0_rx(void) 
-{
-	UINT8 inputch = getch();
-	//char str[10];
-	//char FLASHSTAT[13] = "Flash stat\n==";
-    //putch(getch());
-	switch(inputch){
-		case '*':
-		{
-			puts("UART");
-			break;
-		}
-		/*case CMD_STK_GET_SIGN_ON:
-		{
-			/* According to STK500 protocol spec:
-			 * The PC sends this command to check if the starterkit is present
-			 * Command: 0x31, Sync_CRC_EOP
-			 * Response: Resp_STK_INSYNC, sign_on_message, Resp_STK_OK
-			 /
-			string_response(STK_SIGN_ON_MESSAGE);
-			break;
-		}*/
-		case CMD_STK_GET_SYNC:
-		{
-			sync_ok_response();
-			break;
-		}
-		case CMD_STK_GET_PARAMETER:
-			{
-				// trigger_watchdog(); // FUTURE
-				char ch2 = getch();
-				UINT8 value = STK_NULL; /* Default value for unknown parameters */
-				
-				/* Set the response value based on the parameter */
-				if(ch2 == PARAM_STK_HW_VER) value = HW_VER; /* Hardware version */
-				else if(ch2 == PARAM_STK_SW_MAJOR) value = SW_MAJOR; /* Software major version */
-				else if(ch2 == PARAM_STK_SW_MINOR) value = SW_MINOR; /* Software minor version */
-				else if(ch2 == PARAM_STK500_TOPCARD_DETECT) value = 0x03; /* Required by avr studio */
-				
-				/* The correct response format is: STK_INSYNC, parameter value, STK_OK */
-				byte_response(value);
-				break;
-			}
-		case CMD_STK_LOAD_ADDRESS:
-			{
-			   /* Load an address in memory
-			    * According to STK500 protocol spec, this should receive two bytes
-			    * (low then high) and convert from word address to byte address
-			    * Command format: CMD_STK_LOAD_ADDRESS, addr_low, addr_high, Sync_CRC_EOP
-			    */
-		       UINT16 newAddress;
-		       newAddress = (UINT16)getch();  /* Get low byte */
-		       newAddress |= ((UINT16)getch() << 8);  /* Get high byte */
-		       newAddress += newAddress; /* Convert from word address to byte address */
-		       /* Add base offset for our flash area (0x1000) */
-		       address = (rom unsigned char*)(0x1000 + newAddress);
-		       
-		       /* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-		       if (getch() != SPECIAL_Sync_CRC_EOP) {
-		           putch(STK_NOSYNC);
-		           break;
-		       }
-		       putch(STK_INSYNC);
-		       putch(STK_OK);
-			   break;
-			}
-		case CMD_STK_PROG_PAGE:
-		{
-			/* Program a page, length in big endian and in bytes */
-			/* Command format: CMD_STK_PROG_PAGE, bytes_high, bytes_low, memtype, data, Sync_CRC_EOP */
-			/* Response: Resp_STK_INSYNC, Resp_STK_OK */
-			unsigned long addrPtr;
-			unsigned int i, z = 0;
-			UINT8 bytesHigh, bytesLow;
-			
-			bytesHigh = (UINT8)getch(); /* Get bytes high */
-			bytesLow = (UINT8)getch();  /* Get bytes low - Content-Length of data in bytes */
-			i = ((unsigned int)bytesHigh << 8) | bytesLow; /* Calculate total length */
-			getch(); /* Skip memtype (usually 'F' 0x46 for FLASH) */
-					
-			/* Calculate the page address (start of page containing the target address) */
-			addrPtr = (unsigned long)address;
-			
-			/* Erase the page if it's in our target range (0x1000 to 0x1FFF) */
-			if(addrPtr >= 0x1000 && addrPtr < 0x2000) 
-			{
-				/* Each page is 512 bytes, so erase the page containing the address */
-				UINT16 pageAddr = addrPtr & ~0x1FF; /* Clear low 9 bits to get page start address */
-				pageEraseFlash(pageAddr);
-				
-				/* Wait for the erase to complete */
-				while (FCMD != 0x03);
-			}
-			
-			/* Write the buffer to flash memory byte by byte */
-			for(z = 0; z < i; z++) {
-				programFlashByte(addrPtr, getch());
-				while (FCMD != 0x03);
-				addrPtr++;
-			}
-			
-			/* Update the address pointer for next operation */
-			address = (rom unsigned char *)addrPtr;
-			
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			/* Send response: STK_INSYNC, STK_OK */
-			putch(STK_INSYNC);
-			putch(STK_OK);
-			break;
-		}
-	
-		case CMD_STK_READ_PAGE:
-		{
-			/* Read the requested memory block and return it back */
-			/* Command format: CMD_STK_READ_PAGE, bytes_high, bytes_low, memtype, Sync_CRC_EOP */
-			/* Response: Resp_STK_INSYNC, data, Resp_STK_OK */
-			int i;
-			unsigned int length;
-			unsigned long addrPtr;
-			UINT8 bytesHigh, bytesLow;
-			
-			bytesHigh = (UINT8)getch(); /* Get bytes high */
-			bytesLow = (UINT8)getch();  /* Get bytes low - number of bytes to read */
-			length = ((unsigned int)bytesHigh << 8) | bytesLow;
-			getch(); /* Skip mem-type */
+/*
+ * verifySpace - Read and verify CRC_EOP byte, then send INSYNC
+ * This matches optiboot's verifySpace() function
+ * Sets sync_ok flag to indicate success/failure
+ */
+static void verifySpace(void) {
+    if (getch() != SPECIAL_Sync_CRC_EOP) {
+        /* Protocol error - send NOSYNC and set flag */
+        putch(STK_NOSYNC);
+        sync_ok = 0;
+        return;
+    }
+    putch(STK_INSYNC);
+    sync_ok = 1;
+}
 
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			/* Send INSYNC response */
-			putch(STK_INSYNC);
-			
-			/* Read the requested memory content byte by byte */
-			addrPtr = (unsigned long)address;
-			for(i = 0; i < length; i++) {
-				putch(flash_read_byte(addrPtr++));
-			}
-			
-			/* Update the address pointer for next operation */
-			address = (rom unsigned char *)addrPtr;
-			
-			/* Send final OK status */
-			putch(STK_OK);
-			break;
-		}
-		/*case CMD_STK_PROG_FLASH:
-			// TODO: Program the device
-			sync_ok_response();
-			break;*/
-		case CMD_STK_READ_SIGN:
-		{
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				/* If we don't get the expected marker, send error response */
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			putch(STK_INSYNC);
-			/* READ SIGN - return what Avrdude wants to hear */
-			putch(PROPS_SIGNATURE_H);
-			putch(PROPS_SIGNATURE_M);
-			putch(PROPS_SIGNATURE_L);    
-			putch(STK_OK);
-			break;
-		}	
-		case CMD_STK_SET_DEVICE_EXT:
-		{
-			/* Set extended device parameters - consume all parameter bytes + EOP */
-			getNch(7);
-			break;
-		}
-		case CMD_STK_SET_DEVICE:
-		{
-			/* Set device programming parameters */
-			/* Command takes 20 bytes of parameters + Sync_CRC_EOP */
-			/* Response: Resp_STK_INSYNC, Resp_STK_OK */
-			getNch(21);
-			break;
-		}
-		case CMD_STK_UNIVERSAL:
-		{
-			/* The Universal command has 4 command bytes followed by the end marker */
-			UINT8 a, b, c, d;
-			
-			/* Read the 4 command bytes */
-			a = getch();
-			b = getch();
-			c = getch();
-			d = getch();
-			
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				/* If we don't get the expected marker, send error response */
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			/* The correct response format is: STK_INSYNC, result byte, STK_OK */
-			putch(STK_INSYNC);
-			putch(0x00); /* Return a dummy value 0x00 */
-			putch(STK_OK);
-			break;
-		}
-		case CMD_STK_SET_PARAMETER:
-		{
-			UINT8 param = getch();
-			UINT8 value = getch();
-			
-			/* Verify we get the expected end of command marker (SPECIAL_Sync_CRC_EOP) */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				/* If we don't get the expected marker, send error response */
-				putch(STK_NOSYNC);
-				break;
-			}
-			
-			/* We just acknowledge without actually setting parameters */
-			putch(STK_INSYNC);
-			putch(STK_OK);
-			break;
-		}
-		//case CMD_STK_UNIVERSAL_MULTI:
-		case CMD_STK_ENTER_PROGMODE:
-		case CMD_STK_LEAVE_PROGMODE:
-		case CMD_STK_CHIP_ERASE:
-		{
-			/* These commands just need simple INSYNC+OK response after EOP */
-			/* Command format: CMD, Sync_CRC_EOP */
-			/* Response: Resp_STK_INSYNC, Resp_STK_OK */
-			if (getch() != SPECIAL_Sync_CRC_EOP) {
-				putch(STK_NOSYNC);
-				break;
-			}
-			putch(STK_INSYNC);
-			putch(STK_OK);
-			break;
-		}
-		default:
-		{
-			/* For unrecognized commands, we should still read and acknowledge
-			 * to prevent the programmer from getting out of sync 
-			 * Try to consume the EOP and respond with INSYNC+OK */
-			if (getch() == SPECIAL_Sync_CRC_EOP) {
-				putch(STK_INSYNC);
-				putch(STK_OK);
-			} else {
-				putch(STK_NOSYNC);
-			}
-			break;
-		}
-	}
+/*
+ * getNch - Read n bytes and then verify space
+ * Matches optiboot's getNch() function
+ */
+static void getNch(UINT8 count) {
+    do {
+        getch();
+    } while (--count);
+    verifySpace();
+}
+
+/*
+ * Main STK500 command processing loop
+ * This runs forever, polling for commands from avrdude
+ * Structure matches optiboot's main loop
+ */
+void stk500_loop(void) {
+    UINT8 ch;
+    
+    /* Forever loop - process STK500 commands */
+    for (;;) {
+        /* Reset sync flag at start of each command */
+        sync_ok = 1;
+        
+        /* Get command byte from UART (blocking poll) */
+        ch = getch();
+        
+        if (ch == CMD_STK_GET_SYNC) {
+            /* GET_SYNC - used to establish communication */
+            verifySpace();
+        }
+        else if (ch == CMD_STK_GET_PARAMETER) {
+            /* GET_PARAMETER - return version info etc */
+            UINT8 which = getch();
+            verifySpace();
+            
+            if (sync_ok) {
+                if (which == PARAM_STK_SW_MINOR) {
+                    putch(SW_MINOR);
+                } else if (which == PARAM_STK_SW_MAJOR) {
+                    putch(SW_MAJOR);
+                } else if (which == PARAM_STK_HW_VER) {
+                    putch(HW_VER);
+                } else {
+                    /* Return 0x03 for unknown parameters (keeps avrdude happy) */
+                    putch(0x03);
+                }
+            }
+        }
+        else if (ch == CMD_STK_SET_DEVICE) {
+            /* SET_DEVICE - receive 20 bytes of device parameters */
+            getNch(20);
+        }
+        else if (ch == CMD_STK_SET_DEVICE_EXT) {
+            /* SET_DEVICE_EXT - receive 5 bytes of extended parameters */
+            getNch(5);
+        }
+        else if (ch == CMD_STK_LOAD_ADDRESS) {
+            /* LOAD_ADDRESS - receive word address (low, high) */
+            UINT16 newAddress;
+            newAddress = (UINT16)getch();          /* Low byte */
+            newAddress |= ((UINT16)getch() << 8);  /* High byte */
+            newAddress *= 2;  /* Convert word address to byte address */
+            /* Add base offset for our flash area */
+            address = (rom unsigned char*)(0x1000 + newAddress);
+            verifySpace();
+        }
+        else if (ch == CMD_STK_UNIVERSAL) {
+            /* UNIVERSAL - ISP command passthrough (4 bytes) */
+            getch();  /* byte 1 */
+            getch();  /* byte 2 */
+            getch();  /* byte 3 */
+            getch();  /* byte 4 */
+            verifySpace();
+            if (sync_ok) {
+                putch(0x00);  /* Return dummy result */
+            }
+        }
+        else if (ch == CMD_STK_PROG_PAGE) {
+            /* PROG_PAGE - program a page of flash */
+            unsigned int length;
+            unsigned long addrPtr;
+            unsigned int i;
+            
+            /* Get length (big endian) */
+            length = ((unsigned int)getch() << 8);  /* High byte */
+            length |= getch();                       /* Low byte */
+            
+            getch();  /* Skip memory type (we only support flash) */
+            
+            addrPtr = (unsigned long)address;
+            
+            /* Erase page if in our target range */
+            if (addrPtr >= 0x1000 && addrPtr < 0x2000) {
+                UINT16 pageAddr = addrPtr & ~0x1FF;  /* Page-align */
+                pageEraseFlash(pageAddr);
+                while (FCMD != 0x03);  /* Wait for completion */
+            }
+            
+            /* Program each byte */
+            for (i = 0; i < length; i++) {
+                programFlashByte(addrPtr, getch());
+                while (FCMD != 0x03);  /* Wait for completion */
+                addrPtr++;
+            }
+            
+            /* Update address for next operation */
+            address = (rom unsigned char*)addrPtr;
+            
+            verifySpace();
+        }
+        else if (ch == CMD_STK_READ_PAGE) {
+            /* READ_PAGE - read a page of flash */
+            unsigned int length;
+            unsigned long addrPtr;
+            unsigned int i;
+            
+            /* Get length (big endian) */
+            length = ((unsigned int)getch() << 8);  /* High byte */
+            length |= getch();                       /* Low byte */
+            
+            getch();  /* Skip memory type */
+            
+            verifySpace();
+            
+            if (sync_ok) {
+                /* Send flash contents */
+                addrPtr = (unsigned long)address;
+                for (i = 0; i < length; i++) {
+                    putch(flash_read_byte(addrPtr++));
+                }
+                
+                /* Update address for next operation */
+                address = (rom unsigned char*)addrPtr;
+            }
+        }
+        else if (ch == CMD_STK_READ_SIGN) {
+            /* READ_SIGN - return device signature */
+            verifySpace();
+            if (sync_ok) {
+                putch(PROPS_SIGNATURE_H);
+                putch(PROPS_SIGNATURE_M);
+                putch(PROPS_SIGNATURE_L);
+            }
+        }
+        else {
+            /* For all other commands (ENTER_PROGMODE, LEAVE_PROGMODE, 
+             * CHIP_ERASE, SET_PARAMETER, etc), just verify and acknowledge */
+            verifySpace();
+        }
+        
+        /* Send STK_OK at end of every command (only if sync was OK) */
+        if (sync_ok) {
+            putch(STK_OK);
+        }
+    }
 }
