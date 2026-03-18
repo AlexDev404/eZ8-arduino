@@ -53,9 +53,9 @@ static void uart_flush_rx(void) {
 	(void)dummy;  /* Suppress unused variable warning */
 }
 
-#if DEBUG_BANNER
+#if DEBUG_BANNER || ECHO_TEST_MODE
 /*
- * Send a single character to UART (for debug banner)
+ * Send a single character to UART (for debug output)
  * Direct register access, blocking
  */
 static void debug_putchar(unsigned char ch) {
@@ -65,7 +65,9 @@ static void debug_putchar(unsigned char ch) {
 	while (!(U0STAT0 & UART_TXE))
 		;
 }
+#endif
 
+#if DEBUG_BANNER
 /*
  * Send debug banner at startup
  * If you see "STK500" clearly in terminal, baud rate is correct
