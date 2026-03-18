@@ -14,6 +14,25 @@
 #define LED_START_FLASHES 1
 #endif
 
+/* UART0 Status Register bit definitions for Z8 Encore! */
+#define UART_RDA  0x80  /* Receive Data Available bit in U0STAT0 */
+
+/*
+ * Flush any pending bytes from the UART receive buffer.
+ * This prevents sync issues if garbage was received before bootloader started.
+ * Uses a maximum iteration count to prevent infinite loops.
+ */
+static void uart_flush_rx(void) {
+	volatile unsigned char dummy;
+	unsigned int timeout = 1000;  /* Maximum iterations to prevent hanging */
+	
+	/* Drain any pending data from the UART RX buffer */
+	while ((U0STAT0 & UART_RDA) && timeout--) {
+		dummy = U0RXD;  /* Read and discard the byte */
+	}
+	(void)dummy;  /* Suppress unused variable warning */
+}
+
 void main()
 {
 	/* Initialize hardware */
@@ -22,12 +41,21 @@ void main()
 	setFlashFreq(5530);	
 	init_uart0();                  // Initialize UART (polling mode)
 	init_led();
+	
+	/* Flush any garbage from UART RX buffer before enabling interrupts
+	 * This prevents sync issues with avrdude if noise was received */
+	uart_flush_rx();
+	
 	EI();                          // Enable Interrupts (for timer, etc)
 	
 #if LED_START_FLASHES > 0
 	/* Flash onboard LED to signal entering of bootloader */
 	flash_led(LED_START_FLASHES * 2);
 #endif
+
+	/* Flush UART RX buffer again after LED flash, in case avrdude
+	 * sent data while we were busy flashing the LED */
+	uart_flush_rx();
 
 	/* Enter main STK500 command processing loop
 	 * This is a polling loop like optiboot - NOT interrupt driven
