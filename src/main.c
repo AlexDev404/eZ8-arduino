@@ -12,12 +12,20 @@
 #define LED_START_FLASHES 1
 #endif
 
+/* Enable debug banner at startup to help verify UART baud rate 
+ * Set to 0 to disable (saves code space and avoids avrdude confusion) */
+#ifndef DEBUG_BANNER
+#define DEBUG_BANNER 0
+#endif
+
 /* System clock frequency in kHz - Z8F082A internal RC oscillator is ~5.53 MHz
  * This must match the value used in uart.c for baud rate calculation */
 #define SYSTEM_CLOCK_KHZ    5530
 
 /* UART0 Status Register bit definitions for Z8 Encore! */
-#define UART_RDA  0x80  /* Receive Data Available bit in U0STAT0 */
+#define UART_RDA   0x80  /* Receive Data Available bit in U0STAT0 */
+#define UART_TDRE  0x04  /* Transmit Data Register Empty */
+#define UART_TXE   0x02  /* Transmitter Empty */
 
 /* Maximum iterations for UART flush - prevents infinite loop if RDA stuck high */
 #define UART_FLUSH_TIMEOUT  1000
@@ -38,6 +46,37 @@ static void uart_flush_rx(void) {
 	(void)dummy;  /* Suppress unused variable warning */
 }
 
+#if DEBUG_BANNER
+/*
+ * Send a single character to UART (for debug banner)
+ * Direct register access, blocking
+ */
+static void debug_putchar(unsigned char ch) {
+	while (!(U0STAT0 & UART_TDRE))
+		;
+	U0TXD = ch;
+	while (!(U0STAT0 & UART_TXE))
+		;
+}
+
+/*
+ * Send debug banner at startup
+ * If you see "STK500" clearly in terminal, baud rate is correct
+ * If you see garbage, adjust SYSTEM_CLOCK_HZ in uart.c
+ */
+static void send_debug_banner(void) {
+	/* Send "STK500\r\n" - if readable, baud rate is correct */
+	debug_putchar('S');
+	debug_putchar('T');
+	debug_putchar('K');
+	debug_putchar('5');
+	debug_putchar('0');
+	debug_putchar('0');
+	debug_putchar('\r');
+	debug_putchar('\n');
+}
+#endif
+
 void main()
 {
 	/* Initialize hardware */
@@ -53,6 +92,12 @@ void main()
 	uart_flush_rx();
 	
 	EI();                          // Enable Interrupts (for timer, etc)
+
+#if DEBUG_BANNER
+	/* Send debug banner to help verify baud rate
+	 * Open a terminal at 115200 baud - if you see "STK500" the rate is correct */
+	send_debug_banner();
+#endif
 	
 #if LED_START_FLASHES > 0
 	/* Flash onboard LED to signal entering of bootloader */

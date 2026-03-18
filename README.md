@@ -87,6 +87,41 @@ For more details, see [official documentation (UM0294)](https://www.zilog.com/do
 
 ---
 
+## Troubleshooting
+
+### "stk500_getsync() not in sync" with random garbage (0xXX)
+
+If avrdude shows errors like:
+```
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0xc0
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0xfd
+```
+
+**Random varying responses (different hex values each time) indicate a baud rate mismatch.**
+
+#### Solution:
+
+1. **Verify baud rate matches**: The bootloader defaults to **115200 baud**. Use `-b115200` with avrdude:
+   ```
+   avrdude -c arduino -b115200 -P COM3 ...
+   ```
+
+2. **Check TX/RX wiring**: The MOST common cause of random garbage is swapped TX/RX:
+   - FTDI TX → Z8F082A RX (Pin 5 / PA4)
+   - FTDI RX → Z8F082A TX (Pin 6 / PA5)
+   - NOT: RX→RX or TX→TX!
+
+3. **Verify oscillator frequency**: The Z8F082A internal RC oscillator is nominally 5.5296 MHz but varies between chips. If garbage persists:
+   - Edit `SYSTEM_CLOCK_HZ` in `src/uart.c`
+   - Try values: 5529600, 5500000, 5000000, or measure with oscilloscope
+   - Rebuild and reflash the bootloader
+
+4. **Enable debug banner**: Set `DEBUG_BANNER` to 1 in `src/main.c`, rebuild, and open a terminal at 115200 baud. On reset, you should see "STK500". If garbled, adjust the clock frequency.
+
+5. **Check power supply**: The Z8F082A requires stable 3.3V. Unstable power can affect oscillator accuracy.
+
+---
+
 ## Final Notes
 
 - Try uploading a hex file to the chip.

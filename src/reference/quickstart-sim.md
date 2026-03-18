@@ -7,7 +7,7 @@
 ```
 
 ```
-avrdude -CC:\Users\Immanuel\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -carduino -PCOM5 -b9600 -D -Uflash:w:C:\Data\zilog\XP_F082A_uART\src\reference\Test.BareMinimum.ino.hex:i
+avrdude -CC:\Users\Immanuel\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -carduino -PCOM5 -b115200 -D -Uflash:w:C:\Data\zilog\XP_F082A_uART\src\reference\Test.BareMinimum.ino.hex:i
 ```
 
 # To test (non-spoofed)
@@ -19,15 +19,18 @@ avrdude -CC:\Users\Immanuel\AppData\Local\Arduino15\packages\arduino\tools\avrdu
 ```
 
 ```
-avrdude -CC:\Data\zilog\XP_F082A_uART\src\avrdude.conf -v -pz8f081a_no_nvds -carduino -PCOM5 -b9600 -D -Uflash:w:C:\Data\zilog\XP_F082A_uART\src\reference\Test.BareMinimum.ino.hex:i
+avrdude -CC:\Data\zilog\XP_F082A_uART\src\avrdude.conf -v -pz8f081a_no_nvds -carduino -PCOM5 -b115200 -D -Uflash:w:C:\Data\zilog\XP_F082A_uART\src\reference\Test.BareMinimum.ino.hex:i
 ```
 
 # Notes
 
-- The bootloader uses **9600 baud** for maximum tolerance with the Z8F082A internal RC oscillator
-- Use `-b9600` with avrdude to match the bootloader baud rate
-- If you still get sync errors with random garbage (0xXX responses), verify:
-  1. TX/RX are connected correctly (RX→TX, TX→RX)
+- The bootloader uses **115200 baud** to match Arduino default bootloader
+- Use `-b115200` with avrdude to match the bootloader baud rate
+- If you still get sync errors with random garbage (0xXX responses), this indicates **baud rate mismatch**
+- The internal RC oscillator frequency varies between chips. Check/adjust SYSTEM_CLOCK_HZ in uart.c
+- Troubleshooting checklist:
+  1. TX/RX are connected correctly (RX→TX, TX→RX, NOT RX→RX or TX→TX)
   2. CTS is connected if required by your FTDI adapter
   3. The chip's internal oscillator is configured (init_systemclock() is called)
   4. Power supply is stable (3.3V)
+  5. Try measuring actual oscillator frequency with a scope on XTAL pin

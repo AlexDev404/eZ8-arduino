@@ -7,32 +7,46 @@
 /*
  * UART Baud Rate Configuration for Z8F082A
  * 
- * The Z8F082A internal RC oscillator varies between parts (~5.5 MHz typical).
- * Using 9600 baud provides the BEST tolerance for clock variation.
+ * The Z8F082A internal RC oscillator varies between parts.
+ * Configure SYSTEM_CLOCK_HZ to match your actual oscillator frequency.
  * 
  * IMPORTANT: avrdude command must specify matching baud rate:
- *   avrdude -c stk500v1 -b 9600 -P COM3 ...
+ *   avrdude -c arduino -b 115200 -P COM3 ...
  * 
- * Clock Frequency Options (BRG values for 9600 baud):
- *   5.5296 MHz (Internal RC): BRG = 36 for 9600 baud (exact)
- *   18.432 MHz (Crystal):     BRG = 120 for 9600 baud (exact)
- *   20.0 MHz (Crystal):       BRG = 130 for 9600 baud (0.16% error)
+ * Common Clock Frequencies and BRG values for 115200 baud:
+ *   5.5296 MHz: BRG = 3  (actual 115200, 0% error) - exact!
+ *   18.432 MHz: BRG = 10 (actual 115200, 0% error) - exact!
+ *   20.0 MHz:   BRG = 11 (actual 113636, -1.4% error)
+ *
+ * If you get random garbage responses, try different SYSTEM_CLOCK_HZ values:
+ *   - 5529600UL  (5.5296 MHz - standard internal RC)
+ *   - 5500000UL  (5.5 MHz - alternate internal RC)
+ *   - 18432000UL (18.432 MHz - external crystal)
+ *   - 20000000UL (20 MHz - external crystal)
  */
 
-/* System clock frequency - adjust to match your actual oscillator */
+/* System clock frequency - CRITICAL: Must match your actual oscillator!
+ * The Z8F082A internal RC is nominally 5.5296 MHz.
+ * If you get garbled responses, try 5500000UL or measure with scope. */
+#ifndef SYSTEM_CLOCK_HZ
 #define SYSTEM_CLOCK_HZ     5529600UL   /* 5.5296 MHz internal oscillator */
+#endif
 
-/* Baud rate - using 9600 for MAXIMUM tolerance with RC oscillator variation */
-#define BAUD_RATE           9600UL
+/* Baud rate - using 115200 to match Arduino default bootloader */
+#ifndef BAUD_RATE
+#define BAUD_RATE           115200UL
+#endif
 
-/* Calculate baud rate divisor: BRG = (freq + baud*8) / (baud * 16) */
+/* Calculate baud rate divisor: BRG = (freq + baud*8) / (baud * 16)
+ * This formula rounds to nearest integer for best accuracy */
 #define BRG_VALUE ((SYSTEM_CLOCK_HZ + BAUD_RATE * 8UL) / (BAUD_RATE * 16UL))
 
 void init_uart0(void)
 {
     /* Initialize UART0 for STK500 communication
-     * BRG = (5529600 + 9600*8) / (9600*16) = 5606400 / 153600 = 36
-     * Actual baud = 5529600 / (16 * 36) = 9600 (exact!)
+     * For 5.5296 MHz @ 115200 baud:
+     * BRG = (5529600 + 115200*8) / (115200*16) = 6451200 / 1843200 = 3
+     * Actual baud = 5529600 / (16 * 3) = 115200 (exact!)
      */
     
     /* Set baud rate generator */
