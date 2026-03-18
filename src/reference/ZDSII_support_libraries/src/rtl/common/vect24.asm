@@ -1,0 +1,15 @@
+
+;*************************************************
+;*  Copyright (C) 2006-2008 by Zilog, Inc.
+;*  All Rights Reserved
+;*************************************************
+
+    xdef __VECTOR_024
+
+    define __VECTORS_024, space=ROM, org=%24
+
+    segment __VECTORS_024
+
+__VECTOR_024:
+
+     dw  %FFFF

@@ -1,8 +1,6 @@
 #pragma once
 
 #include <eZ8.h>
-#include <stdio.h>
-#include <sio.h> // non-standard I/O
 
+/* Direct UART initialization - no stdio/sio library dependency */
 void init_uart0(void);
-

@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+#
+#  Note that this file has UNIX line endings; not all versions of 
+#  bash accept dos endings.
+#
+#  Build a .c file from a template file .tpl
+#
+#  Call makeCfile.bsh output input prefix1 space1  [prefix2 space2]
+
+out="$1"
+shift
+in="$1"
+shift
+parm1=""
+if [ "$1" == "-P" ]
+then
+  shift
+  parm1="$1"
+  shift
+fi
+prefix1="$1"
+space1="$2"
+prefix2="$3"
+space2="$4"
+
+cat << ENDHEAD > $out
+/*******************************************************************************
+ *                Copyright (C) 1999-2012 by  ZiLOG, Inc.
+ *                         All Rights Reserved
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                $out  built from template file $in
+ *                          Do not edit directly
+ ******************************************************************************/
+
+ENDHEAD
+
+sed     \
+        -e "/^TPLCOMMENT:/d"      \
+        -e "s/PREFIX1/$prefix1/g" \
+        -e "s/SPACE1/$space1/g"   \
+        -e "s/PREFIX2/$prefix2/g" \
+        -e "s/SPACE2/$space2/g"   \
+        -e "s/PARM1/$parm1/g"   \
+        -e "s/##//g" $in          \
+                                  >> $out
+

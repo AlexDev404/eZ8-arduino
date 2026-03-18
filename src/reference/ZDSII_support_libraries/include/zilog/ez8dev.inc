@@ -1,0 +1,1268 @@
+;*************************************************
+;*  Copyright (C) 1999-2018 by  Zilog, Inc.
+;*  All Rights Reserved
+;*************************************************
+
+__Z8F642       SET  0
+__Z8F640       SET  0
+__Z8F08        SET  0
+__Z8F04A       SET  0
+__Z8F04        SET  0
+__Z8F04A_8PIN  SET  0
+__Z8F08A       SET  0
+__Z8FMC16      SET  0
+__Z8F0823_8PIN SET  0
+__Z8F04_8PIN   SET  0
+__Z8F0830A     SET  0
+__Z8F0830S     SET  0
+__Z8F1680      SET  0
+__Z8F648       SET  0
+__ZMOTION      SET  0
+; Special symbol for the original ZMOTION parts
+__ZMOTION_ORIG SET  0
+
+__Z8F6423  SET  0
+__Z8F6422  SET  0
+__Z8F6421  SET  0
+__Z8F4823  SET  0
+__Z8F4822  SET  0
+__Z8F4821  SET  0
+__Z8F3222  SET  0
+__Z8F3221  SET  0
+__Z8F2422  SET  0
+__Z8F2421  SET  0
+__Z8F1622  SET  0
+__Z8F1621  SET  0
+
+__Z8F6403  SET  0
+__Z8F6402  SET  0
+__Z8F6401  SET  0
+__Z8F4803  SET  0
+__Z8F4802  SET  0
+__Z8F4801  SET  0
+__Z8F3202  SET  0
+__Z8F3201  SET  0
+__Z8F2402  SET  0
+__Z8F2401  SET  0
+__Z8F1602  SET  0
+__Z8F1601  SET  0
+
+__Z8F0822  SET  0
+__Z8F0821  SET  0 
+__Z8F0812  SET  0 
+__Z8F0811  SET  0 
+__Z8F0422  SET  0 
+__Z8F0421  SET  0 
+__Z8F0412  SET  0 
+__Z8F0411  SET  0 
+
+__Z8F042A  SET  0
+__Z8F041A  SET  0 
+__Z8F022A  SET  0 
+__Z8F021A  SET  0 
+__Z8F012A  SET  0 
+__Z8F011A  SET  0
+
+__Z8F042AXB SET  0
+__Z8F041AXB SET  0 
+__Z8F022AXB SET  0 
+__Z8F021AXB SET  0 
+__Z8F012AXB SET  0 
+__Z8F011AXB SET  0
+
+__Z8F0423XJ SET  0
+__Z8F0413XJ SET  0
+__Z8F0223XJ SET  0
+__Z8F0213XJ SET  0
+__Z8F0123XJ SET  0
+__Z8F0113XJ SET  0
+__Z8F0423XH SET  0
+__Z8F0413XH SET  0
+__Z8F0223XH SET  0
+__Z8F0213XH SET  0
+__Z8F0123XH SET  0
+__Z8F0113XH SET  0
+
+__Z8F082A   SET  0
+__Z8F081A   SET  0
+
+__Z8FMC16100 SET 0
+__Z8FMC08100 SET 0
+__Z8FMC04100 SET 0
+
+__Z8F0813  SET 0
+__Z8F0823  SET 0
+
+__Z8F082AXB   SET  0
+__Z8F081AXB   SET  0
+
+__Z8F0823XB   SET  0
+__Z8F0813XB   SET  0
+
+__Z8F0423   SET  0
+__Z8F0413   SET  0
+__Z8F0223   SET  0
+__Z8F0213   SET  0
+__Z8F0123   SET  0
+__Z8F0113   SET  0
+__Z8F0423XB SET  0
+__Z8F0413XB SET  0
+__Z8F0223XB SET  0
+__Z8F0213XB SET  0
+__Z8F0123XB SET  0
+__Z8F0113XB SET  0
+
+
+__Z8F1233  SET 0
+__Z8F1232  SET 0
+__Z8F0833  SET 0
+__Z8F0832  SET 0
+__Z8F0831  SET 0
+__Z8F0830  SET 0
+__Z8F0433  SET 0
+__Z8F0432  SET 0
+__Z8F0431  SET 0
+__Z8F0430  SET 0
+__Z8F0233  SET 0
+__Z8F0232  SET 0
+__Z8F0231  SET 0
+__Z8F0230  SET 0
+__Z8F0133  SET 0
+__Z8F0132  SET 0
+__Z8F0131  SET 0
+__Z8F0130  SET 0
+
+__Z8F2480XH SET 0
+__Z8F2480XJ SET 0
+__Z8F2480XM SET 0
+__Z8F2480XN SET 0
+__Z8F2481XH SET 0
+__Z8F2481XJ SET 0
+__Z8F2481XM SET 0
+__Z8F2481XN SET 0
+__Z8F1680XH SET 0
+__Z8F1680XJ SET 0
+__Z8F1680XM SET 0
+__Z8F1680XN SET 0
+__Z8F1681XH SET 0
+__Z8F1681XJ SET 0
+__Z8F1681XM SET 0
+__Z8F1681XN SET 0
+__Z8F0880XH SET 0
+__Z8F0880XJ SET 0
+__Z8F0880XM SET 0
+__Z8F0880XN SET 0
+__Z8F0881XH SET 0
+__Z8F0881XJ SET 0
+__Z8F0881XM SET 0
+__Z8F0881XN SET 0
+__Z8F0480XH SET 0
+__Z8F0480XJ SET 0
+__Z8F0480XM SET 0
+__Z8F0480XN SET 0
+__Z8F0481XH SET 0
+__Z8F0481XJ SET 0
+__Z8F0481XM SET 0
+__Z8F0481XN SET 0
+
+__Z8F083A  SET 0
+__Z8F043A  SET 0
+
+; F6482 FAMILY MEMBERS
+
+__Z8F6482XR  SET 0
+__Z8F6482XT  SET 0
+__Z8F6481XK  SET 0
+__Z8F6481XN  SET 0
+__Z8F6481XR  SET 0
+
+__Z8F6082XR  SET 0
+__Z8F6082XT  SET 0
+__Z8F6081XK  SET 0
+__Z8F6081XN  SET 0
+__Z8F6081XR  SET 0
+
+__Z8F3282XR  SET 0
+__Z8F3282XT  SET 0
+__Z8F3281XK  SET 0
+__Z8F3281XN  SET 0
+__Z8F3281XR  SET 0
+
+__Z8F1682XR  SET 0
+__Z8F1682XT  SET 0
+__Z8F1681XK  SET 0
+__Z8F1681XN  SET 0
+__Z8F1681XR  SET 0
+
+; ZMotion family members
+  
+__Z8FS040xHH  SET 0
+__Z8FS021xHH  SET 0
+__Z8FS040xHJ  SET 0
+__Z8FS021xHJ  SET 0
+__Z8FS040xSB  SET 0
+__Z8FS021xSB  SET 0
+
+; New ZMotion family members added in 5.5.0
+__Z8F6481xN_2247  SET 0
+__Z8F1681xN_2247  SET 0
+__Z8F1681xK_2247  SET 0
+__Z8F3224xH_2258  SET 0
+__Z8F3224xK_2258  SET 0
+__Z8F3224xN_2258  SET 0
+
+; FXX24 family members
+__Z8FXX24     SET 0
+__Z8F3224     SET 0
+__Z8F1624     SET 0
+__Z8FXX24xH   SET 0
+__Z8FXX24xK   SET 0
+__Z8FXX24xN   SET 0
+
+   
+ifdef  _Z8F6423
+__Z8F642   SET  1
+__Z8F6423  SET  1
+endif
+
+ifdef  _Z8F6422
+__Z8F642   SET  1
+__Z8F6422  SET  1
+endif
+
+ifdef  _Z8F6421
+__Z8F642   SET  1
+__Z8F6421  SET  1
+endif
+
+ifdef  _Z8F4823
+__Z8F642   SET  1
+__Z8F4823  SET  1
+endif
+
+ifdef  _Z8F4822
+__Z8F642   SET  1
+__Z8F4822  SET  1
+endif
+
+ifdef  _Z8F4821
+__Z8F642   SET  1
+__Z8F4821  SET  1
+endif
+
+ifdef  _Z8F3222
+__Z8F642   SET  1
+__Z8F3222  SET  1
+endif
+
+ifdef  _Z8F3221
+__Z8F642   SET  1
+__Z8F3221  SET  1
+endif
+
+ifdef  _Z8F2422
+__Z8F642   SET  1
+__Z8F2422  SET  1
+endif
+
+ifdef  _Z8F2421
+__Z8F642   SET  1
+__Z8F2421  SET  1
+endif
+
+ifdef  _Z8F1622
+__Z8F642   SET  1
+__Z8F1622  SET  1
+endif
+
+ifdef  _Z8F1621
+__Z8F642   SET  1
+__Z8F1621  SET  1
+endif
+
+ifdef  _Z8F6403
+__Z8F640   SET  1
+__Z8F6403  SET  1
+endif
+
+ifdef  _Z8F6402
+__Z8F640   SET  1
+__Z8F6402  SET  1
+endif
+
+ifdef  _Z8F6401
+__Z8F640   SET  1
+__Z8F6401  SET  1
+endif
+
+ifdef  _Z8F4803
+__Z8F640   SET  1
+__Z8F4803  SET  1
+endif
+
+ifdef  _Z8F4802
+__Z8F640   SET  1
+__Z8F4802  SET  1
+endif
+
+ifdef  _Z8F4801
+__Z8F640   SET  1
+__Z8F4801  SET  1
+endif
+
+ifdef  _Z8F3202
+__Z8F640   SET  1
+__Z8F3202  SET  1
+endif
+
+ifdef  _Z8F3201
+__Z8F640   SET  1
+__Z8F3201  SET  1
+endif
+
+ifdef  _Z8F2402
+__Z8F640   SET  1
+__Z8F2402  SET  1
+endif
+
+ifdef  _Z8F2401
+__Z8F640   SET  1
+__Z8F2401  SET  1
+endif
+
+ifdef  _Z8F1602
+__Z8F640   SET  1
+__Z8F1602  SET  1
+endif
+
+ifdef  _Z8F1601
+__Z8F640   SET  1
+__Z8F1601  SET  1
+endif
+
+ifdef  _Z8F0822
+__Z8F08    SET  1
+__Z8F0822  SET  1
+endif
+
+ifdef  _Z8F0821
+__Z8F08    SET  1
+__Z8F0821  SET  1
+endif
+
+ifdef  _Z8F0812
+__Z8F08    SET  1
+__Z8F0812  SET  1
+endif
+
+ifdef  _Z8F0811
+__Z8F08    SET  1
+__Z8F0811  SET  1
+endif
+
+ifdef  _Z8F0422
+__Z8F08    SET  1
+__Z8F0422  SET  1
+endif
+
+ifdef  _Z8F0421
+__Z8F08    SET  1
+__Z8F0421  SET  1
+endif
+
+ifdef  _Z8F0412
+__Z8F08    SET  1
+__Z8F0412  SET  1
+endif
+
+ifdef  _Z8F0411
+__Z8F08    SET  1
+__Z8F0411  SET  1
+endif
+
+ifdef  _Z8F042A
+__Z8F04A   SET  1
+__Z8F042A  SET  1
+endif
+
+ifdef  _Z8F041A
+__Z8F04A   SET  1
+__Z8F041A  SET  1
+endif
+
+ifdef  _Z8F022A
+__Z8F04A   SET  1
+__Z8F022A  SET  1
+endif
+
+ifdef  _Z8F021A
+__Z8F04A   SET  1
+__Z8F021A  SET  1
+endif
+
+ifdef  _Z8F012A
+__Z8F04A   SET  1
+__Z8F012A  SET  1
+endif
+
+ifdef  _Z8F011A
+__Z8F04A   SET  1
+__Z8F011A  SET  1
+endif
+
+ifdef  _Z8F0423XJ
+__Z8F04   SET  1
+__Z8F0423XJ  SET  1
+endif
+
+ifdef  _Z8F0413XJ
+__Z8F04   SET  1
+__Z8F0413XJ  SET  1
+endif
+
+ifdef  _Z8F0223XJ
+__Z8F04   SET  1
+__Z8F0223XJ  SET  1
+endif
+
+ifdef  _Z8F0213XJ
+__Z8F04   SET  1
+__Z8F0213XJ  SET  1
+endif
+
+ifdef  _Z8F0123XJ
+__Z8F04   SET  1
+__Z8F0123XJ  SET  1
+endif
+
+ifdef  _Z8F0113XJ
+__Z8F04   SET  1
+__Z8F0113XJ  SET  1
+endif
+
+ifdef  _Z8F0423XH
+__Z8F04   SET  1
+__Z8F0423XH  SET  1
+endif
+
+ifdef  _Z8F0413XH
+__Z8F04   SET  1
+__Z8F0413XH  SET  1
+endif
+
+ifdef  _Z8F0223XH
+__Z8F04   SET  1
+__Z8F0223XH  SET  1
+endif
+
+ifdef  _Z8F0213XH
+__Z8F04   SET  1
+__Z8F0213XH  SET  1
+endif
+
+ifdef  _Z8F0123XH
+__Z8F04   SET  1
+__Z8F0123XH  SET  1
+endif
+
+ifdef  _Z8F0113XH
+__Z8F04   SET  1
+__Z8F0113XH  SET  1
+endif
+
+ifdef  _Z8F042AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F042AXB   SET  1
+endif
+
+ifdef  _Z8F041AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F041AXB   SET  1
+endif
+
+ifdef  _Z8F022AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F022AXB   SET  1
+endif
+
+ifdef  _Z8F021AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F021AXB   SET  1
+endif
+
+ifdef  _Z8F012AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F012AXB   SET  1
+endif
+
+ifdef  _Z8F011AXB
+__Z8F04A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F011AXB   SET  1
+endif
+
+ifdef  _Z8F081A
+__Z8F04A   SET  1
+__Z8F08A   SET  1
+__Z8F081A  SET  1
+endif
+
+ifdef  _Z8F082A
+__Z8F04A   SET  1
+__Z8F08A   SET  1
+__Z8F082A  SET  1
+endif
+
+ifdef _Z8FMC16100
+__Z8FMC16    SET  1
+__Z8FMC16100 SET  1
+endif
+
+ifdef _Z8FMC08100
+__Z8FMC16    SET  1
+__Z8FMC08100 SET  1
+endif
+
+ifdef _Z8FMC04100
+__Z8FMC16    SET  1
+__Z8FMC04100 SET  1
+endif
+
+ifdef _Z8F0813
+__Z8F04    SET  1
+__Z8F0813  SET  1
+endif
+
+ifdef _Z8F0823
+__Z8F04    SET  1
+__Z8F0823  SET  1
+endif
+
+ifdef  _Z8F081AXB
+__Z8F04A      SET  1
+__Z8F08A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F081AXB   SET  1
+endif
+
+ifdef  _Z8F082AXB
+__Z8F04A      SET  1
+__Z8F08A      SET  1
+__Z8F04A_8PIN SET  1
+__Z8F082AXB   SET  1
+endif
+
+ifdef  _Z8F0813XB
+__Z8F04        SET  1
+__Z8F0823_8PIN SET  1
+__Z8F0813XB    SET  1
+endif
+
+ifdef  _Z8F0823XB
+__Z8F04        SET  1
+__Z8F0823_8PIN SET  1
+__Z8F0823XB    SET  1
+endif
+
+ifdef  _Z8F0113
+__Z8F04    SET  1
+__Z8F0113  SET  1
+endif
+
+ifdef  _Z8F0123
+__Z8F04    SET  1
+__Z8F0123  SET  1
+endif
+
+ifdef  _Z8F0213
+__Z8F04    SET  1
+__Z8F0213  SET  1
+endif
+
+ifdef  _Z8F0223
+__Z8F04    SET  1
+__Z8F0223  SET  1
+endif
+
+ifdef  _Z8F0413
+__Z8F04    SET  1
+__Z8F0413  SET  1
+endif
+
+ifdef  _Z8F0423
+__Z8F04    SET  1
+__Z8F0423  SET  1
+endif
+
+ifdef  _Z8F0113XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0113XB  SET  1
+endif
+
+ifdef  _Z8F0123XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0123XB  SET  1
+endif
+
+ifdef  _Z8F0213XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0213XB  SET  1
+endif
+
+ifdef  _Z8F0223XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0223XB  SET  1
+endif
+
+ifdef  _Z8F0413XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0413XB  SET  1
+endif
+
+ifdef  _Z8F0423XB
+__Z8F04      SET  1
+__Z8F04_8PIN SET  1
+__Z8F0423XB  SET  1
+endif
+
+ifdef  _Z8F1233
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F1233    SET  1
+endif
+
+ifdef  _Z8F1232
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F1232    SET  1
+endif
+
+ifdef  _Z8F0833
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0833    SET  1
+endif
+
+ifdef  _Z8F0832
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0832    SET  1
+endif
+
+ifdef  _Z8F0831
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0831    SET  1
+endif
+
+ifdef  _Z8F0830
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0830    SET  1
+endif
+
+ifdef  _Z8F0433
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0433    SET  1
+endif
+
+ifdef  _Z8F0432
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0432    SET  1
+endif
+
+ifdef  _Z8F0431
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0431    SET  1
+endif
+
+ifdef  _Z8F0430
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0430    SET  1
+endif
+
+ifdef  _Z8F0233
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0233    SET  1
+endif
+
+ifdef  _Z8F0232
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0232    SET  1
+endif
+
+ifdef  _Z8F0231
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0231    SET  1
+endif
+
+ifdef  _Z8F0230
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0230    SET  1
+endif
+
+ifdef  _Z8F0133
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0133    SET  1
+endif
+
+ifdef  _Z8F0132
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0132    SET  1
+endif
+
+ifdef  _Z8F0131
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0131    SET  1
+endif
+
+ifdef  _Z8F0130
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F0830S   SET  1
+__Z8F0130    SET  1
+endif
+
+ifdef _Z8F2480XH
+__Z8F1680    SET  1
+__Z8F2480XH  SET  1
+endif
+
+ifdef _Z8F2480XJ
+__Z8F1680    SET  1
+__Z8F2480XJ  SET  1
+endif
+
+ifdef _Z8F2480XM
+__Z8F1680    SET  1
+__Z8F2480XM  SET  1
+endif
+
+ifdef _Z8F2480XN
+__Z8F1680    SET  1
+__Z8F2480XN  SET  1
+endif
+
+ifdef _Z8F2481XH
+__Z8F1680    SET  1
+__Z8F2481XH  SET  1
+endif
+
+ifdef _Z8F2481XJ
+__Z8F1680    SET  1
+__Z8F2481XJ  SET  1
+endif
+
+ifdef _Z8F2481XM
+__Z8F1680    SET  1
+__Z8F2481XM  SET  1
+endif
+
+ifdef _Z8F2481XN
+__Z8F1680    SET  1
+__Z8F2481XN  SET  1
+endif
+
+ifdef _Z8F1680XH
+__Z8F1680    SET  1
+__Z8F1680XH  SET  1
+endif
+
+ifdef _Z8F1680XJ
+__Z8F1680    SET  1
+__Z8F1680XJ  SET  1
+endif
+
+ifdef _Z8F1680XM
+__Z8F1680    SET  1
+__Z8F1680XM  SET  1
+endif
+
+ifdef _Z8F1680XN
+__Z8F1680    SET  1
+__Z8F1680XN  SET  1
+endif
+
+ifdef _Z8F1681XH
+__Z8F1680    SET  1
+__Z8F1681XH  SET  1
+endif
+
+; The Z8F1681XJ part was envisioned early in the F1680 project,
+; but was eventually dropped and never offered to customers.  Now this
+; name is in conflict with the Z8F1681XJ (and ...XN) MCU which is part
+; of the F6482 project.  In order to support the new part 
+; which really does exist, with minimal effect on the existing list
+; of part names, we have made the small change in the F1680
+; part name: Z8F1681XJ => Z8F1681ZJ
+;  
+;  Later development: the new Z8F1681XJ part was dropped too! (along with
+;  all the Z8Fxx81XJ parts that were originally part of the F6482 family)
+;  But maybe the name might still get used again in the future, so let's
+;  not reverse the change we made here to get rid of dead Z8F1681XJ part #1.
+ifdef _Z8F1681ZJ
+__Z8F1680    SET  1
+__Z8F1681XJ  SET  1
+endif
+
+ifdef _Z8F1681XM
+__Z8F1680    SET  1
+__Z8F1681XM  SET  1
+endif
+
+; See previous comment
+ifdef _Z8F1681ZN
+__Z8F1680    SET  1
+__Z8F1681XN  SET  1
+endif
+
+ifdef _Z8F0880XH
+__Z8F1680    SET  1
+__Z8F0880XH  SET  1
+endif
+
+ifdef _Z8F0880XJ
+__Z8F1680    SET  1
+__Z8F0880XJ  SET  1
+endif
+
+ifdef _Z8F0880XM
+__Z8F1680    SET  1
+__Z8F0880XM  SET  1
+endif
+
+ifdef _Z8F0880XN
+__Z8F1680    SET  1
+__Z8F0880XN  SET  1
+endif
+
+ifdef _Z8F0881XH
+__Z8F1680    SET  1
+__Z8F0881XH  SET  1
+endif
+
+ifdef _Z8F0881XJ
+__Z8F1680    SET  1
+__Z8F0881XJ  SET  1
+endif
+
+ifdef _Z8F0881XM
+__Z8F1680    SET  1
+__Z8F0881XM  SET  1
+endif
+
+ifdef _Z8F0881XN
+__Z8F1680    SET  1
+__Z8F0881XN  SET  1
+endif
+
+ifdef _Z8F0480XH
+__Z8F1680    SET  1
+__Z8F0480XH  SET  1
+endif
+
+ifdef _Z8F0480XJ
+__Z8F1680    SET  1
+__Z8F0480XJ  SET  1
+endif
+
+ifdef _Z8F0480XM
+__Z8F1680    SET  1
+__Z8F0480XM  SET  1
+endif
+
+ifdef _Z8F0480XN
+__Z8F1680    SET  1
+__Z8F0480XN  SET  1
+endif
+
+ifdef _Z8F0481XH
+__Z8F1680    SET  1
+__Z8F0481XH  SET  1
+endif
+
+ifdef _Z8F0481XJ
+__Z8F1680    SET  1
+__Z8F0481XJ  SET  1
+endif
+
+ifdef _Z8F0481XM
+__Z8F1680    SET  1
+__Z8F0481XM  SET  1
+endif
+
+ifdef _Z8F0481XN
+__Z8F1680    SET  1
+__Z8F0481XN  SET  1
+endif
+
+ifdef  _Z8F083A
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F083A    SET  1
+endif
+
+ifdef  _Z8F043A
+__Z8F04A     SET  1
+__Z8F0830A   SET  1
+__Z8F043A    SET  1
+endif
+
+
+; Some F6482-specific defines
+__Z8F648_X82	SET 0
+__Z8F648_X81	SET 0
+__Z8F648_64K	SET 0
+__Z8F648_82XR	SET 0
+__Z8F648_82XT	SET 0
+__Z8F648_81XK	SET 0
+__Z8F648_81XN	SET 0
+__Z8F648_81XR	SET 0
+
+ifdef  _Z8F6482XR
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_64K	SET 1
+__Z8F648_82XR	SET 1
+__Z8F6482XR		SET 1
+endif
+
+ifdef  _Z8F6482XT 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_64K	SET 1
+__Z8F648_82XT	SET 1
+__Z8F6482XT 	SET 1
+endif
+
+ifdef  _Z8F6481XK 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_64K	SET 1
+__Z8F648_81XK	SET 1
+__Z8F6481XK  	SET 1
+endif
+
+ifdef  _Z8F6481XN
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_64K	SET 1
+__Z8F648_81XN	SET 1
+__Z8F6481XN 	SET 1
+endif
+
+ifdef  _Z8F6481XR 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_64K	SET 1
+__Z8F648_81XR	SET 1
+__Z8F6481XR  	SET 1
+endif
+
+
+ifdef  _Z8F6082XR 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XR	SET 1
+__Z8F6082XR  	SET 1
+endif
+
+ifdef  _Z8F6082XT 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XT	SET 1
+__Z8F6082XT  	SET 1
+endif
+
+ifdef  _Z8F6081XK 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XK	SET 1
+__Z8F6081XK  	SET 1
+endif
+
+ifdef  _Z8F6081XN 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XN	SET 1
+__Z8F6081XN  	SET 1
+endif
+
+ifdef  _Z8F6081XR 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XR	SET 1
+__Z8F6081XR  	SET 1
+endif
+
+
+ifdef  _Z8F3282XR 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XR	SET 1
+__Z8F3282XR  	SET 1
+endif
+
+ifdef  _Z8F3282XT 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XT	SET 1
+__Z8F3282XT  	SET 1
+endif
+
+ifdef  _Z8F3281XK 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XK	SET 1
+__Z8F3281XK  	SET 1
+endif
+
+ifdef  _Z8F3281XN 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XN	SET 1
+__Z8F3281XN  	SET 1
+endif
+
+ifdef  _Z8F3281XR
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XR	SET 1
+__Z8F3281XR 	SET 1
+endif
+
+
+ifdef  _Z8F1682XR 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XR	SET 1
+__Z8F1682XR  	SET 1
+endif
+
+ifdef  _Z8F1682XT 
+__Z8F648		SET 1
+__Z8F648_X82	SET 1
+__Z8F648_82XT	SET 1
+__Z8F1682XT  	SET 1
+endif
+
+ifdef  _Z8F1681XK 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XK	SET 1
+__Z8F1681XK  	SET 1
+endif
+
+ifdef  _Z8F1681XN 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XN	SET 1
+__Z8F1681XN  	SET 1
+endif
+
+ifdef  _Z8F1681XR 
+__Z8F648		SET 1
+__Z8F648_X81	SET 1
+__Z8F648_81XR	SET 1
+__Z8F1681XR  	SET 1
+endif
+
+ifdef  _Z8FS040xHH
+__ZMOTION       SET 1
+__ZMOTION_ORIG  SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082AHH
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F082A       SET 1
+__Z8FS040xHH    SET 1
+endif
+
+ifdef  _Z8FS021xHH
+__ZMOTION       SET 1
+__ZMOTION_ORIG  SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082AHH
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F082A       SET 1
+__Z8FS021xHH    SET 1
+endif
+
+ifdef  _Z8FS040xHJ
+__ZMOTION       SET 1
+__ZMOTION_ORIG  SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082AHJ
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F082A       SET 1
+__Z8FS040xHJ    SET 1
+endif
+
+ifdef  _Z8FS021xHJ
+__ZMOTION       SET 1
+__ZMOTION_ORIG  SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082AHJ
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F082A       SET 1
+__Z8FS021xHJ    SET 1
+endif
+
+ifdef  _Z8FS040xSB
+__ZMOTION       SET 1
+__ZMOTION_ORIG  SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082ASB
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F04A_8PIN   SET 1
+__Z8F082AXB     SET 1
+__Z8FS040xSB    SET 1
+endif
+
+ifdef  _Z8FS021xSB
+__ZMOTION       SET 1
+; The CPU base part for this ZMOTION part is
+; the Z8F082ASB
+__Z8F04A        SET 1
+__Z8F08A        SET 1
+__Z8F04A_8PIN   SET 1
+__Z8F082AXB     SET 1
+__Z8FS021xSB    SET 1
+endif
+
+ifdef _Z8F6481xN_2247
+; The CPU base part for this ZMOTION part is
+; the Z8F6481XN
+__Z8F648		   SET 1
+__Z8F648_X81	   SET 1
+__Z8F648_64K	   SET 1
+__Z8F648_81XN	   SET 1
+__Z8F6481XN  	   SET 1
+__Z8F6481xN_2247   SET 1
+endif
+
+ifdef _Z8F1681xN_2247
+; The CPU base part for this ZMOTION part is
+; the Z8F1681XN
+__Z8F648		   SET 1
+__Z8F648_X81	   SET 1
+__Z8F648_81XN	   SET 1
+__Z8F1681XN  	   SET 1
+__Z8F1681xN_2247   SET 1
+endif
+
+ifdef _Z8F1681xK_2247
+; The CPU base part for this ZMOTION part is
+; the Z8F1681XK
+__Z8F648		   SET 1
+__Z8F648_X81	   SET 1
+__Z8F648_81XK	   SET 1
+__Z8F1681XK  	   SET 1
+__Z8F1681xK_2247   SET 1
+endif
+
+ifdef _Z8F3224xH
+__Z8FXX24       SET 1
+__Z8F3224       SET 1
+__Z8FXX24xH     SET 1
+endif
+
+ifdef _Z8F3224xK
+__Z8FXX24       SET 1
+__Z8F3224       SET 1
+__Z8FXX24xK     SET 1
+endif
+
+ifdef _Z8F3224xN
+__Z8FXX24       SET 1
+__Z8F3224       SET 1
+__Z8FXX24xN     SET 1
+endif
+
+ifdef _Z8F3224xH_2258
+; The CPU base part for this ZMOTION part is
+; the Z8F3224xH
+__Z8FXX24          SET 1
+__Z8F3224          SET 1
+__Z8FXX24xH        SET 1
+__Z8F3224xH_2258   SET 1
+endif
+
+ifdef _Z8F3224xK_2258
+; The CPU base part for this ZMOTION part is
+; the Z8F3224xK
+__Z8FXX24          SET 1
+__Z8F3224          SET 1
+__Z8FXX24xK        SET 1
+__Z8F3224xK_2258   SET 1
+endif
+
+ifdef _Z8F3224xN_2258
+; The CPU base part for this ZMOTION part is
+; the Z8F3224xN
+__Z8FXX24          SET 1
+__Z8F3224          SET 1
+__Z8FXX24xN        SET 1
+__Z8F3224xN_2258   SET 1
+endif
+
+ifdef _Z8F1624xH
+__Z8FXX24       SET 1
+__Z8F1624       SET 1
+__Z8FXX24xH     SET 1
+endif
+
+ifdef _Z8F1624xK
+__Z8FXX24       SET 1
+__Z8F1624       SET 1
+__Z8FXX24xK     SET 1
+endif
+
+ifdef _Z8F1624xN
+__Z8FXX24       SET 1
+__Z8F1624       SET 1
+__Z8FXX24xN     SET 1
+endif
+

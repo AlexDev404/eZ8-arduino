@@ -1,0 +1,50 @@
+;---------------------------------------------------------------------
+; ZDS II script file to add GPIO source files into the MC ZSL project
+; ZiLOG, Inc.
+;---------------------------------------------------------------------
+
+; Add Port A related files.
+add file ".\gpio\common\closemcporta.c"
+add file ".\gpio\common\controlporta.c"
+add file ".\gpio\common\openmcporta.c"
+add file ".\gpio\common\setmodealtfuncmcporta.c"
+add file ".\gpio\common\setmodealtfuncset2mcporta.c"
+add file ".\gpio\common\setmodealtfuncset3mcporta.c"
+add file ".\gpio\common\setmodealtfuncset4mcporta.c"
+add file ".\gpio\common\setmodehighdriveporta.c"
+add file ".\gpio\common\setmodeinputporta.c"
+add file ".\gpio\common\setmodeinterruptmcporta.c"
+add file ".\gpio\common\setmodeopendrainporta.c"
+add file ".\gpio\common\setmodeoutputporta.c"
+add file ".\gpio\common\setmodestoprecoveryporta.c"
+add file ".\gpio\common\setmodepullupporta.c"
+
+; Add Port B related files.
+add file ".\gpio\common\closemcportb.c"
+add file ".\gpio\common\controlportb.c"
+add file ".\gpio\common\openmcportb.c"
+add file ".\gpio\common\setmodealtfuncmcportb.c"
+add file ".\gpio\common\setmodealtfuncset2mcportb.c"
+add file ".\gpio\common\setmodealtfuncset3mcportb.c"
+add file ".\gpio\common\setmodealtfuncset4mcportb.c"
+add file ".\gpio\common\setmodehighdriveportb.c"
+add file ".\gpio\common\setmodeinputportb.c"
+add file ".\gpio\common\setmodeinterruptmcportb.c"
+add file ".\gpio\common\setmodeopendrainportb.c"
+add file ".\gpio\common\setmodeoutputportb.c"
+add file ".\gpio\common\setmodestoprecoveryportb.c"
+add file ".\gpio\common\setmodepullupportb.c"
+
+; Add Port C related files.
+add file ".\gpio\common\closemcportc.c"
+add file ".\gpio\common\controlportc.c"
+add file ".\gpio\common\openmcportc.c"
+add file ".\gpio\common\setmodealtfuncmcportc.c"
+add file ".\gpio\common\setmodealtfuncset3mcportc.c"
+add file ".\gpio\common\setmodehighdriveportc.c"
+add file ".\gpio\common\setmodeinputportc.c"
+add file ".\gpio\common\setmodeinterruptmcportc.c"
+add file ".\gpio\common\setmodeopendrainportc.c"
+add file ".\gpio\common\setmodeoutputportc.c"
+add file ".\gpio\common\setmodepullupportc.c"
+add file ".\gpio\common\setmodestoprecoveryportc.c"

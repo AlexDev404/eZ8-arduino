@@ -1,0 +1,76 @@
+;-----------------------------------------------------------------
+; ZDS II script file to add GPIO source files into the ZSL project
+; ZiLOG, Inc.
+;-----------------------------------------------------------------
+
+; Add Port A related files.
+add file ".\gpio\common\closeporta.c"				
+add file ".\gpio\common\controlporta.c"
+add file ".\gpio\common\openporta.c"
+add file ".\gpio\common\setmodealtfuncporta.c"
+add file ".\gpio\common\setmodealtfuncset2porta.c"
+add file ".\gpio\common\setmodealtfuncset3porta.c"
+add file ".\gpio\common\setmodealtfuncset4porta.c"
+add file ".\gpio\common\setmodehighdriveporta.c"
+add file ".\gpio\common\setmodeinputporta.c"
+add file ".\gpio\common\setmodeinterruptf1680porta.c"
+add file ".\gpio\common\setmodeopendrainporta.c"
+add file ".\gpio\common\setmodeoutputporta.c"
+add file ".\gpio\common\setmodestoprecoveryporta.c"
+add file ".\gpio\common\setmodepullupporta.c"
+
+; Add Port B related files.
+add file ".\gpio\common\closeportb.c"
+add file ".\gpio\common\controlportb.c"
+add file ".\gpio\common\openportb.c"
+add file ".\gpio\common\setmodealtfuncportb.c"
+add file ".\gpio\common\setmodealtfuncset1portb.c"
+add file ".\gpio\common\setmodealtfuncset2portb.c"
+add file ".\gpio\common\setmodehighdriveportb.c"
+add file ".\gpio\common\setmodeinputportb.c"
+add file ".\gpio\common\setmodeopendrainportb.c"
+add file ".\gpio\common\setmodeoutputportb.c"
+add file ".\gpio\common\setmodestoprecoveryportb.c"
+add file ".\gpio\common\setmodepullupportb.c"
+
+; Add Port C related files.
+add file ".\gpio\common\closeportc.c"
+add file ".\gpio\common\controlportc.c"
+add file ".\gpio\common\openportc.c"
+add file ".\gpio\common\setmodealtfuncportc.c"
+add file ".\gpio\common\setmodealtfuncset1portc.c"
+add file ".\gpio\common\setmodealtfuncset2portc.c"
+add file ".\gpio\common\setmodehighdriveportc.c"
+add file ".\gpio\common\setmodeinputportc.c"
+add file ".\gpio\common\setmodeinterruptportc.c"
+add file ".\gpio\common\setmodeleddriveportc.c"
+add file ".\gpio\common\setmodeopendrainportc.c"
+add file ".\gpio\common\setmodeoutputportc.c"
+add file ".\gpio\common\setmodepullupportc.c"
+add file ".\gpio\common\setmodestoprecoveryportc.c"
+
+; Add Port D related files.
+add file ".\gpio\common\closeportd.c"
+add file ".\gpio\common\controlportd.c"
+add file ".\gpio\common\openportd.c"
+add file ".\gpio\common\setmodealtfuncportd.c"
+add file ".\gpio\common\setmodehighdriveportd.c"
+add file ".\gpio\common\setmodeinputportd.c"
+add file ".\gpio\common\setmodeinterruptf1680portd.c"
+add file ".\gpio\common\setmodeopendrainportd.c"
+add file ".\gpio\common\setmodeoutputportd.c"
+add file ".\gpio\common\setmodepullupportd.c"
+add file ".\gpio\common\setmodestoprecoveryportd.c"
+
+; Add Port E related files.
+add file ".\gpio\common\closeporte.c"
+add file ".\gpio\common\controlporte.c"
+add file ".\gpio\common\openporte.c"
+add file ".\gpio\common\setmodehighdriveporte.c"
+add file ".\gpio\common\setmodeinputporte.c"
+add file ".\gpio\common\setmodeopendrainporte.c"
+add file ".\gpio\common\setmodeoutputporte.c"
+add file ".\gpio\common\setmodestoprecoveryporte.c"
+add file ".\gpio\common\setmodepullupporte.c"
+add file ".\gpio\common\setmodealtfuncporte.c"
+

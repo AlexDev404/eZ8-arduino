@@ -1,0 +1,26 @@
+;---------------------------------------------------------------------
+; ZDS II script file to add UART source files into the MC ZSL project
+; ZiLOG, Inc.
+;---------------------------------------------------------------------
+
+; Add UART0 related files.
+add file ".\uart\common\closeuart0.c"
+add file ".\uart\common\controlmcuart0.c"
+add file ".\uart\common\openmcuart0.c"
+add file ".\uart\common\readuart0.c"
+add file ".\uart\common\getrxstatusuart0.c"
+add file ".\uart\common\setbauduart0.c"
+add file ".\uart\common\setparityuart0.c"
+add file ".\uart\common\setstopbitsuart0.c"
+add file ".\uart\common\gettxstatusuart0.c"
+add file ".\uart\common\writemcuart0.c"
+add file ".\uart\common\flushuart0.c"
+add file ".\uart\common\isrrxuart0.c"
+add file ".\uart\common\isrtxuart0.c"
+
+; Add common files.
+add file ".\uart\common\getch.c"
+add file ".\uart\common\kbhit.c"
+add file ".\uart\common\putch.c"
+add file ".\rtl\common\csio.c"
+
