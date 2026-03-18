@@ -18,6 +18,13 @@
 #define DEBUG_BANNER 0
 #endif
 
+/* Enable echo test mode - echoes every received byte back
+ * Use this to verify UART RX/TX both work. Disable for avrdude! 
+ * Set to 1 to enable echo test, 0 to disable */
+#ifndef ECHO_TEST_MODE
+#define ECHO_TEST_MODE 0
+#endif
+
 /* System clock frequency in kHz - Z8F082A internal RC oscillator is ~5.53 MHz
  * This must match the value used in uart.c for baud rate calculation */
 #define SYSTEM_CLOCK_KHZ    5530
@@ -77,6 +84,45 @@ static void send_debug_banner(void) {
 }
 #endif
 
+#if ECHO_TEST_MODE
+/*
+ * Hex echo test - receives bytes and echoes them back as hex
+ * Use a terminal to type characters - you'll see [XX] for each byte
+ * This verifies both RX and TX work and shows exact byte values
+ * 
+ * Test procedure:
+ * 1. Set ECHO_TEST_MODE to 1, rebuild, reflash
+ * 2. Open terminal at 115200 baud
+ * 3. You should see "ECHO: " at startup
+ * 4. Type 'A' - you should see [41]
+ * 5. Type '0' - you should see [30] (this is CMD_STK_GET_SYNC)
+ * 6. Type ' ' - you should see [20] (this is CRC_EOP)
+ */
+static void echo_test_loop(void) {
+	unsigned char ch;
+	/* Send startup message */
+	debug_putchar('E');
+	debug_putchar('C');
+	debug_putchar('H');
+	debug_putchar('O');
+	debug_putchar(':');
+	debug_putchar(' ');
+	
+	for (;;) {
+		/* Wait for byte */
+		while (!(U0STAT0 & UART_RDA))
+			;
+		ch = U0RXD;
+		
+		/* Echo it back as hex [XX] to see exact values received */
+		debug_putchar('[');
+		debug_putchar("0123456789ABCDEF"[(ch >> 4) & 0x0F]);
+		debug_putchar("0123456789ABCDEF"[ch & 0x0F]);
+		debug_putchar(']');
+	}
+}
+#endif
+
 void main()
 {
 	/* Initialize hardware */
@@ -97,6 +143,12 @@ void main()
 	/* Send debug banner to help verify baud rate
 	 * Open a terminal at 115200 baud - if you see "STK500" the rate is correct */
 	send_debug_banner();
+#endif
+
+#if ECHO_TEST_MODE
+	/* Echo test mode - verifies both RX and TX work
+	 * Type in terminal, characters should echo back */
+	echo_test_loop();  /* Never returns */
 #endif
 	
 #if LED_START_FLASHES > 0

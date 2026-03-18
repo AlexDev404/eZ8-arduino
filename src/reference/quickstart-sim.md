@@ -1,11 +1,26 @@
 # Testing with avrdude
 
-## CRITICAL: Disable DEBUG_BANNER before using avrdude!
+## CRITICAL: Disable DEBUG_BANNER and ECHO_TEST_MODE before using avrdude!
 
-If you enabled `DEBUG_BANNER` for testing, you MUST disable it before using avrdude:
+If you enabled debugging features for testing, you MUST disable them before using avrdude:
 1. In `src/main.c`, ensure `#define DEBUG_BANNER 0`
-2. Rebuild and reflash the bootloader
-3. The "STK500" text interferes with the STK500 protocol
+2. In `src/main.c`, ensure `#define ECHO_TEST_MODE 0`
+3. Rebuild and reflash the bootloader
+4. Debug output interferes with the STK500 protocol
+
+## Diagnostic: Echo Test Mode
+
+If avrdude fails but the debug banner works, use echo test to verify RX works:
+
+1. Set `ECHO_TEST_MODE` to 1 in `src/main.c`
+2. Rebuild and reflash
+3. Open terminal at 115200 baud
+4. On reset, you should see: `ECHO: `
+5. Type characters - each will echo as `[XX]` where XX is hex value
+6. Type `0` - should show `[30]` (this is CMD_STK_GET_SYNC)
+7. Type ` ` (space) - should show `[20]` (this is CRC_EOP)
+
+If echo test works correctly, both RX and TX are functional.
 
 ## Test command (spoofed as ATmega328P)
 
