@@ -15,6 +15,42 @@
 #define STK_SET_DEVICE_PARAM_COUNT     20  /* SET_DEVICE has 20 parameter bytes */
 #define STK_SET_DEVICE_EXT_PARAM_COUNT  5  /* SET_DEVICE_EXT has 5 parameter bytes */
 
+/* UART0 register bit definitions (from uartdefs.h) */
+#define UART_STAT0_RDA    0x80  /* Receive Data Available */
+#define UART_STAT0_TDRE   0x04  /* Transmit Data Register Empty */
+#define UART_STAT0_TXE    0x02  /* Transmitter Empty */
+
+/*
+ * Direct UART I/O functions - bypass ZSL library for reliable binary protocol
+ * These match optiboot's approach: simple polling, no buffering, no conversions
+ */
+
+/*
+ * uart_getchar - Get one character from UART (blocking)
+ * Direct register access like optiboot's getch()
+ */
+static unsigned char uart_getchar(void) {
+    /* Wait for Receive Data Available */
+    while (!(U0STAT0 & UART_STAT0_RDA))
+        ;
+    return U0RXD;
+}
+
+/*
+ * uart_putchar - Send one character to UART (blocking)
+ * Direct register access like optiboot's putch()
+ * NO newline conversion - critical for binary protocols!
+ */
+static void uart_putchar(unsigned char ch) {
+    /* Wait for Transmit Data Register Empty */
+    while (!(U0STAT0 & UART_STAT0_TDRE))
+        ;
+    U0TXD = ch;
+    /* Wait for transmit complete to ensure byte is sent */
+    while (!(U0STAT0 & UART_STAT0_TXE))
+        ;
+}
+
 /* Current address pointer for flash operations */
 static rom unsigned char* address = (rom unsigned char*)0x1000;
 
@@ -31,13 +67,13 @@ static unsigned char page_buffer[256];
  * Sets sync_ok flag to indicate success/failure
  */
 static void verifySpace(void) {
-    if (getch() != SPECIAL_Sync_CRC_EOP) {
+    if (uart_getchar() != SPECIAL_Sync_CRC_EOP) {
         /* Protocol error - send NOSYNC and set flag */
-        putch(STK_NOSYNC);
+        uart_putchar(STK_NOSYNC);
         sync_ok = 0;
         return;
     }
-    putch(STK_INSYNC);
+    uart_putchar(STK_INSYNC);
     sync_ok = 1;
 }
 
@@ -47,7 +83,7 @@ static void verifySpace(void) {
  */
 static void getNch(UINT8 count) {
     do {
-        getch();
+        uart_getchar();
     } while (--count);
     verifySpace();
 }
@@ -66,7 +102,7 @@ void stk500_loop(void) {
         sync_ok = 1;
         
         /* Get command byte from UART (blocking poll) */
-        ch = getch();
+        ch = uart_getchar();
         
         if (ch == CMD_STK_GET_SYNC) {
             /* GET_SYNC - used to establish communication */
@@ -74,19 +110,19 @@ void stk500_loop(void) {
         }
         else if (ch == CMD_STK_GET_PARAMETER) {
             /* GET_PARAMETER - return version info etc */
-            UINT8 which = getch();
+            UINT8 which = uart_getchar();
             verifySpace();
             
             if (sync_ok) {
                 if (which == PARAM_STK_SW_MINOR) {
-                    putch(SW_MINOR);
+                    uart_putchar(SW_MINOR);
                 } else if (which == PARAM_STK_SW_MAJOR) {
-                    putch(SW_MAJOR);
+                    uart_putchar(SW_MAJOR);
                 } else if (which == PARAM_STK_HW_VER) {
-                    putch(HW_VER);
+                    uart_putchar(HW_VER);
                 } else {
                     /* Return 0x03 for unknown parameters (keeps avrdude happy) */
-                    putch(0x03);
+                    uart_putchar(0x03);
                 }
             }
         }
@@ -101,8 +137,8 @@ void stk500_loop(void) {
         else if (ch == CMD_STK_LOAD_ADDRESS) {
             /* LOAD_ADDRESS - receive word address (low, high) */
             UINT16 newAddress;
-            newAddress = (UINT16)getch();          /* Low byte */
-            newAddress |= ((UINT16)getch() << 8);  /* High byte */
+            newAddress = (UINT16)uart_getchar();          /* Low byte */
+            newAddress |= ((UINT16)uart_getchar() << 8);  /* High byte */
             newAddress *= 2;  /* Convert word address to byte address */
             /* Add base offset for our flash area */
             address = (rom unsigned char*)(0x1000 + newAddress);
@@ -110,13 +146,13 @@ void stk500_loop(void) {
         }
         else if (ch == CMD_STK_UNIVERSAL) {
             /* UNIVERSAL - ISP command passthrough (4 bytes) */
-            getch();  /* byte 1 */
-            getch();  /* byte 2 */
-            getch();  /* byte 3 */
-            getch();  /* byte 4 */
+            uart_getchar();  /* byte 1 */
+            uart_getchar();  /* byte 2 */
+            uart_getchar();  /* byte 3 */
+            uart_getchar();  /* byte 4 */
             verifySpace();
             if (sync_ok) {
-                putch(0x00);  /* Return dummy result */
+                uart_putchar(0x00);  /* Return dummy result */
             }
         }
         else if (ch == CMD_STK_PROG_PAGE) {
@@ -130,14 +166,14 @@ void stk500_loop(void) {
             unsigned int i;
             
             /* Get length (big endian) */
-            length = ((unsigned int)getch() << 8);  /* High byte */
-            length |= getch();                       /* Low byte */
+            length = ((unsigned int)uart_getchar() << 8);  /* High byte */
+            length |= uart_getchar();                       /* Low byte */
             
-            getch();  /* Skip memory type (we only support flash) */
+            uart_getchar();  /* Skip memory type (we only support flash) */
             
             /* First: Buffer ALL incoming data bytes (like optiboot does) */
             for (i = 0; i < length; i++) {
-                page_buffer[i] = getch();
+                page_buffer[i] = uart_getchar();
             }
             
             /* Verify space (read CRC_EOP and send INSYNC) BEFORE programming */
@@ -171,10 +207,10 @@ void stk500_loop(void) {
             unsigned int i;
             
             /* Get length (big endian) */
-            length = ((unsigned int)getch() << 8);  /* High byte */
-            length |= getch();                       /* Low byte */
+            length = ((unsigned int)uart_getchar() << 8);  /* High byte */
+            length |= uart_getchar();                       /* Low byte */
             
-            getch();  /* Skip memory type */
+            uart_getchar();  /* Skip memory type */
             
             verifySpace();
             
@@ -182,7 +218,7 @@ void stk500_loop(void) {
                 /* Send flash contents */
                 addrPtr = (unsigned long)address;
                 for (i = 0; i < length; i++) {
-                    putch(flash_read_byte(addrPtr++));
+                    uart_putchar(flash_read_byte(addrPtr++));
                 }
                 
                 /* Update address for next operation */
@@ -193,9 +229,9 @@ void stk500_loop(void) {
             /* READ_SIGN - return device signature */
             verifySpace();
             if (sync_ok) {
-                putch(PROPS_SIGNATURE_H);
-                putch(PROPS_SIGNATURE_M);
-                putch(PROPS_SIGNATURE_L);
+                uart_putchar(PROPS_SIGNATURE_H);
+                uart_putchar(PROPS_SIGNATURE_M);
+                uart_putchar(PROPS_SIGNATURE_L);
             }
         }
         else {
@@ -206,7 +242,7 @@ void stk500_loop(void) {
         
         /* Send STK_OK at end of every command (only if sync was OK) */
         if (sync_ok) {
-            putch(STK_OK);
+            uart_putchar(STK_OK);
         }
     }
 }
