@@ -25,14 +25,13 @@ void main ()
 	/* Flash onboard LED to signal entering of bootloader */
 	flash_led(LED_START_FLASHES * 2);
 	#endif
-	//PCOUT |= 0x08;	// Turn off PC3 Led
-	//flash_led(10);
 
-	//for(;;)						// Forever loop
-	//{
-		//flash_led(2);
-		//putch(getch());
-		
-	//}
+	/* Forever loop: keep the processor running to service UART interrupts */
+	for(;;)
+	{
+		/* The bootloader runs in interrupt-driven mode.
+		 * All STK500 command processing happens in isr_uart0_rx().
+		 * This loop keeps the processor active and responsive. */
+	}
 
 }	// End of main program
