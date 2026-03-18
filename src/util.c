@@ -7,9 +7,8 @@ void sync_ok_response(void)
 		putch(STK_INSYNC);
 		putch(STK_OK);
 	} else {
-		/* Protocol error - send NOSYNC and reset to allow resync */
+		/* Protocol error - just send NOSYNC, don't reset */
 		putch(STK_NOSYNC);
-		reset_device();
 	}
 }
 
@@ -20,9 +19,8 @@ void byte_response(UINT8 val)
 		putch(val);
 		putch(STK_OK);
 	} else {
-		/* Protocol error - send NOSYNC and reset to allow resync */
+		/* Protocol error - just send NOSYNC, don't reset */
 		putch(STK_NOSYNC);
-		reset_device();
 	}
 }
 
@@ -34,9 +32,8 @@ void string_response(__CONST__ char* val)
 		putch(STK_OK);
 	}
 	else {
-		/* Protocol error - send NOSYNC and reset to allow resync */
+		/* Protocol error - just send NOSYNC, don't reset */
 		putch(STK_NOSYNC);
-		reset_device();
 	}
 }
 
