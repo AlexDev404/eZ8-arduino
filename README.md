@@ -43,6 +43,8 @@ For more details, see [official documentation (UM0294)](https://www.zilog.com/do
   - **DBG (P15)**
   - **RESET (P14)**
   - (T_MSG isn't required)
+  - (DON'T connect the T_VDD, otherwise you'll get a "dual power" error)
+  - (For a thin setup, you can leave the GND pins of the debugger disconnected - the only pins required are actually DBG, and RESET)
 - Connect power to the chip:
   - **VDD (POS/P4)**
   - **VSS (NEG/P7)**
