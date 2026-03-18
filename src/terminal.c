@@ -11,11 +11,19 @@
 #include "boot_tools.h"
 #include "flash_tools.h"
 
+/* STK500 protocol constants for parameter byte counts */
+#define STK_SET_DEVICE_PARAM_COUNT     20  /* SET_DEVICE has 20 parameter bytes */
+#define STK_SET_DEVICE_EXT_PARAM_COUNT  5  /* SET_DEVICE_EXT has 5 parameter bytes */
+
 /* Current address pointer for flash operations */
 static rom unsigned char* address = (rom unsigned char*)0x1000;
 
 /* Flag to track if verifySpace succeeded */
 static UINT8 sync_ok = 1;
+
+/* Page buffer for PROG_PAGE - placed at file scope to reduce stack usage
+ * 256 bytes matches typical AVR page size and is sufficient for STK500 protocol */
+static unsigned char page_buffer[256];
 
 /*
  * verifySpace - Read and verify CRC_EOP byte, then send INSYNC
@@ -83,12 +91,12 @@ void stk500_loop(void) {
             }
         }
         else if (ch == CMD_STK_SET_DEVICE) {
-            /* SET_DEVICE - receive 20 bytes of device parameters */
-            getNch(20);
+            /* SET_DEVICE - receive device parameters per STK500 protocol */
+            getNch(STK_SET_DEVICE_PARAM_COUNT);
         }
         else if (ch == CMD_STK_SET_DEVICE_EXT) {
-            /* SET_DEVICE_EXT - receive 5 bytes of extended parameters */
-            getNch(5);
+            /* SET_DEVICE_EXT - receive extended parameters per STK500 protocol */
+            getNch(STK_SET_DEVICE_EXT_PARAM_COUNT);
         }
         else if (ch == CMD_STK_LOAD_ADDRESS) {
             /* LOAD_ADDRESS - receive word address (low, high) */
@@ -112,7 +120,11 @@ void stk500_loop(void) {
             }
         }
         else if (ch == CMD_STK_PROG_PAGE) {
-            /* PROG_PAGE - program a page of flash */
+            /* PROG_PAGE - program a page of flash
+             * CRITICAL: Must buffer all data first, then verify, then program.
+             * This matches optiboot's approach and prevents UART buffer overflow
+             * during slow flash programming operations.
+             */
             unsigned int length;
             unsigned long addrPtr;
             unsigned int i;
@@ -123,26 +135,34 @@ void stk500_loop(void) {
             
             getch();  /* Skip memory type (we only support flash) */
             
-            addrPtr = (unsigned long)address;
-            
-            /* Erase page if in our target range */
-            if (addrPtr >= 0x1000 && addrPtr < 0x2000) {
-                UINT16 pageAddr = addrPtr & ~0x1FF;  /* Page-align */
-                pageEraseFlash(pageAddr);
-                while (FCMD != 0x03);  /* Wait for completion */
-            }
-            
-            /* Program each byte */
+            /* First: Buffer ALL incoming data bytes (like optiboot does) */
             for (i = 0; i < length; i++) {
-                programFlashByte(addrPtr, getch());
-                while (FCMD != 0x03);  /* Wait for completion */
-                addrPtr++;
+                page_buffer[i] = getch();
             }
             
-            /* Update address for next operation */
-            address = (rom unsigned char*)addrPtr;
-            
+            /* Verify space (read CRC_EOP and send INSYNC) BEFORE programming */
             verifySpace();
+            
+            if (sync_ok) {
+                addrPtr = (unsigned long)address;
+                
+                /* Erase page if in our target range */
+                if (addrPtr >= 0x1000 && addrPtr < 0x2000) {
+                    UINT16 pageAddr = addrPtr & ~0x1FF;  /* Page-align */
+                    pageEraseFlash(pageAddr);
+                    while (FCMD != 0x03);  /* Wait for completion */
+                }
+                
+                /* Program each byte from buffer */
+                for (i = 0; i < length; i++) {
+                    programFlashByte(addrPtr, page_buffer[i]);
+                    while (FCMD != 0x03);  /* Wait for completion */
+                    addrPtr++;
+                }
+                
+                /* Update address for next operation */
+                address = (rom unsigned char*)addrPtr;
+            }
         }
         else if (ch == CMD_STK_READ_PAGE) {
             /* READ_PAGE - read a page of flash */
