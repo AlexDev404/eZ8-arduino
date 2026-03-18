@@ -2,8 +2,6 @@
 // Zilog 8-Bit Encore! STK500v1 Bootloader
 // Structure based on optiboot - uses polling loop, not interrupts
 #include <eZ8.h>
-#include <stdio.h>
-#include <sio.h> // non-standard I/O
 #include "clock.h"
 #include "uart.h"
 #include "led.h"
@@ -13,6 +11,9 @@
 #ifndef LED_START_FLASHES
 #define LED_START_FLASHES 1
 #endif
+
+/* System clock frequency in kHz - must match oscillator and uart.c */
+#define SYSTEM_CLOCK_KHZ    5530
 
 /* UART0 Status Register bit definitions for Z8 Encore! */
 #define UART_RDA  0x80  /* Receive Data Available bit in U0STAT0 */
@@ -39,7 +40,7 @@ void main()
 	DI();                          // Disable interrupts during init
 	init_systemclock();            // Ensure clock source is configured first!
 	init_timer0();
-	setFlashFreq(5530);	
+	setFlashFreq(SYSTEM_CLOCK_KHZ);	
 	init_uart0();                  // Initialize UART (polling mode)
 	init_led();
 	
