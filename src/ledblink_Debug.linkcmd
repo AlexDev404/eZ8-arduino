@@ -79,7 +79,7 @@ define _near_heapbot = top of RDATA
 define __user_frequency = 5529600
 
 /* Object and librray files */
-"C:\Data\zilog\XP_F082A_uART\src\ledblink"= \
+"C:\Users\Immanuel\source\repos\eZ8-arduino\src\ledblink"= \
  "C:\Zilog\ZDSII_Z8Encore!_5.6.3\lib\zilog\startupf08xS.obj", \
  ".\main.obj", \
  ".\uart.obj", \

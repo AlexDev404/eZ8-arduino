@@ -22,16 +22,16 @@ INCLUDE = C:\Zilog\ZDSII_Z8Encore!_5.6.3\include
 INCLUDE_ESCSPACE = C:\Zilog\ZDSII_Z8Encore!_5.6.3\include
 
 # project directory
-PRJDIR = C:\Data\zilog\XP_F082A_uART\src
-PRJDIR_ESCSPACE = C:\Data\zilog\XP_F082A_uART\src
+PRJDIR = C:\Users\Immanuel\source\repos\eZ8-arduino\src
+PRJDIR_ESCSPACE = C:\Users\Immanuel\source\repos\eZ8-arduino\src
 
 # intermediate files directory
-WORKDIR = C:\Data\zilog\XP_F082A_uART\src
-WORKDIR_ESCSPACE = C:\Data\zilog\XP_F082A_uART\src
+WORKDIR = C:\Users\Immanuel\source\repos\eZ8-arduino\src
+WORKDIR_ESCSPACE = C:\Users\Immanuel\source\repos\eZ8-arduino\src
 
 # output files directory
-OUTDIR = C:\Data\zilog\XP_F082A_uART\src\
-OUTDIR_ESCSPACE = C:\Data\zilog\XP_F082A_uART\src\
+OUTDIR = C:\Users\Immanuel\source\repos\eZ8-arduino\src\
+OUTDIR_ESCSPACE = C:\Users\Immanuel\source\repos\eZ8-arduino\src\
 
 # tools
 CC = @"$(BIN)\eZ8cc"
@@ -162,10 +162,10 @@ ledblink: $(OBJS)
 
 $(WORKDIR_ESCSPACE)\main.obj :  \
             $(WORKDIR_ESCSPACE)\main.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\clock.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\led.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\timer.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\uart.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\clock.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\led.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\timer.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\uart.h  \
             $(PRJDIR_ESCSPACE)\flash_tools.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
@@ -182,8 +182,8 @@ $(WORKDIR_ESCSPACE)\main.obj :  \
 
 $(WORKDIR_ESCSPACE)\uart.obj :  \
             $(WORKDIR_ESCSPACE)\uart.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\terminal.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\uart.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\terminal.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\uart.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\FORMAT.H  \
@@ -199,8 +199,8 @@ $(WORKDIR_ESCSPACE)\uart.obj :  \
 
 $(WORKDIR_ESCSPACE)\led.obj :  \
             $(WORKDIR_ESCSPACE)\led.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\led.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\timer.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\led.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\timer.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\SIO.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\defines.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\zilog\dmadefs.h  \
@@ -212,16 +212,16 @@ $(WORKDIR_ESCSPACE)\led.obj :  \
 
 $(WORKDIR_ESCSPACE)\timer.obj :  \
             $(WORKDIR_ESCSPACE)\timer.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\led.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\timer.h
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\led.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\timer.h
 	 $(CC) $(CFLAGS) "$(PRJDIR)\timer.c"
 
 $(WORKDIR_ESCSPACE)\terminal.obj :  \
             $(WORKDIR_ESCSPACE)\terminal.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\boot_tools.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\stk500.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\terminal.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\util.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\boot_tools.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\stk500.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\terminal.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\util.h  \
             $(PRJDIR_ESCSPACE)\flash_tools.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
@@ -238,8 +238,8 @@ $(WORKDIR_ESCSPACE)\terminal.obj :  \
 
 $(WORKDIR_ESCSPACE)\util.obj :  \
             $(WORKDIR_ESCSPACE)\util.c  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\stk500.h  \
-            $(ZTPDIR_ESCSPACE)\Data\zilog\XP_F082A_uART\include\util.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\stk500.h  \
+            $(ZTPDIR_ESCSPACE)\Users\Immanuel\source\repos\eZ8-arduino\include\util.h  \
             $(PRJDIR_ESCSPACE)\flash_tools.h  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDARG.H  \
             $(ZTPDIR_ESCSPACE)\Zilog\ZDSII_Z8Encore!_5.6.3\include\std\STDIO.H  \
