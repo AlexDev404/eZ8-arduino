@@ -26,12 +26,9 @@ void main ()
 	flash_led(LED_START_FLASHES * 2);
 	#endif
 
-	/* Forever loop: keep the processor running to service UART interrupts */
-	for(;;)
-	{
-		/* The bootloader runs in interrupt-driven mode.
-		 * All STK500 command processing happens in isr_uart0_rx().
-		 * This loop keeps the processor active and responsive. */
-	}
+	/* Keep processor running to service UART interrupts.
+	 * The bootloader runs in interrupt-driven mode - all STK500
+	 * command processing happens in isr_uart0_rx(). */
+	for(;;);
 
 }	// End of main program

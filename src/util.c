@@ -7,7 +7,9 @@ void sync_ok_response(void)
 		putch(STK_INSYNC);
 		putch(STK_OK);
 	} else {
+		/* Protocol error - send NOSYNC and reset to allow resync */
 		putch(STK_NOSYNC);
+		reset_device();
 	}
 }
 
@@ -18,9 +20,12 @@ void byte_response(UINT8 val)
 		putch(val);
 		putch(STK_OK);
 	} else {
+		/* Protocol error - send NOSYNC and reset to allow resync */
 		putch(STK_NOSYNC);
+		reset_device();
 	}
 }
+
 void string_response(__CONST__ char* val)
 {
 	if (getch() == SPECIAL_Sync_CRC_EOP) { // Check if next command (typically Sync_CRC_EOP) is received
@@ -29,7 +34,9 @@ void string_response(__CONST__ char* val)
 		putch(STK_OK);
 	}
 	else {
+		/* Protocol error - send NOSYNC and reset to allow resync */
 		putch(STK_NOSYNC);
+		reset_device();
 	}
 }
 

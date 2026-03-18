@@ -186,10 +186,8 @@ void isr_uart0_rx(void)
 		}	
 		case CMD_STK_SET_DEVICE_EXT:
 		{
-			/* Set extended device parameters */
-			/* Command: commandsize, eeprompagesize, signalpagel, signalbs2, resetdisable, Sync_CRC_EOP */
-			/* Read 5 bytes of parameters + EOP = 6 total bytes, then respond with INSYNC+OK */
-			getNch(6);
+			/* Set extended device parameters - consume all parameter bytes + EOP */
+			getNch(7);
 			break;
 		}
 		case CMD_STK_SET_DEVICE:
