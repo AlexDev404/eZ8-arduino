@@ -36,8 +36,9 @@ static void uart_flush_rx(void) {
 void main()
 {
 	/* Initialize hardware */
-	init_timer0();
 	DI();                          // Disable interrupts during init
+	init_systemclock();            // Ensure clock source is configured first!
+	init_timer0();
 	setFlashFreq(5530);	
 	init_uart0();                  // Initialize UART (polling mode)
 	init_led();
