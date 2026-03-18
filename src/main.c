@@ -25,6 +25,13 @@
 #define ECHO_TEST_MODE 0
 #endif
 
+/* Protocol debug mode - shows each received command as hex before processing
+ * Helps diagnose what avrdude is actually sending
+ * Set to 1 to enable, 0 to disable */
+#ifndef PROTOCOL_DEBUG
+#define PROTOCOL_DEBUG 0
+#endif
+
 /* System clock frequency in kHz - Z8F082A internal RC oscillator is ~5.53 MHz
  * This must match the value used in uart.c for baud rate calculation */
 #define SYSTEM_CLOCK_KHZ    5530

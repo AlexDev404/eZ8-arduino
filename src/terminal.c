@@ -20,6 +20,12 @@
 #define UART_STAT0_TDRE   0x04  /* Transmit Data Register Empty */
 #define UART_STAT0_TXE    0x02  /* Transmitter Empty */
 
+/* Protocol debug mode - shows commands received from avrdude
+ * Enable via PROTOCOL_DEBUG=1 in main.c or compiler flag */
+#ifndef PROTOCOL_DEBUG
+#define PROTOCOL_DEBUG 0
+#endif
+
 /*
  * Direct UART I/O functions - bypass ZSL library for reliable binary protocol
  * These match optiboot's approach: simple polling, no buffering, no conversions
@@ -51,6 +57,17 @@ static void uart_putchar(unsigned char ch) {
         ;
 }
 
+#if PROTOCOL_DEBUG
+/* Send hex representation of a byte for debugging */
+static void debug_put_hex(unsigned char ch) {
+    const char hex[] = "0123456789ABCDEF";
+    uart_putchar('[');
+    uart_putchar(hex[(ch >> 4) & 0x0F]);
+    uart_putchar(hex[ch & 0x0F]);
+    uart_putchar(']');
+}
+#endif
+
 /* Current address pointer for flash operations */
 static rom unsigned char* address = (rom unsigned char*)0x1000;
 
@@ -67,12 +84,27 @@ static unsigned char page_buffer[256];
  * Sets sync_ok flag to indicate success/failure
  */
 static void verifySpace(void) {
-    if (uart_getchar() != SPECIAL_Sync_CRC_EOP) {
+    unsigned char eop = uart_getchar();
+    
+#if PROTOCOL_DEBUG
+    /* Show received EOP byte */
+    uart_putchar('E');
+    debug_put_hex(eop);
+#endif
+    
+    if (eop != SPECIAL_Sync_CRC_EOP) {
         /* Protocol error - send NOSYNC and set flag */
+#if PROTOCOL_DEBUG
+        uart_putchar('N');  /* N for NOSYNC */
+#endif
         uart_putchar(STK_NOSYNC);
         sync_ok = 0;
         return;
     }
+    
+#if PROTOCOL_DEBUG
+    uart_putchar('I');  /* I for INSYNC */
+#endif
     uart_putchar(STK_INSYNC);
     sync_ok = 1;
 }
@@ -96,6 +128,13 @@ static void getNch(UINT8 count) {
 void stk500_loop(void) {
     UINT8 ch;
     
+#if PROTOCOL_DEBUG
+    /* Send startup marker for protocol debug mode */
+    uart_putchar('P');
+    uart_putchar('D');
+    uart_putchar(':');
+#endif
+    
     /* Forever loop - process STK500 commands */
     for (;;) {
         /* Reset sync flag at start of each command */
@@ -103,6 +142,11 @@ void stk500_loop(void) {
         
         /* Get command byte from UART (blocking poll) */
         ch = uart_getchar();
+        
+#if PROTOCOL_DEBUG
+        /* Show received command byte */
+        debug_put_hex(ch);
+#endif
         
         if (ch == CMD_STK_GET_SYNC) {
             /* GET_SYNC - used to establish communication */
@@ -242,6 +286,9 @@ void stk500_loop(void) {
         
         /* Send STK_OK at end of every command (only if sync was OK) */
         if (sync_ok) {
+#if PROTOCOL_DEBUG
+            uart_putchar('O');  /* O for OK */
+#endif
             uart_putchar(STK_OK);
         }
     }
